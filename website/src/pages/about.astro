@@ -1,0 +1,188 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'About Us',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="About FoVR Interactive"
+    image={{
+      src: '~/assets/images/matt-in-headset.png',
+      alt: 'Matthew wearing a VR headset in front of a greenscreen.',
+    }}
+  >
+    <Fragment slot="title">
+      Creating <span class="text-accent dark:text-white highlight">immersive</span> VR, AR, and XR experiences
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      FoVR Interactive is a pioneering studio dedicated to creating immersive VR, AR, and XR experiences. Our mission is to push the boundaries of technology and creativity to deliver captivating and impactful experiences that transform how people interact with digital content.
+    </Fragment>
+  </Hero>
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Mission & Vision"
+    columns={2}
+    items={[
+      {
+        title: 'Mission',
+        description:
+          'Our mission is to innovate and inspire through immersive technology. We aim to revolutionise industries by providing cutting-edge solutions that enhance engagement, improve learning, and create memorable experiences.',
+        icon: 'tabler:license',
+      },
+      {
+        title: 'Vision',
+        description:
+          'Our vision is to be at the forefront of the immersive technology revolution, continually exploring new possibilities and setting new standards for VR, AR, and XR experiences.',
+        icon: 'tabler:telescope',
+      },
+    ]}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Our Story"
+    subtitle="Founded in 2018, FovrInteractive began with a simple idea: to create immersive experiences that connect people with digital content in meaningful ways. Over the years, we have become known for our innovation, creativity, and dedication to quality. From our humble beginnings to our current success, our journey has been fueled by a relentless pursuit of excellence and a deep commitment to our projects."
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Features3 Widget ************** -->
+
+<Features3
+    title="Our Skills"
+    columns={3}
+    isAfterContent={true}
+    items={[
+      {
+        title: '3D Modeling',
+        description:
+          'Expertise in creating detailed and realistic 3D models for immersive environments using industry-standard software like Blender and Maya.',
+        icon: 'tabler:3d-cube-sphere',
+      },
+      {
+        title: 'Animation',
+        description:
+          'Skilled in bringing virtual characters and environments to life with dynamic animations that enhance the user experience.',
+        icon: 'tabler:clothes-rack',
+      },
+      {
+        title: 'VR Game Development',
+        description:
+          'Proficiency in developing engaging and interactive VR games using platforms such as Unity and Unreal Engine.',
+        icon: 'tabler:cardboards',
+      },
+      {
+        title: 'User Experience (UX) Design',
+        description:
+          'Focused on creating intuitive and user-friendly interfaces that ensure an enjoyable and seamless experience for users.',
+        icon: 'tabler:layout-dashboard',
+      },
+      {
+        title: 'Software Development',
+        description:
+          'Strong programming skills in languages like C#, C++, and Python, essential for developing robust and scalable VR/AR applications.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Project Management',
+        description:
+          'Experienced in managing projects from concept to completion, ensuring timely delivery and high-quality results through effective planning and communication.',
+        icon: 'tabler:clipboard-list',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/meta-quest-pro-headset.png',
+      alt: 'Meta Quest Pro headset sitting on wooden stool.',
+    }}
+  />
+
+   <!-- Content Widget **************** -->
+
+  <Content
+    title="Meet the Team"
+    id="about"
+    columns={3}
+    items={[
+      {
+        icon: 'tabler:brand-linkedin',
+        callToAction: {
+          target: '_blank',
+          text: 'LinkedIn',
+          href: 'https://www.linkedin.com/in/matthewaisthorpe/',
+        },
+      },
+      {
+        icon: 'tabler:brand-youtube',
+        callToAction: {
+          target: '_blank',
+          text: 'YouTube',
+          href: 'https://www.youtube.com/@beardydevadventures',
+        },
+      },
+      {
+        icon: 'tabler:brand-github',
+        callToAction: {
+          target: '_blank',
+          text: 'GitHub',
+          href: 'https://github.com/beardydevadventures',
+        },
+      },
+    ]}
+    image={{
+      src: '~/assets/images/matthew-aisthorpe.png',
+      alt: 'Colorful Image',
+      loading: 'eager',
+    }}
+  >
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Matthew Aisthorpe</h2>
+      <p class="text-lg font-semibold">Founder/Developer</p>
+      <br />
+      <p>
+        Hey there! I'm the founder and developer behind FoVR Interactive, bringing over a decade of experience in developing and managing digital projects. I'm dedicated to bringing innovative ideas to life through immersive VR, AR, and XR experiences. Each project is a step towards transforming how we interact with digital content.
+      </p>
+      <br />
+      <p>
+        Ever since I put on the original Oculus Quest, I could see great potential in immersive technologies and the experiences they can bring. This drives my passion to push this technology to its full potential.
+      </p>
+      <br />
+      <p>If you're curious about my other work, you can find me on:</p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact us',
+        href: '/contact',
+      }
+    ]}
+    title="Ready to Get Started?"
+    subtitle="Contact us today to discuss your project and how we can help bring your vision to life with immersive solutions."
+  />
+</Layout>

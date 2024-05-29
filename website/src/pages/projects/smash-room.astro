@@ -1,0 +1,187 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+
+import Button from '~/components/ui/Button.astro';
+import Image from '~/components/common/Image.astro';
+
+const appStoreImg = '~/assets/images/app-store.png';
+const appLabDownloadLink = 'https://www.oculus.com/deeplink/?action=view&path=/app/5525534314159952';
+
+const googlePlayImg = '~/assets/images/google-play.png';
+const steamDownloadLink = 'https://store.steampowered.com/app/2370100/Smash_Room/';
+
+const metadata = {
+  title: 'Smash Room',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <Hero2
+    tagline="Portfolio Project"
+    image={{
+      src: '~/assets/images/smash-room.png',
+      alt: 'Smash Room Logo',
+    }}
+  >
+    <Fragment slot="title">
+      <span class="text-accent dark:text-white highlight">Smash Room</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        The Smash Room project was designed to create an immersive VR experience that allows users to safely vent their frustrations and relieve stress by smashing objects in a virtual environment. This project aimed to provide a fun and therapeutic outlet for users while showcasing advanced VR technology and interactive design.
+      </span>
+    </Fragment>
+  </Hero2>
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="Goals and Objectives"
+    columns={3}
+    items={[
+      {
+        title: 'Stress Relief',
+        description: 'Provide a safe and engaging platform for users to relieve stress and frustration through virtual object smashing.',
+        icon: 'tabler:square-number-1',
+      },
+      {
+        title: 'Immersive Experience',
+        description:
+          'Create a highly realistic and interactive VR environment that enhances user immersion.',
+        icon: 'tabler:square-number-2',
+      },
+      {
+        title: 'Entertainment',
+        description: 'Offer an enjoyable and satisfying experience that appeals to a wide audience.',
+        icon: 'tabler:square-number-3',
+      },
+    ]}
+  />
+
+   <!-- Steps Widget ****************** -->
+
+  <Steps
+    isReversed
+    title="Process and Development"
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Concept and Planning</span>',
+        description:
+          "Worked with psychologists and entertainment experts to understand the therapeutic aspects of stress relief and incorporate them into the VR experience.",
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Design and Prototyping</em>',
+        description:
+          "Developed detailed prototypes to visualise the interactive elements, object physics, and user flow within the VR environment.",
+        icon: 'tabler:pencil',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Development</span>',
+        description:
+          'Utilised Unity to build the VR experience, focusing on realistic object physics, smashing effects, and user interaction.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Testing and Iteration</span>',
+        description:
+          'Conducted extensive testing to ensure functionality, usability, and enjoyment. Iterated based on user feedback to refine the experience.',
+        icon: 'tabler:arrow-iteration',
+      },
+      {
+        title: 'Step 5: <span class="font-medium">Final Delivery</span>',
+        description:
+          'Delivered a polished VR experience that meets the project’s objectives and provides a fun, therapeutic outlet for users on Steam and Meta App Lab.',
+        icon: 'tabler:cube-send',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/smash-room-vert.png',
+      alt: 'Steps image',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+  
+  <FAQs
+    title="Challenges and Solutions"
+    items={[
+      {
+        title: 'Challenge: Ensuring Realistic Object Physics',
+        description:
+          'Solution: Implemented advanced physics engines to accurately simulate object smashing and interactions, enhancing the realism of the experience.',
+      },
+      {
+        title: 'Challenge: Balancing Fun and Therapeutic Elements',
+        description:
+          'Solution: Collaborated with psychologists to ensure the experience is both entertaining and beneficial for stress relief, incorporating feedback into the design and development process.',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    items={[
+      {
+        title: 'User Engagement',
+        description: 'High levels of user engagement and satisfaction reported, with users appreciating the therapeutic and entertaining aspects of the experience.',
+        icon: 'tabler:wifi-off',
+      },
+      {
+        title: 'Stress Relief',
+        description:
+          'Users reported significant reductions in stress and frustration after using the Smash Room.',
+        icon: 'tabler:file-download',
+      },
+      {
+        title: 'Positive Feedback',
+        description: 'Received excellent feedback from users who enjoyed the immersive and interactive nature of the experience.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/smash-room-rni.png',
+      alt: 'Vintage Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Results and Impact</h3>
+    </Fragment>
+  </Content>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    id="download"
+    title="Download Smash Room now!"
+    subtitle="Experience the ultimate VR stress relief by smashing objects in a safe, virtual environment. Download now from your preferred platform."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Steam',
+        href: '{steamDownloadLink}',
+        icon: 'tabler:brand-steam',
+      },
+      {
+        variant: 'primary',
+        text: 'App Lab',
+        href: '{appLabDownloadLink}',
+        icon: 'tabler:brand-meta',
+      },
+    ]}
+  />
+</Layout>

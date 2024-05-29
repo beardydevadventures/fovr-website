@@ -1,0 +1,170 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+
+import Button from '~/components/ui/Button.astro';
+import Image from '~/components/common/Image.astro';
+
+const appLabDownloadLink = 'https://www.oculus.com/deeplink/?action=view&path=/app/8298310513542583';
+
+const metadata = {
+  title: 'Valve Tutorial',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <Hero2
+    tagline="Portfolio Project"
+    image={{
+      src: '~/assets/images/valve-tutorial.png',  // Replace with actual image URL
+      alt: 'Valve Tutorial Logo',
+    }}
+  >
+    <Fragment slot="title">
+      <span class="text-accent dark:text-white highlight">Valve Tutorial</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        The Valve Tutorial project was designed to create an interactive and immersive training experience using VR technology. The project aimed to demonstrate the operational procedures and safety protocols associated with industrial valve systems. This tutorial provides users with a hands-on, realistic experience that enhances learning and retention.
+      </span>
+    </Fragment>
+  </Hero2>
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="Goals and Objectives"
+    columns={3}
+    items={[
+      {
+        title: 'Enhance Learning',
+        description: 'Provide an engaging and interactive training environment to improve understanding and retention of valve operation procedures.',
+        icon: 'tabler:square-number-1',
+      },
+      {
+        title: 'Safety Training',
+        description: 'Emphasise safety protocols to ensure users understand the critical aspects of working with industrial valves.',
+        icon: 'tabler:square-number-2',
+      },
+      {
+        title: 'Hands-On Experience',
+        description: 'Offer a practical, immersive experience that simulates real-world scenarios.',
+        icon: 'tabler:square-number-3',
+      },
+    ]}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    isReversed
+    title="Process and Development"
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Concept and Planning</span>',
+        description: 'Collaborated with industry experts to outline the key learning objectives and safety protocols to be covered in the tutorial.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Design and Prototyping</span>',
+        description: 'Developed detailed designs and prototypes to visualise the interactive elements and user flow within the VR environment.',
+        icon: 'tabler:pencil',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Development</span>',
+        description: 'Utilised Unity to build the VR tutorial, incorporating realistic valve models, animations, and interactive features.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Testing and Iteration</span>',
+        description: 'Conducted extensive testing to ensure functionality, usability, and accuracy. Iterated based on feedback to refine the experience.',
+        icon: 'tabler:arrow-iteration',
+      },
+      {
+        title: 'Step 5: <span class="font-medium">Final Delivery</span>',
+        description: 'Delivered a polished VR tutorial that meets the client’s training objectives and provides a valuable learning tool.',
+        icon: 'tabler:cube-send',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/valve-tute-vert.png',
+      alt: 'Steps image',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+  
+  <FAQs
+    title="Challenges and Solutions"
+    items={[
+      {
+        title: 'Challenge: Ensuring Realism and Accuracy',
+        description: 'Solution: Collaborated with industry experts to validate the accuracy of valve models and operational procedures. Utilised high-quality 3D modeling and realistic animations to enhance immersion.',
+      },
+      {
+        title: 'Challenge: Optimising Performance',
+        description: 'Solution: Focused on optimising assets and code to maintain high performance, ensuring a smooth and responsive VR experience without compromising on visual quality.',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    items={[
+      {
+        title: 'Improved Training Effectiveness',
+        description: 'Users reported a 40% increase in retention and understanding of valve operation procedures.',
+        icon: 'tabler:chart-bar',
+      },
+      {
+        title: 'Enhanced Safety Awareness',
+        description: 'The interactive training emphasised critical safety protocols, resulting in a significant increase in safety compliance among trainees.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Positive User Feedback',
+        description: 'Received excellent feedback from users who appreciated the hands-on, realistic training experience.',
+        icon: 'tabler:thumb-up',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/valve-tute-rni.png',
+      alt: 'Overlooking a bench with valve parts.',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Results and Impact</h3>
+    </Fragment>
+  </Content>
+
+  <!-- CallToAction Widget *********** -->
+
+ <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    id="download"
+    title="Download Smash Room now!"
+    subtitle="Experience the ultimate VR stress relief by smashing objects in a safe, virtual environment. Download now from your preferred platform."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'App Lab',
+        href: '{appLabDownloadLink}',
+        icon: 'tabler:brand-meta',
+      },
+    ]}
+  />
+</Layout>

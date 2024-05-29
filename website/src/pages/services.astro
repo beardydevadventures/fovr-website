@@ -1,0 +1,167 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Services',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Our Services"
+    title="Immerse your projects"
+    subtitle="At FoVR Interactive, we specialise in creating immersive VR, AR, and XR experiences tailored to your needs. We are dedicated to delivering innovative solutions that engage, educate, and entertain."
+    image={{
+      src: '~/assets/images/services-banner.png',
+      alt: 'A stylised image of people standing in a room with VR headsets.',
+    }}
+  />
+
+  <!-- Content Widget **************** -->
+
+<Content
+    isReversed
+    items={[
+      {
+        title: 'Custom VR Experiences',
+        description:
+          'We create custom VR experiences that bring your ideas to life. From concept to execution, we ensure a highly engaging and immersive environment.',
+        icon: 'tabler:wand',
+      },
+      {
+        title: 'Interactive Environments',
+        description:
+          'Develop interactive environments that captivate users and provide immersive experiences. Our team designs detailed and engaging virtual worlds tailored to your needs.',
+        icon: 'tabler:world',
+      },
+      {
+        title: '360-Degree Video Production',
+        description:
+          'Produce high-quality 360-degree videos that offer an immersive viewing experience. Perfect for virtual tours, events, and storytelling.',
+        icon: 'tabler:360',
+      },
+      {
+        title: 'VR Gaming Experiences',
+        description:
+          'Design and develop engaging VR games that offer players an immersive and interactive experience. We bring your gaming concepts to life with cutting-edge technology.',
+        icon: 'tabler:cardboards',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/services-development.png',
+      alt: 'A stylised image a person sitting down doing VR Development.',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">VR Development and Immersive Solutions</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Strategic Advice and Guidance',
+        description:
+          'Our expert consultants provide strategic advice and guidance to help you harness the full potential of VR, AR, and XR technologies.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'Technology Assessment',
+        description:
+          'Evaluate the best VR, AR, and XR technologies for your projects. We help you choose the right tools and platforms to achieve your goals.',
+        icon: 'tabler:device-laptop',
+      },
+      {
+        title: 'Project Planning and Management',
+        description:
+          'From initial planning to execution, we offer comprehensive project management services to ensure your VR projects are delivered on time and within budget.',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: 'Custom Training and Workshops',
+        description:
+          'Provide your team with the skills and knowledge needed to succeed in the VR, AR, and XR space. Our custom training programs and workshops are tailored to your specific needs.',
+        icon: 'tabler:school',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/services-consulting.png',
+      alt: 'A stylised image of two people in vr headsets having a conversation.',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Consulting Services</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Industries We Serve"
+    subtitle="Explore our tailored solutions for various industries and see how we can help elevate your projects."
+    columns={3}
+    items={[
+      {
+        title: 'Education',
+        description:
+          'Enhance learning with immersive VR and AR experiences that make education interactive and engaging. Our solutions streamline content creation and foster captivating educational environments.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Real Estate',
+        description:
+          'Offer virtual tours and immersive property showcases to attract potential buyers and tenants. Bring solutions to life, providing a comprehensive viewing experience.',
+        icon: 'tabler:home-star',
+      },
+      {
+        title: 'Tourism',
+        description:
+          'Provide virtual travel experiences and guided tours to inspire and inform travelers. Our immersive solutions offer a realistic and engaging way to explore destinations from anywhere in the world.',
+        icon: 'tabler:map',
+      },
+      {
+        title: 'Industrial and Mining',
+        description:
+          'Enhance safety training, operational efficiency, and remote inspections with our VR and AR solutions tailored for the industrial and mining sectors. Our technology supports critical training and operational improvements.',
+        icon: 'tabler:tools',
+      },
+      {
+        title: 'Entertainment',
+        description:
+          'Create captivating and interactive experiences that entertain and engage audiences. Our solutions bring stories and games to life with immersive VR and AR technology.',
+        icon: 'tabler:photo',
+      },
+      {
+        title: 'Business',
+        description:
+          'Empower both startups and established companies with professional VR and AR solutions. Enhance your brand presence and communication with our innovative technology.',
+        icon: 'tabler:building-store',
+      },
+    ]}
+  />
+
+  
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact us',
+        href: '/contact',
+      },
+    ]}
+    title="Ready to Get Started?"
+    subtitle="Contact us today to discuss your project and how we can help bring your vision to life with immersive solutions."
+  />
+</Layout>

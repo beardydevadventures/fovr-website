@@ -1,0 +1,101 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: 'Contact',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText tagline="Contact Us" title="Let's Connect!" />
+
+  <!--<ContactUs
+    id="form"
+    title="Drop us a message today!"
+    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Name',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email',
+      },
+    ]}
+    textarea={{
+      label: 'Message',
+    }}
+    disclaimer={{
+      label:
+        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+    }}
+    description="Our support team typically responds within 24 business hours."
+  />-->
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'Contact Us',
+        href: 'mailto:fovr.interactive@gmail.com',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">Connect with Us</Fragment>
+
+    <Fragment slot="subtitle">
+      Contact us to explore exciting opportunities, provide feedback on our projects, and help shape the future of immersive experiences with FoVR Interactive.
+    </Fragment>
+  </CallToAction>
+
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="We are here to help!"
+    items={[
+      {
+        title: 'General support',
+        description: `Chat with us for inquiries related to navigating our VR experiences, payment issues, accessing purchased content, or general questions about our services.`,
+      },
+      {
+        title: 'Immersive Solutions',
+        description:
+          'Chat with us for questions about purchases, customisation options, licensing for commercial use, or inquiries about specific VR projects.',
+      },
+      {
+        title: 'Technical support',
+        description:
+          'Chat with us when facing issues like VR setup, troubleshooting, compatibility issues with VR hardware or software, or other technical challenges related to our immersive experiences.',
+      },
+      {
+        title: 'Email',
+        description: 'fovr.interactive@gmail.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Social Media Support',
+        description: 'Reach out to us on X with <a rel="noreferrer" target="_new" href="https://twitter.com/FovrInteractive">@FovrInteractive</a>',
+        icon: 'tabler:brand-x',
+      },
+      {
+        title: 'Location',
+        description: 'Brisbane, QLD, 4000',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+</Layout>

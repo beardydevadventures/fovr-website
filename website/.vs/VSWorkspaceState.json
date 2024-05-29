@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\public",
+    "\\public\\images",
+    "\\public\\images\\projects",
+    "\\src",
+    "\\src\\assets\\posts",
+    "\\src\\pages",
+    "\\src\\pages\\projects",
+    "\\src\\pages\\[...blog]\\[category]",
+    "\\src\\pages\\[...blog]\\[tag]"
+  ],
+  "SelectedNode": "\\src\\pages\\about.astro",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,282 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Brands from '~/components/widgets/Brands.astro';
+
+import { YouTube } from 'astro-embed';
+
+const metadata = {
+  title: 'Home',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Immersive. Innovative. Impactful."
+    actions={[
+      { text: 'Learn more', href: '#projects' },
+    ]}
+  >
+    <Fragment slot="title">
+      Embrace the virtual landscape <span class="text-accent dark:text-white highlight">projects</span> with FoVR Interactive
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Join <span class="font-semibold">Fovr Interactive</span> in pioneering the next generation of immersive virtual reality, enhancing engagement and pushing the boundaries of innovation.
+    </Fragment>
+
+    <Fragment slot="image">
+      <YouTube id="RoaEploRJf4" title="Discover FoVR Interactive: Revolutionising VR Experiences" />
+      <style is:inline>
+        lite-youtube {
+          margin: 0 auto;
+          max-width: 100%;
+        }
+      </style>
+    </Fragment>
+  </Hero>
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="About us"
+    subtitle="At FoVR Interactive, we specialise in creating immersive and innovative VR experiences. Our team is dedicated to pushing the boundaries of virtual reality, delivering solutions that captivate and engage audiences."
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Stats Widget ****************** -->
+
+<Stats
+    title="Why Consider Immersive VR Experiences?"
+    subtitle="Immersive VR is transforming industries and driving unparalleled engagement and innovation. Discover why VR is the future for businesses."
+    stats={[
+      { title: 'Increase in Engagement', amount: '75%', source: 'Source: PwC Study' },
+      { title: 'Improvement in Training Efficiency', amount: '40%', source: 'Source: PwC Study' },
+      { title: 'Growth in VR Market', amount: '$20B+', source: 'Source: Statista' },
+      { title: 'Higher Retention Rates', amount: '60%', source: 'Source: PwC Study' },
+    ]}
+  />
+
+   <Content
+    id="projects"
+    title="Our Latest Projects"
+    subtitle="Embark on a journey beyond the virtual, where imagination meets innovation. Dive into our portfolio and discover how passion and creativity blend to create captivating VR experiences."
+    isReversed
+    items={[
+        {
+          title: 'Description:',
+          description:
+            'Developed an immersive VR experience called "Smash Room," designed to provide users with a cathartic outlet for stress relief through virtual destruction.',
+        },
+        {
+          title: 'Role:',
+          description: `Led the project from concept to completion, overseeing the development of interactive elements and realistic physics. Collaborated with 3D artists to create detailed environments and objects, ensuring a highly immersive and engaging user experience.`,
+        },
+      ]}
+      image={{
+        src: '~/assets/images/smash-room.png',
+        alt: 'Smash Room VR Experience',
+      }}
+      callToAction={{
+        text: 'Go to the project',
+        icon: 'tabler:chevron-right',
+        href: '/projects/smash-room',
+      }}
+    >
+      <Fragment slot="content">
+        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+          Project: <br /><span class="text-2xl">Smash Room VR Experience</span>
+        </h3>
+      </Fragment>
+
+      <Fragment slot="bg">
+        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      </Fragment>
+    </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Description:',
+        description:
+          'Developed a comprehensive VR tutorial for operating industrial valves, designed to enhance training efficiency and safety in industrial settings.',
+      },
+      {
+        title: 'Role:',
+        description: `Managed the entire project lifecycle from initial concept to final implementation. Worked closely with industry experts to ensure accuracy, and integrated interactive elements to provide a hands-on learning experience.`,
+      },
+    ]}
+    image={{
+      src: '~/assets/images/valve-tutorial.png',
+      alt: 'Valve Tutorial VR Experience',
+    }}
+    callToAction={{
+      target: '_blank',
+      text: 'Go to the project',
+      icon: 'tabler:chevron-right',
+      href: '/projects/valve-tutorial',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Project: <br /><span class="text-2xl">Valve Tutorial VR Experience</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="What Services Do We Provide?"
+    subtitle="At FoVR Interactive, we specialise in creating immersive VR experiences tailored to your needs. Our services encompass a wide range of solutions for various industries and applications."
+    items={[
+      {
+        title: 'VR Development',
+        description:
+          'We create custom VR experiences that bring your ideas to life, from concept to execution, ensuring a highly engaging and immersive environment.',
+        icon: 'flat-color-icons:command-line',
+      },
+      {
+        title: 'Interactive Solutions',
+        description:
+          'Experience our VR solutions firsthand with interactive demos and previews that showcase the full potential of Immersive technology.',
+        icon: 'flat-color-icons:donate',
+      },
+      {
+        title: 'XR Consulting',
+        description:
+          'Want to learn more about extended reality? Our consultants offer strategic advice to help you fully leverage VR technology for your projects.',
+        icon: 'flat-color-icons:idea',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    title="Main Features of Our Immersive Solutions"
+    subtitle="Our VR solutions are designed to meet the unique needs of startups and entrepreneurs, offering several key features that ensure success."
+    columns={3}
+    items={[
+      {
+        title: 'Immersive and Professional Design',
+        description:
+          'Our solutions feature cutting-edge design trends, providing a highly immersive and professional experience.',
+        icon: 'tabler:artboard',
+      },
+      {
+        title: 'Multi-Device Compatibility',
+        description: 'Our AR/VR/XR experiences adapt seamlessly across different devices, ensuring a consistent and engaging experience.',
+        icon: 'tabler:picture-in-picture',
+      },
+      {
+        title: 'Customisability',
+        description:
+          'Highly customisable to match your experience, allowing adjustments in design, interactions, and content to fit your needs.',
+        icon: 'tabler:adjustments-horizontal',
+      },
+      {
+        title: 'Fast Performance',
+        description: 'Optimised for speed to ensure a smooth, uninterrupted immersive experience with minimal latency.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Interactivity',
+        description:
+          'Engage users with interactive elements that enhance the AR/VR/XR experience, making it more immersive and enjoyable.',
+        icon: 'tabler:arrows-right-left',
+      },
+      {
+        title: 'Cross-Platform Compatibility',
+        description: 'Our solutions are compatible with various AR/VR/XR hardware and software platforms, ensuring broad accessibility.',
+        icon: 'tabler:plug-connected',
+      },
+    ]}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    items={[
+      {
+        title: 'What services does FoVR Interactive provide?',
+        description:
+          'FoVR Interactive specialises in creating immersive VR, AR, and XR experiences. Our services include custom VR development, interactive demos and previews, and XR consulting.',
+      },
+      {
+        title: 'Why should I choose immersive VR/AR/XR experiences?',
+        description:
+          'Immersive experiences provide unparalleled engagement and interactivity, making them ideal for training, marketing, education, and entertainment. They help create memorable and impactful experiences for users.',
+      },
+      {
+        title: 'Can I see a demo of your Immersive projects?',
+        description:
+          'Yes, we offer interactive demos and previews of our projects. You can experience the full potential of our technology and see how it can be tailored to your needs before implementation.',
+      },
+      {
+        title: 'Do I need special equipment to use your Immersive solutions?',
+        description:
+          'While some experiences may require specific hardware like VR headsets or AR-enabled devices, we design our solutions to be compatible with a wide range of equipment. We can guide you on the best setup for your needs.',
+      },
+      {
+        title: 'How customisable are your Immersive solutions?',
+        description:
+          'Our solutions are highly customisable. You can adjust the design, interactions, and content to match your brand identity and specific project requirements.',
+      },
+      {
+        title: 'What support do you offer for your Immersive solutions?',
+        description:
+          "We provide comprehensive support including step-by-step guides for customisation and a dedicated support team to assist with any technical issues or questions you may have.",
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact Us',
+        href: '/contact',
+      },
+    ]}
+  >
+    <Fragment slot="title">Connect with Us</Fragment>
+
+    <Fragment slot="subtitle">
+      Explore exciting opportunities, share your feedback on our projects, and help shape the future of immersive experiences with FoVR Interactive.
+    </Fragment>
+  </CallToAction>
+</Layout>
