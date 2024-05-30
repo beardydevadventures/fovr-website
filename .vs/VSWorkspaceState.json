@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.github",
+    "\\website",
+    "\\website\\src"
   ],
-  "SelectedNode": "\\package-lock.json",
+  "SelectedNode": "\\website\\src\\config.yaml",
   "PreviewInSolutionExplorer": false
 }

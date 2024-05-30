@@ -61,7 +61,7 @@ export const footerData = {
     {
       title: 'Contact Us',
       links: [
-        { text: 'fovr.interactive@gmail.com', href: 'mailto:fovr.interactive@gmail.com' },
+        { text: 'contact@fovrinteractive.net', href: 'mailto:contact@fovrinteractive.net' },
         { text: 'Brisbane, QLD, 4000', href: '#' },
       ],
     },

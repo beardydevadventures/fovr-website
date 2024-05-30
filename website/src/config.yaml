@@ -11,7 +11,7 @@ metadata:
   title:
     default: FoVR Interactive
     template: '%s — FoVR Interactive'
-  description: "A solo indie studio dedicated to crafting immersive and innovative VR experiences."
+  description: "Innovative VR, AR, and XR solutions that transform digital experiences."
   robots:
     index: true
     follow: true
