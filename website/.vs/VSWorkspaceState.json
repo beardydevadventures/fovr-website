@@ -2,12 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\public",
-    "\\public\\images\\projects",
     "\\src",
+    "\\src\\assets",
+    "\\src\\assets\\images",
+    "\\src\\content",
+    "\\src\\content\\examples",
+    "\\src\\content\\post",
     "\\src\\pages",
-    "\\src\\pages\\projects",
     "\\src\\pages\\[...blog]"
   ],
-  "SelectedNode": "\\src\\pages\\[...blog]\\[...page].astro",
+  "SelectedNode": "\\src\\content\\post\\future-of-vr-in-business.md",
   "PreviewInSolutionExplorer": false
 }
