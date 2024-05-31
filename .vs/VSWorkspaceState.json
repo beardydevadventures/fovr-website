@@ -3,8 +3,10 @@
     "",
     "\\.github",
     "\\website",
-    "\\website\\src"
+    "\\website\\src",
+    "\\website\\src\\assets",
+    "\\website\\src\\assets\\images"
   ],
-  "SelectedNode": "\\website\\src\\config.yaml",
+  "SelectedNode": "\\website\\src\\assets\\images\\google-play.png",
   "PreviewInSolutionExplorer": false
 }
