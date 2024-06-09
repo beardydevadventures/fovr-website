@@ -5,8 +5,11 @@
     "\\website",
     "\\website\\src",
     "\\website\\src\\assets",
-    "\\website\\src\\assets\\images"
+    "\\website\\src\\components",
+    "\\website\\src\\components\\ui",
+    "\\website\\src\\components\\widgets",
+    "\\website\\src\\pages"
   ],
-  "SelectedNode": "\\website\\src\\assets\\images\\google-play.png",
+  "SelectedNode": "\\website\\src\\components\\ui\\ItemGrid.astro",
   "PreviewInSolutionExplorer": false
 }
