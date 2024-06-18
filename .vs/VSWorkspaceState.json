@@ -6,10 +6,11 @@
     "\\website\\src",
     "\\website\\src\\assets",
     "\\website\\src\\assets\\images",
+    "\\website\\src\\assets\\images\\posts",
     "\\website\\src\\content",
     "\\website\\src\\content\\post",
     "\\website\\src\\pages"
   ],
-  "SelectedNode": "\\website\\src\\assets\\images\\education-vr.png",
+  "SelectedNode": "\\website\\src\\assets\\images\\google-play.png",
   "PreviewInSolutionExplorer": false
 }
