@@ -5,11 +5,11 @@
     "\\website",
     "\\website\\src",
     "\\website\\src\\assets",
-    "\\website\\src\\components",
-    "\\website\\src\\components\\ui",
-    "\\website\\src\\components\\widgets",
+    "\\website\\src\\assets\\images",
+    "\\website\\src\\content",
+    "\\website\\src\\content\\post",
     "\\website\\src\\pages"
   ],
-  "SelectedNode": "\\website\\src\\components\\ui\\ItemGrid.astro",
+  "SelectedNode": "\\website\\src\\assets\\images\\education-vr.png",
   "PreviewInSolutionExplorer": false
 }
