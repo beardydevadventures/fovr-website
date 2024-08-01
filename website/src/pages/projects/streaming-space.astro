@@ -32,17 +32,17 @@ const metadata = {
   <Hero2
     tagline="Portfolio Project"
     image={{
-      src: '~/assets/images/smash-room.png',
-      alt: 'Smash Room Logo',
+      src: '~/assets/images/stream-space.png',
+      alt: 'Streaming Space Logo',
     }}
   >
     <Fragment slot="title">
-      <span class="text-accent dark:text-white highlight">Smash Room</span>
+      <span class="text-accent dark:text-white highlight">Streaming Space</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        The Smash Room project was designed to create an immersive VR experience that allows users to safely vent their frustrations and relieve stress by smashing objects in a virtual environment. This project aimed to provide a fun and therapeutic outlet for users while showcasing advanced VR technology and interactive design.
+        The Streaming Space was created as a proof of concept to allowing VR users to stream content natively from inside their VR environment to the outside world.
       </span>
     </Fragment>
   </Hero2>
@@ -50,7 +50,7 @@ const metadata = {
   <!-- Youtube Video ************** -->
 
   <div class="container mx-auto px-4 sm:px-6">
-    <YouTube id="g15U5av2PVY" title="Smash Room Trailer" />
+    <YouTube id="7NbWrFjJ_zM" title="Virtual Streaming Space" />
     <style is:inline>
     lite-youtube {
       display: block;          
@@ -64,23 +64,23 @@ const metadata = {
   <!-- Features3 Widget ************** -->
 
   <Features3
-    title="Goals and Objectives"
+    title="Key Features"
     columns={3}
     items={[
       {
-        title: 'Stress Relief',
-        description: 'Provide a safe and engaging platform for users to relieve stress and frustration through virtual object smashing.',
+        title: 'Camera Streaming',
+        description: 'Stream from an additional camera set up inside your VR scene, allowing users to view your avatar.',
         icon: 'tabler:square-number-1',
       },
       {
-        title: 'Immersive Experience',
+        title: 'Interactive Objects',
         description:
-          'Create a highly realistic and interactive VR environment that enhances user immersion.',
+          'Unlike avatar filters that are 2D, streaming from 3D environment allows you to interact with objects in the scene.',
         icon: 'tabler:square-number-2',
       },
       {
-        title: 'Entertainment',
-        description: 'Offer an enjoyable and satisfying experience that appeals to a wide audience.',
+        title: 'Custom Cameras & Lighting',
+        description: 'Having a full 3D scene allows easier and cheaper customisation of the space for camera postions and lighting.',
         icon: 'tabler:square-number-3',
       },
     ]}
@@ -95,36 +95,36 @@ const metadata = {
       {
         title: 'Step 1: <span class="font-medium">Concept and Planning</span>',
         description:
-          "Worked with psychologists and entertainment experts to understand the therapeutic aspects of stress relief and incorporate them into the VR experience.",
+          "Taking the idea of a virtual camera and gathered sources to understand how it could be done.",
         icon: 'tabler:bulb',
       },
       {
         title: 'Step 2: <span class="font-medium">Design and Prototyping</em>',
         description:
-          "Developed detailed prototypes to visualise the interactive elements, object physics, and user flow within the VR environment.",
+          "Developed a prototype to demonstrate the virtual camera, and how it could be used to stream VR environment to the real world.",
         icon: 'tabler:pencil',
       },
       {
         title: 'Step 3: <span class="font-medium">Development</span>',
         description:
-          'Utilised Unity to build the VR experience, focusing on realistic object physics, smashing effects, and user interaction.',
+          'Utilised Unity to build the VR experience, focusing on camera streaminig, interactive objects, and user interface.',
         icon: 'tabler:code',
       },
       {
         title: 'Step 4: <span class="font-medium">Testing and Iteration</span>',
         description:
-          'Conducted extensive testing to ensure functionality, usability, and enjoyment. Iterated based on user feedback to refine the experience.',
+          'Tested with a couple of users, implementing feedback for better user experience in the application.',
         icon: 'tabler:arrow-iteration',
       },
       {
         title: 'Step 5: <span class="font-medium">Final Delivery</span>',
         description:
-          'Delivered a polished VR experience that meets the project’s objectives and provides a fun, therapeutic outlet for users on Steam and Meta App Lab.',
+          'Delivered a workable VR Streaming Space experience that meets the requirements to demonstrate how a streaming space could be a viable solution.',
         icon: 'tabler:cube-send',
       },
     ]}
     image={{
-      src: '~/assets/images/smash-room-vert.png',
+      src: '~/assets/images/stream-space-vert.png',
       alt: 'Steps image',
     }}
   />
@@ -135,14 +135,14 @@ const metadata = {
     title="Challenges and Solutions"
     items={[
       {
-        title: 'Challenge: Ensuring Realistic Object Physics',
+        title: 'Challenge: Working Streaming Camera',
         description:
-          'Solution: Implemented advanced physics engines to accurately simulate object smashing and interactions, enhancing the realism of the experience.',
+          'Solution: Discovered a way to have the virtual camera feed come out seperatly to the player camera feed.',
       },
       {
-        title: 'Challenge: Balancing Fun and Therapeutic Elements',
+        title: 'Challenge: Establishing Camera & Lighting Setup Correctly',
         description:
-          'Solution: Collaborated with psychologists to ensure the experience is both entertaining and beneficial for stress relief, incorporating feedback into the design and development process.',
+          'Solution: Working with videographers and photgraphers to udnerstand best lighting and camera positons for streaming.',
       },
     ]}
   />
@@ -152,24 +152,24 @@ const metadata = {
   <Content
     items={[
       {
-        title: 'User Engagement',
-        description: 'High levels of user engagement and satisfaction reported, with users appreciating the therapeutic and entertaining aspects of the experience.',
+        title: 'Industry Recognition',
+        description: 'The Streaming Space attracted attention from QLD XR Hub, leading to a shout out in their newsletter.',
         icon: 'tabler:wifi-off',
       },
       {
-        title: 'Stress Relief',
+        title: 'Interactive Features',
         description:
-          'Users reported significant reductions in stress and frustration after using the Smash Room.',
+          'Users frequently utilised interactive objects, suggesting that the 3D environment significantly enhances the user experience compared to traditional 2D streaming.',
         icon: 'tabler:file-download',
       },
       {
-        title: 'Positive Feedback',
-        description: 'Received excellent feedback from users who enjoyed the immersive and interactive nature of the experience.',
+        title: 'Pushing Boundries',
+        description: 'The Streaming Space revolutionises the way users share their VR experiences, showing people not too exposed to the technology what is capable in a VR Environment. ',
         icon: 'tabler:refresh',
       },
     ]}
     image={{
-      src: '~/assets/images/smash-room-rni.png',
+      src: '~/assets/images/stream-space-rni.png',
       alt: 'Vintage Image',
     }}
   >
@@ -178,25 +178,4 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    id="download"
-    title="Download Smash Room now!"
-    subtitle="Experience the ultimate VR stress relief by smashing objects in a safe, virtual environment. Download now from your preferred platform."
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Steam',
-        href: steamDownloadLink,
-        icon: 'tabler:brand-steam',
-      },
-      {
-        variant: 'primary',
-        text: 'App Lab',
-        href: appLabDownloadLink,
-        icon: 'tabler:brand-meta',
-      },
-    ]}
-  />
 </Layout>

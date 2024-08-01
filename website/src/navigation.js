@@ -7,16 +7,12 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
-      text: 'About',
-      href: getPermalink('/about'), 
-    },
-    {
-      text: 'Services',
-      href: getPermalink('/services'),
-    },
-    {
       text: 'Portfolio',
       links: [
+        { 
+          text: 'Streaming Space', 
+          href: '/projects/streaming-space' 
+        },  
         { 
           text: 'Smash Room', 
           href: '/projects/smash-room' 
@@ -26,6 +22,14 @@ export const headerData = {
           href: '/projects/valve-tutorial' 
         },
       ],
+    },
+    {
+      text: 'About',
+      href: getPermalink('/about'), 
+    },
+    {
+      text: 'Services',
+      href: getPermalink('/services'),
     },
     {
       text: 'Blog',
@@ -40,14 +44,15 @@ export const footerData = {
     {
       title: 'Quick Links',
       links: [
+        { text: 'Home', href: '/' },
         { text: 'About', href: '/about' },
-        { text: 'Projects', href: '/projects' },
         { text: 'Services', href: '/services' },
       ],
     },
     {
-      title: 'Projects',
+      title: 'Portfolio',
       links: [
+        { text: 'Streaming Space', href: '/projects/streaming-space' },
         { text: 'Smash Room', href: '/projects/smash-room' },
         { text: 'Valve Tutorial', href: '/projects/valve-tutorial' },
       ],
@@ -77,6 +82,6 @@ export const footerData = {
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
   footNote: `
-    &copy; 2024 FovrInteractive. All rights reserved.
+    &copy; 2024 FoVR Interactive. All rights reserved.
   `,
 };

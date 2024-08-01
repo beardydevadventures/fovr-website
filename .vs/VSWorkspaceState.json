@@ -1,16 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.github",
     "\\website",
     "\\website\\src",
     "\\website\\src\\assets",
     "\\website\\src\\assets\\images",
-    "\\website\\src\\assets\\images\\posts",
-    "\\website\\src\\content",
-    "\\website\\src\\content\\post",
-    "\\website\\src\\pages"
+    "\\website\\src\\components",
+    "\\website\\src\\components\\blog",
+    "\\website\\src\\components\\widgets",
+    "\\website\\src\\pages",
+    "\\website\\src\\pages\\projects"
   ],
-  "SelectedNode": "\\website\\src\\assets\\images\\google-play.png",
   "PreviewInSolutionExplorer": false
 }
