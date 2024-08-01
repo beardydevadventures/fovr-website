@@ -3,13 +3,14 @@
     "",
     "\\website",
     "\\website\\src",
-    "\\website\\src\\assets",
-    "\\website\\src\\assets\\images",
     "\\website\\src\\components",
-    "\\website\\src\\components\\blog",
+    "\\website\\src\\components\\common",
     "\\website\\src\\components\\widgets",
+    "\\website\\src\\content\\post",
     "\\website\\src\\pages",
-    "\\website\\src\\pages\\projects"
+    "\\website\\vendor\\src\\pages",
+    "\\website\\vendor\\vendor\\integration"
   ],
+  "SelectedNode": "\\website\\src\\components\\widgets\\Hero2.astro",
   "PreviewInSolutionExplorer": false
 }
