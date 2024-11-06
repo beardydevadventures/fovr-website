@@ -1,0 +1,204 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+
+import Button from '~/components/ui/Button.astro';
+import Image from '~/components/common/Image.astro';
+import { YouTube } from 'astro-embed';
+
+const metadata = {
+  title: 'Forge of Elements',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <Hero2
+    tagline="Entertainment Project"
+    image={{
+      src: '~/assets/images/foe/forge-of-elements-logo.png',
+      alt: 'Forge of Elements Logo',
+    }}
+  >
+    <Fragment slot="title">
+      <span class="text-accent dark:text-white highlight">Forge of Elements</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Step into a world of elements, myths, and discovery. Forge of Elements is an immersive VR experience where players combine elements to build and transform worlds. 
+      </span>
+    </Fragment>
+  </Hero2>
+
+  <!-- Youtube Video ************** -->
+
+  <!--<div class="container mx-auto px-4 sm:px-6">
+    <YouTube id="your_youtube_video_id" title="Forge of Elements Trailer" />
+    <style is:inline>
+    lite-youtube {
+      display: block;          
+      margin: 0 auto;          
+      max-width: 960px;        
+      width: 100%;             
+    }
+    </style>
+  </div>-->
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="Key Features"
+    columns={3}
+    items={[
+      {
+        title: 'Master Elemental Crafting',
+        description: 'Unleash the power of the elements! Combine elements to bring breathtaking worlds to life.',
+        icon: 'tabler:flame', // Flame icon for elemental crafting power
+      },
+      {
+        title: 'Shape Your World',
+        description:
+          'Directly interact with each realm, molding landscapes, crafting artifacts, and solving epic challenges.',
+        icon: 'tabler:globe', // Globe icon to represent world-building and shaping landscapes
+      },
+      {
+        title: 'Journey Through Legendary Worlds',
+        description: 'Explore rich environments, from Viking lands to the Industrial Age, each with distinct challenges and lore.',
+        icon: 'tabler:shield', // Shield icon to evoke a sense of adventure and legendary worlds
+      },
+    ]}
+  />
+
+  <!-- Call to Action ******************* -->
+
+  <CallToAction
+    title="Prepare to Embark on the Elemental Journey"
+    subtitle="Forge your path as one of the first to shape legendary worlds, master the elements, and uncover powerful secrets. Stay tuned for a release date and a chance to play first!"
+  />
+
+  <!--<CallToAction
+    title="Join the Elemental Journey"
+    subtitle="Be among the first to forge a world from scratch, combining forces and creating legendary landscapes. Begin your elemental journey now!"
+    actions={[
+      {
+        variant: 'primary',
+        href: 'https://oculus-link-to-download',
+        text: 'Download Now',
+        icon: 'tabler:brand-meta',
+      },
+      {
+        href: '#', // Link to community or social media if available
+        text: 'Join the Community',
+      },
+    ]}
+  />-->
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    items={[
+      {
+        title: 'Build Legendary Worlds',
+        description: 'Shape the terrain, create life, and bring ancient worlds to life as you master the elements. Each new discovery shapes your realm and beyond.',
+        icon: 'tabler:map',
+      },
+      {
+        title: 'Discover Powerful Combinations',
+        description: 'Unlock the mysteries of nature by combining elements like water, fire, and earth to forge new items and spark life. What will your next discovery reveal?',
+        icon: 'tabler:flame',
+      },
+      {
+        title: 'Engage with Living Worlds',
+        description: 'Immerse yourself in an interactive VR world where every element you add has a ripple effect. Watch landscapes transform and ecosystems flourish.',
+        icon: 'tabler:plant',
+      }
+    ]}
+    image={{
+      src: '~/assets/images/foe/foe-viking-world.png',
+      alt: 'Gameplay Impact Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Forge Your World, Shape Your Story</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Testimonials ********************* -->
+
+  <Testimonials
+    title="What Players Are Saying"
+    testimonials={[
+      {
+        name: 'Playtester',
+        title: 'Combining elements feels so satisfying! Every new discovery keeps me wanting to try just one more combo.',
+      },
+      {
+        name: 'Playtester',
+        title: 'I love how the world evolves with each element, it is like watching a story unfold in real-time.',
+      },
+      {
+        name: 'Playtester',
+        title: 'The overall vibe and elemental crafting make every discovery feels like an achievement!',
+      },
+    ]}
+  />
+
+  <!-- Stats Section ******************** -->
+
+  <Stats
+    title="Forge of Elements by the Numbers"
+    stats={[
+      { title: 'Elements to Discover', amount: '100+' },
+      { title: 'Worlds to Explore', amount: '5' },
+      { title: 'Combinations Available', amount: '50+' },
+      { title: 'Hours of Gameplay', amount: '3+' },
+    ]}
+  />
+
+  <!-- FAQs Section ********************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    items={[
+      {
+        title: 'What platforms is Forge of Elements available on?',
+        description: 'Currently, it’s available on Meta Quest with plans to expand to other VR platforms.',
+      },
+      {
+        title: 'How does the elemental combination system work?',
+        description: 'Start with basic elements like fire and water, combine them to unlock new items, and use these items to progress through the game’s worlds.',
+      },
+      {
+        title: 'Is there a multiplayer option?',
+        description: 'Forge of Elements is currently a single-player experience.',
+      },
+    ]}
+  />
+
+  <!-- Footer Call to Action ************ -->
+
+  <!--<CallToAction
+    title="Ready to Forge Your World?"
+    subtitle="Download Forge of Elements and step into a universe where you control the power of nature and shape worlds."
+    actions={[
+      {
+        variant: 'primary',
+        href: 'https://oculus-link-to-download',
+        text: 'Start Forging Today',
+        icon: 'tabler:brand-meta',
+      },
+    ]}
+  />-->
+
+</Layout>

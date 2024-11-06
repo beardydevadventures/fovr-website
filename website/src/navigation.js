@@ -21,6 +21,10 @@ export const headerData = {
           text: 'Valve Tutorial', 
           href: '/projects/valve-tutorial' 
         },
+        {
+          text: 'Forge Of Elements',
+          href: '/projects/forge-of-elements'
+        },
       ],
     },
     {
