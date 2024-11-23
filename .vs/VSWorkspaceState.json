@@ -3,13 +3,13 @@
     "",
     "\\website",
     "\\website\\public",
-    "\\website\\public\\images",
     "\\website\\public\\images\\projects",
+    "\\website\\public\\images\\projects\\foe",
     "\\website\\src",
-    "\\website\\src\\assets",
-    "\\website\\src\\assets\\images",
-    "\\website\\src\\components",
-    "\\website\\src\\components\\widgets"
+    "\\website\\src\\assets\\images\\foe",
+    "\\website\\src\\pages",
+    "\\website\\src\\pages\\projects"
   ],
+  "SelectedNode": "\\website\\src\\pages\\projects\\valve-tutorial.astro",
   "PreviewInSolutionExplorer": false
 }

@@ -11,11 +11,13 @@ import Content from '~/components/widgets/Content.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
+import { Picture } from 'astro:assets';
 
 import Button from '~/components/ui/Button.astro';
 import Image from '~/components/common/Image.astro';
 import { YouTube } from 'astro-embed';
 
+import foeAnimatedGameplay from '../images/projects/foe/foe-animated-gameplay.gif';
 const metadata = {
   title: 'Forge of Elements',
 };
@@ -80,6 +82,17 @@ const metadata = {
     ]}
   />
 
+  <!-- Animated Gif ******************* -->
+
+  <div class="flex justify-center items-center">
+    <img 
+      src="/images/projects/foe/foe-animated-gameplay.gif" 
+      width="600" 
+      height="600" 
+      alt="Forge of Elements Gameplay Animation Gif"
+    />
+  </div>
+
   <!-- Call to Action ******************* -->
 
   <CallToAction
@@ -109,28 +122,28 @@ const metadata = {
   <Content
     items={[
       {
-        title: 'Build Legendary Worlds',
-        description: 'Shape the terrain, create life, and bring ancient worlds to life as you master the elements. Each new discovery shapes your realm and beyond.',
-        icon: 'tabler:map',
-      },
-      {
         title: 'Discover Powerful Combinations',
-        description: 'Unlock the mysteries of nature by combining elements like water, fire, and earth to forge new items and spark life. What will your next discovery reveal?',
+        description: 'Unlock the mysteries of nature by combining elements like water, fire, and earth to forge new items and spark life. What will your next combination reveal?',
         icon: 'tabler:flame',
       },
       {
+        title: 'Build Legendary Worlds',
+        description: 'Each discovered combination rewards you with new elements, bring worlds to life as you master the elements. Each new discovery shapes your realm and beyond.',
+        icon: 'tabler:map',
+      },
+      {
         title: 'Engage with Living Worlds',
-        description: 'Immerse yourself in an interactive VR world where every element you add has a ripple effect. Watch landscapes transform and ecosystems flourish.',
+        description: 'Immerse yourself in an interactive VR world where every element you add has a ripple effect. Watch landscapes transform and a story flourish.',
         icon: 'tabler:plant',
       }
     ]}
     image={{
       src: '~/assets/images/foe/foe-viking-world.png',
-      alt: 'Gameplay Impact Image',
+      alt: 'Viking World in Forge of Elements',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Forge Your World, Shape Your Story</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Combine the Elements, Build the Story</h3>
     </Fragment>
   </Content>
 
@@ -159,10 +172,10 @@ const metadata = {
   <Stats
     title="Forge of Elements by the Numbers"
     stats={[
-      { title: 'Elements to Discover', amount: '100+' },
-      { title: 'Worlds to Explore', amount: '5' },
-      { title: 'Combinations Available', amount: '50+' },
-      { title: 'Hours of Gameplay', amount: '3+' },
+      { title: 'Elements to Discover', amount: '50+' },
+      { title: 'Worlds to Explore', amount: '3+' },
+      { title: 'Combinations Available', amount: '25+' },
+      { title: 'Hours of Gameplay', amount: '1+' },
     ]}
   />
 
@@ -181,7 +194,7 @@ const metadata = {
       },
       {
         title: 'Is there a multiplayer option?',
-        description: 'Forge of Elements is currently a single-player experience.',
+        description: 'Forge of Elements is a single-player experience.',
       },
     ]}
   />

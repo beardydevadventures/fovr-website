@@ -9,6 +9,10 @@ export const headerData = {
     {
       text: 'Portfolio',
       links: [
+        {
+          text: 'Forge Of Elements',
+          href: '/projects/forge-of-elements'
+        },
         { 
           text: 'Streaming Space', 
           href: '/projects/streaming-space' 
@@ -20,10 +24,6 @@ export const headerData = {
         { 
           text: 'Valve Tutorial', 
           href: '/projects/valve-tutorial' 
-        },
-        {
-          text: 'Forge Of Elements',
-          href: '/projects/forge-of-elements'
         },
       ],
     },
