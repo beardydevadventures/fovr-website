@@ -56,6 +56,7 @@ export const footerData = {
     {
       title: 'Portfolio',
       links: [
+        { text: 'Forge Of Elements', href: '/projects/forge-of-elements' },
         { text: 'Streaming Space', href: '/projects/streaming-space' },
         { text: 'Smash Room', href: '/projects/smash-room' },
         { text: 'Valve Tutorial', href: '/projects/valve-tutorial' },
@@ -80,12 +81,13 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
+    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/fovr.interactive' },
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/fovr-interactive/' },
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/FovrInteractive' },
     { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: 'https://www.youtube.com/@fovrinteractive' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
   footNote: `
-    &copy; 2024 FoVR Interactive. All rights reserved.
+    &copy; 2025 FoVR Interactive. All rights reserved.
   `,
 };
