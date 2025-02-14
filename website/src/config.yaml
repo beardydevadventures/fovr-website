@@ -11,7 +11,7 @@ metadata:
   title:
     default: FoVR Interactive
     template: '%s — FoVR Interactive'
-  description: "Innovative VR, AR, and XR solutions that transform digital experiences."
+  description: "Exploring XR, spatial computing, and creativity, one project at a time."
   robots:
     index: true
     follow: true
@@ -66,7 +66,7 @@ apps:
 analytics:
   vendors:
     googleAnalytics:
-      id: null # or "G-XXXXXXXXXX"
+      id: G-98P7QGPW01
 
 ui:
   theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
