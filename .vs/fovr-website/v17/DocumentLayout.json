@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\components\\widgets\\Header.astro||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:website\\src\\components\\widgets\\Header.astro||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\components\\common\\Analytics.astro||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:website\\src\\components\\common\\Analytics.astro||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\config.yaml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:website\\src\\config.yaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\content\\post\\metaverse-meta-horizons.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:website\\src\\content\\post\\metaverse-meta-horizons.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,41 +26,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "config.yaml",
-              "DocumentMoniker": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\config.yaml",
-              "RelativeDocumentMoniker": "website\\src\\config.yaml",
-              "ToolTip": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\config.yaml",
-              "RelativeToolTip": "website\\src\\config.yaml",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAACQAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2025-02-14T21:49:23.841Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Analytics.astro",
-              "DocumentMoniker": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\components\\common\\Analytics.astro",
-              "RelativeDocumentMoniker": "website\\src\\components\\common\\Analytics.astro",
-              "ToolTip": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\components\\common\\Analytics.astro",
-              "RelativeToolTip": "website\\src\\components\\common\\Analytics.astro",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-02-14T21:48:18.15Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Header.astro",
-              "DocumentMoniker": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\components\\widgets\\Header.astro",
-              "RelativeDocumentMoniker": "website\\src\\components\\widgets\\Header.astro",
-              "ToolTip": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\components\\widgets\\Header.astro",
-              "RelativeToolTip": "website\\src\\components\\widgets\\Header.astro",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-02-14T21:44:13.574Z",
+              "Title": "metaverse-meta-horizons.md",
+              "DocumentMoniker": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\content\\post\\metaverse-meta-horizons.md",
+              "RelativeDocumentMoniker": "website\\src\\content\\post\\metaverse-meta-horizons.md",
+              "ToolTip": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\content\\post\\metaverse-meta-horizons.md",
+              "RelativeToolTip": "website\\src\\content\\post\\metaverse-meta-horizons.md",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACgAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-03-02T08:13:30.709Z",
               "EditorCaption": ""
             }
           ]

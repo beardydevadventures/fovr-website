@@ -3,13 +3,15 @@
     "",
     "\\website",
     "\\website\\src",
+    "\\website\\src\\assets",
     "\\website\\src\\assets\\images",
     "\\website\\src\\assets\\images\\posts",
-    "\\website\\src\\components",
-    "\\website\\src\\components\\common",
-    "\\website\\src\\components\\widgets",
-    "\\website\\src\\pages\\[...blog]"
+    "\\website\\src\\content",
+    "\\website\\src\\content\\post",
+    "\\website\\src\\pages",
+    "\\website\\src\\pages\\[...blog]",
+    "\\website\\src\\pages\\[...blog]\\[tag]"
   ],
-  "SelectedNode": "\\website\\src\\components\\blog",
+  "SelectedNode": "\\website\\src\\assets\\images\\posts\\xr-breakdown.png",
   "PreviewInSolutionExplorer": false
 }
