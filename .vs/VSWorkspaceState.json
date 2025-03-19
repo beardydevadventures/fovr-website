@@ -4,14 +4,10 @@
     "\\website",
     "\\website\\src",
     "\\website\\src\\assets",
-    "\\website\\src\\assets\\images",
-    "\\website\\src\\assets\\images\\posts",
     "\\website\\src\\content",
     "\\website\\src\\content\\post",
     "\\website\\src\\pages",
-    "\\website\\src\\pages\\[...blog]",
-    "\\website\\src\\pages\\[...blog]\\[tag]"
+    "\\website\\src\\pages\\projects"
   ],
-  "SelectedNode": "\\website\\src\\assets\\images\\posts\\xr-breakdown.png",
   "PreviewInSolutionExplorer": false
 }

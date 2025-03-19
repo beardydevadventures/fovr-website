@@ -182,4 +182,4 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 
 If you have any questions about this Privacy Policy, you can contact us:
 
-- By email: [fovrinteractive@gmail.com](mailto:fovrinteractive@gmail.com)
+- By email: [contact@fovrinteractive.net](mailto:contact@fovrinteractive.net)
