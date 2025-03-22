@@ -71,11 +71,46 @@ const metadata = {
     ]}
   />
 
-   <Content
+  <Content
     id="projects"
     title="Our Latest Projects"
-    subtitle="Embark on a journey beyond the virtual, where imagination meets innovation. Dive into our portfolio and discover how passion and creativity blend to create captivating VR experiences."
+    subtitle="Explore our latest projects and see what we’ve been working on."
     isReversed
+    items={[
+      {
+        title: 'Description:',
+        description:
+          'Forge of Elements is a VR adventure puzzle game where players combine elemental forces to unlock new creations and shape immersive worlds through a carefully crafted progression system.',
+      },
+      {
+        title: 'Role:',
+        description:
+          'Led end-to-end development of Forge of Elements, from initial concept through design and implementation. Designed core mechanics, implemented structured elemental interactions, and crafted the narrative progression. Oversaw world-building, puzzle logic, and playtesting to ensure a rewarding and polished VR experience.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/foe/forge-of-elements-logo.png',
+      alt: 'Forge of Elements VR Experience',
+    }}
+    callToAction={{
+      text: 'Play on Meta Quest',
+      icon: 'tabler:brand-meta',
+      href: 'https://www.meta.com/en-gb/experiences/forge-of-elements/7956388831140201/',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        VR Experience: <br /><span class="text-2xl">Forge of Elements</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+   <Content
+    isAfterContent={true}
     items={[
         {
           title: 'Description:',
@@ -92,14 +127,14 @@ const metadata = {
         alt: 'Smash Room VR Experience',
       }}
       callToAction={{
-        text: 'Go to the project',
-        icon: 'tabler:chevron-right',
-        href: '/projects/smash-room',
+        text: 'Play on Meta Quest',
+        icon: 'tabler:brand-meta',
+        href: 'https://www.meta.com/en-gb/experiences/smash-room/5525534314159952/',
       }}
     >
       <Fragment slot="content">
         <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-          Project: <br /><span class="text-2xl">Smash Room VR Experience</span>
+          VR Experience: <br /><span class="text-2xl">Smash Room</span>
         </h3>
       </Fragment>
 
@@ -107,43 +142,6 @@ const metadata = {
         <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
       </Fragment>
     </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isAfterContent={true}
-    items={[
-      {
-        title: 'Description:',
-        description:
-          'Developed a comprehensive VR tutorial for operating industrial valves, designed to enhance training efficiency and safety in industrial settings.',
-      },
-      {
-        title: 'Role:',
-        description: `Managed the entire project lifecycle from initial concept to final implementation. Worked closely with industry experts to ensure accuracy, and integrated interactive elements to provide a hands-on learning experience.`,
-      },
-    ]}
-    image={{
-      src: '~/assets/images/valve-tutorial.png',
-      alt: 'Valve Tutorial VR Experience',
-    }}
-    callToAction={{
-      target: '_blank',
-      text: 'Go to the project',
-      icon: 'tabler:chevron-right',
-      href: '/projects/valve-tutorial',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Project: <br /><span class="text-2xl">Valve Tutorial VR Experience</span>
-      </h3>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
 
   <!-- Features2 Widget ************** -->
 

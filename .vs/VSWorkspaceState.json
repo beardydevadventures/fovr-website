@@ -4,10 +4,13 @@
     "\\website",
     "\\website\\src",
     "\\website\\src\\assets",
-    "\\website\\src\\content",
-    "\\website\\src\\content\\post",
+    "\\website\\src\\assets\\images",
+    "\\website\\src\\assets\\images\\foe",
+    "\\website\\src\\components",
     "\\website\\src\\pages",
-    "\\website\\src\\pages\\projects"
+    "\\website\\src\\pages\\projects",
+    "\\website\\src\\pages\\projects\\forge-of-elements"
   ],
+  "SelectedNode": "\\website",
   "PreviewInSolutionExplorer": false
 }
