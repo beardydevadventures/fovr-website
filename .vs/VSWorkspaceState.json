@@ -4,13 +4,13 @@
     "\\website",
     "\\website\\src",
     "\\website\\src\\assets",
-    "\\website\\src\\assets\\images",
-    "\\website\\src\\assets\\images\\foe",
     "\\website\\src\\components",
+    "\\website\\src\\components\\common",
+    "\\website\\src\\layouts",
     "\\website\\src\\pages",
     "\\website\\src\\pages\\projects",
     "\\website\\src\\pages\\projects\\forge-of-elements"
   ],
-  "SelectedNode": "\\website",
+  "SelectedNode": "\\website\\src\\components\\common\\SiteVerification.astro",
   "PreviewInSolutionExplorer": false
 }
