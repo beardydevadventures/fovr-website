@@ -4,13 +4,14 @@
     "\\website",
     "\\website\\src",
     "\\website\\src\\assets",
-    "\\website\\src\\components",
-    "\\website\\src\\components\\common",
-    "\\website\\src\\layouts",
+    "\\website\\src\\assets\\images",
+    "\\website\\src\\assets\\images\\posts",
+    "\\website\\src\\content",
+    "\\website\\src\\content\\post",
     "\\website\\src\\pages",
     "\\website\\src\\pages\\projects",
     "\\website\\src\\pages\\projects\\forge-of-elements"
   ],
-  "SelectedNode": "\\website\\src\\components\\common\\SiteVerification.astro",
+  "SelectedNode": "\\website\\src\\assets\\images\\posts\\exploring-spatial-design.png",
   "PreviewInSolutionExplorer": false
 }
