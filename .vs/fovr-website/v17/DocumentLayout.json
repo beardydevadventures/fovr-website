@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\content\\post\\smarter-vr-worlds.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:website\\src\\content\\post\\smarter-vr-worlds.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\pages\\projects\\forge-of-elements\\index.astro||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:website\\src\\pages\\projects\\forge-of-elements\\index.astro||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\content\\post\\exploring-spatial-design.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:website\\src\\content\\post\\exploring-spatial-design.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,20 +42,46 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "index.astro",
+              "DocumentMoniker": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\pages\\projects\\forge-of-elements\\index.astro",
+              "RelativeDocumentMoniker": "website\\src\\pages\\projects\\forge-of-elements\\index.astro",
+              "ToolTip": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\pages\\projects\\forge-of-elements\\index.astro",
+              "RelativeToolTip": "website\\src\\pages\\projects\\forge-of-elements\\index.astro",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAALwAAACYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-12T03:42:12.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "smarter-vr-worlds.md",
+              "DocumentMoniker": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\content\\post\\smarter-vr-worlds.md",
+              "RelativeDocumentMoniker": "website\\src\\content\\post\\smarter-vr-worlds.md",
+              "ToolTip": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\content\\post\\smarter-vr-worlds.md",
+              "RelativeToolTip": "website\\src\\content\\post\\smarter-vr-worlds.md",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAABkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-05-12T03:26:36.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "exploring-spatial-design.md",
               "DocumentMoniker": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\content\\post\\exploring-spatial-design.md",
               "RelativeDocumentMoniker": "website\\src\\content\\post\\exploring-spatial-design.md",
               "ToolTip": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\content\\post\\exploring-spatial-design.md",
               "RelativeToolTip": "website\\src\\content\\post\\exploring-spatial-design.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABNAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAcwCsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
               "WhenOpened": "2025-04-13T01:36:02.875Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "SiteVerification.astro",
               "DocumentMoniker": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\components\\common\\SiteVerification.astro",
               "RelativeDocumentMoniker": "website\\src\\components\\common\\SiteVerification.astro",
@@ -55,12 +89,11 @@
               "RelativeToolTip": "website\\src\\components\\common\\SiteVerification.astro",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-23T03:04:24.601Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-23T03:04:24.601Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "metaverse-meta-horizons.md",
               "DocumentMoniker": "C:\\Users\\maist\\Documents\\Web Projects\\fovr-website\\website\\src\\content\\post\\metaverse-meta-horizons.md",
               "RelativeDocumentMoniker": "website\\src\\content\\post\\metaverse-meta-horizons.md",
@@ -68,8 +101,7 @@
               "RelativeToolTip": "website\\src\\content\\post\\metaverse-meta-horizons.md",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-03-02T08:13:30.709Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-02T08:13:30.709Z"
             }
           ]
         }
