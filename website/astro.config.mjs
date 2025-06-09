@@ -53,11 +53,14 @@ export default defineConfig({
       },
     }),
 
-    ...whenExternalScripts(() =>
-      partytown({
-        config: { forward: ['dataLayer.push'] },
-      })
-    ),
+    // ...whenExternalScripts(() =>
+    //   partytown({
+    //     config: { forward: ['dataLayer.push'] },
+    //   })
+    // ),
+    partytown({
+      config: { forward: ['dataLayer.push'] },
+    }),
 
     compress({
       CSS: true,
