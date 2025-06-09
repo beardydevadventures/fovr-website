@@ -11,7 +11,7 @@ metadata:
   title:
     default: FoVR Interactive
     template: '%s — FoVR Interactive'
-  description: "Exploring XR, spatial computing, and creativity, one project at a time."
+  description: "FoVR Interactive explores the future of XR through immersive experiences, creative spatial design, and real-time interaction."
   robots:
     index: true
     follow: true
@@ -67,6 +67,7 @@ analytics:
   vendors:
     googleAnalytics:
       id: G-98P7QGPW01
+      partytown: true
 
 ui:
   theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"

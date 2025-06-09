@@ -9,7 +9,6 @@ import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import compress from '@playform/compress';
-
 import astrowind from './vendor/integration';
 
 import {
