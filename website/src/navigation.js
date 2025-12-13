@@ -7,25 +7,8 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
-      text: 'Portfolio',
-      links: [
-        {
-          text: 'Forge Of Elements',
-          href: '/projects/forge-of-elements'
-        },
-        { 
-          text: 'Streaming Space', 
-          href: '/projects/streaming-space' 
-        },  
-        { 
-          text: 'Smash Room', 
-          href: '/projects/smash-room' 
-        },
-        { 
-          text: 'Valve Tutorial', 
-          href: '/projects/valve-tutorial' 
-        },
-      ],
+      text: 'Projects',
+      href: '/projects',
     },
     {
       text: 'About',
@@ -56,10 +39,7 @@ export const footerData = {
     {
       title: 'Portfolio',
       links: [
-        { text: 'Forge Of Elements', href: '/projects/forge-of-elements' },
-        { text: 'Streaming Space', href: '/projects/streaming-space' },
-        { text: 'Smash Room', href: '/projects/smash-room' },
-        { text: 'Valve Tutorial', href: '/projects/valve-tutorial' },
+        { text: 'All Projects', href: '/projects' },
       ],
     },
     {

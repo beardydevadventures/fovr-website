@@ -3,19 +3,24 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Features from '~/components/widgets/Features.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import Features3 from '~/components/widgets/Features3.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
-import Brands from '~/components/widgets/Brands.astro';
+import Image from '~/components/common/Image.astro';
+import { getCollection } from 'astro:content';
 
 import { YouTube } from 'astro-embed';
 
 const metadata = {
   title: 'Home',
 };
+
+const projectEntries = await getCollection('projects');
+const highlightedProjects = projectEntries
+  .map(({ slug, data }) => ({ slug, ...data }))
+  .filter((project) => project.highlight !== false)
+  .slice(0, 3);
 ---
 
 <Layout metadata={metadata}>
@@ -223,77 +228,86 @@ const metadata = {
     ]}
   />
 
-  <Content
-    id="projects"
-    title="Our Latest Projects"
-    subtitle="Explore our latest projects and see what we’ve been working on."
-    isReversed
-    items={[
-      {
-        title: 'Description:',
-        description:
-          'Forge of Elements is a VR adventure puzzle game where players combine elemental forces to unlock new creations and shape immersive worlds through a carefully crafted progression system.',
-      },
-      {
-        title: 'Role:',
-        description:
-          'Led end-to-end development of Forge of Elements, from initial concept through design and implementation. Designed core mechanics, implemented structured elemental interactions, and crafted the narrative progression. Oversaw world-building, puzzle logic, and playtesting to ensure a rewarding and polished VR experience.',
-      },
-    ]}
-    image={{
-      src: '~/assets/images/foe/forge-of-elements-logo.png',
-      alt: 'Forge of Elements VR Experience',
-    }}
-    callToAction={{
-      text: 'Play on Meta Quest',
-      icon: 'tabler:brand-meta',
-      href: 'https://www.meta.com/en-gb/experiences/forge-of-elements/7956388831140201/',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        VR Experience: <br /><span class="text-2xl">Forge of Elements</span>
-      </h3>
-    </Fragment>
+  <section id="projects" class="relative py-16 sm:py-20">
+    <div class="absolute inset-0 bg-blue-50/60 blur-3xl opacity-40 pointer-events-none dark:bg-slate-900/40"></div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <p class="text-sm font-semibold uppercase tracking-wide text-primary">Projects</p>
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Our latest work</h2>
+        <p class="mt-3 text-muted dark:text-slate-300">
+          A quick look at the VR and XR experiences we are building. Jump into a case study or launch the live builds.
+        </p>
+      </div>
 
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {highlightedProjects.map((project) => (
+          <article class="group relative overflow-hidden rounded-2xl border border-slate-100/80 bg-white/90 shadow-lg shadow-primary/5 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 dark:border-slate-700/70 dark:bg-slate-900/70">
+            <a class="absolute inset-0 z-0" href={`/projects/${project.slug}`} aria-label={`Open ${project.title}`} />
+            <div class="relative z-10 aspect-[4/3] overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 dark:from-slate-800 dark:via-slate-900 dark:to-slate-950">
+              <Image
+                class="h-full w-full object-contain p-6 transition duration-500 group-hover:scale-[1.02]"
+                src={project.cover.src}
+                alt={project.cover.alt}
+                width={960}
+                height={720}
+                loading="lazy"
+              />
+            </div>
+            <div class="relative z-10 p-5 md:p-6">
+              <div class="mb-2 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
+                <span>{project.category ?? 'XR Project'}</span>
+                {project.status && <span class="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] text-primary">{project.status}</span>}
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 transition-colors group-hover:text-primary dark:text-white">
+                <a class="hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-900" href={`/projects/${project.slug}`}>
+                  {project.title}
+                </a>
+              </h3>
+              {project.tagline && <p class="mt-1 text-sm text-primary dark:text-blue-200">{project.tagline}</p>}
+              <p class="mt-3 text-muted dark:text-slate-300">{project.excerpt}</p>
+              {project.tags?.length ? (
+                <div class="mt-4 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-200">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              ) : (
+                ''
+              )}
 
-   <Content
-    isAfterContent={true}
-    items={[
-        {
-          title: 'Description:',
-          description:
-            'Developed an immersive VR experience called "Smash Room," designed to provide users with a cathartic outlet for stress relief through virtual destruction.',
-        },
-        {
-          title: 'Role:',
-          description: `Led the project from concept to completion, overseeing the development of interactive elements and realistic physics. Collaborated with 3D artists to create detailed environments and objects, ensuring a highly immersive and engaging user experience.`,
-        },
-      ]}
-      image={{
-        src: '~/assets/images/smash-room.png',
-        alt: 'Smash Room VR Experience',
-      }}
-      callToAction={{
-        text: 'Play on Meta Quest',
-        icon: 'tabler:brand-meta',
-        href: 'https://www.meta.com/en-gb/experiences/smash-room/5525534314159952/',
-      }}
-    >
-      <Fragment slot="content">
-        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-          VR Experience: <br /><span class="text-2xl">Smash Room</span>
-        </h3>
-      </Fragment>
-
-      <Fragment slot="bg">
-        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-      </Fragment>
-    </Content>
+              <div class="mt-5 flex flex-wrap items-center gap-3">
+                <a
+                  class="inline-flex items-center gap-1 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  href={`/projects/${project.slug}`}
+                >
+                  View project <span aria-hidden="true" class="ml-1">→</span>
+                </a>
+                {project.links?.[0] && (
+                  <a
+                    class="inline-flex items-center gap-1 text-sm font-semibold text-slate-700 underline underline-offset-4 transition hover:text-primary dark:text-slate-200 dark:hover:text-primary"
+                    href={project.links[0].href}
+                    {...project.links[0].external ? { target: '_blank', rel: 'noreferrer' } : {}}
+                  >
+                    {project.links[0].label}
+                  </a>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div class="mt-10 text-center">
+        <a
+          class="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          href="/projects"
+        >
+          View all projects
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- Features2 Widget ************** -->
 
