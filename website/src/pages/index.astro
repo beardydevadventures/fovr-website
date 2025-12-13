@@ -28,6 +28,158 @@ const metadata = {
       { text: 'Learn more', href: '#projects' },
     ]}
   >
+    <Fragment slot="background">
+      <div class="hero3d-bg absolute inset-0">
+        <div class="hero3d-grad hero3d-grad-1"></div>
+        <div class="hero3d-grad hero3d-grad-2"></div>
+        <div class="hero3d-grid">
+          <div class="hero3d-plane hero3d-plane--back"></div>
+          <div class="hero3d-plane hero3d-plane--front"></div>
+          <div class="hero3d-dots"></div>
+        </div>
+      </div>
+      <style is:inline>
+        .hero3d-bg {
+          position: absolute;
+          inset: -140px 0 0 0;
+          overflow: hidden;
+          perspective: 1400px;
+          background: radial-gradient(closest-side at 18% 20%, rgba(94, 234, 212, 0.25), transparent 55%),
+            radial-gradient(closest-side at 82% 70%, rgba(59, 130, 246, 0.16), transparent 60%);
+          filter: saturate(1.1);
+        }
+
+        .hero3d-grid {
+          position: absolute;
+          inset: -12%;
+          transform-style: preserve-3d;
+        }
+
+        .hero3d-grad {
+          position: absolute;
+          width: 70vmax;
+          height: 70vmax;
+          border-radius: 50%;
+          opacity: 0.55;
+          filter: blur(72px);
+          transform-origin: center;
+        }
+
+        .hero3d-grad-1 {
+          background: radial-gradient(circle at 30% 35%, rgba(14, 165, 233, 0.6), rgba(59, 130, 246, 0.12));
+          animation: hero3dDriftA 18s ease-in-out infinite alternate;
+        }
+
+        .hero3d-grad-2 {
+          background: radial-gradient(circle at 65% 55%, rgba(236, 72, 153, 0.45), rgba(45, 212, 191, 0.08));
+          animation: hero3dDriftB 22s ease-in-out infinite alternate;
+        }
+
+        .hero3d-plane {
+          position: absolute;
+          inset: 14% 12%;
+          background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0)),
+            repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0 1px, transparent 1px 22px),
+            repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.16) 0 1px, transparent 1px 22px);
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          box-shadow:
+            0 40px 140px rgba(59, 130, 246, 0.28),
+            inset 0 0 40px rgba(255, 255, 255, 0.1);
+          transform-style: preserve-3d;
+          transform: translateZ(-160px) rotateX(68deg) rotateZ(-18deg);
+          transform-origin: center;
+          mask-image: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.95) 55%, transparent 82%);
+          -webkit-mask-image: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.95) 55%, transparent 82%);
+          opacity: 0.82;
+          mix-blend-mode: screen;
+        }
+
+        .hero3d-plane--front {
+          inset: 10% 20%;
+          opacity: 0.7;
+          transform: translateZ(-80px) rotateX(70deg) rotateZ(-12deg);
+          animation: hero3dFloat 13s ease-in-out infinite alternate;
+        }
+
+        .hero3d-plane--back {
+          animation: hero3dFloat 19s ease-in-out infinite alternate-reverse;
+        }
+
+        .hero3d-dots {
+          position: absolute;
+          inset: 6% 10%;
+          background-size: 120px 120px, 160px 160px;
+          background-image:
+            radial-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 1px),
+            radial-gradient(rgba(59, 130, 246, 0.14) 1px, transparent 1px);
+          mask-image: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.9) 50%, transparent 85%);
+          -webkit-mask-image: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.9) 50%, transparent 85%);
+          transform: translateZ(-240px);
+          animation: hero3dDriftDots 26s ease-in-out infinite alternate;
+          opacity: 0.7;
+        }
+
+        @keyframes hero3dDriftA {
+          from {
+            transform: translate3d(-6%, -8%, 0) scale(1);
+          }
+          to {
+            transform: translate3d(8%, 10%, 0) scale(1.08);
+          }
+        }
+
+        @keyframes hero3dDriftB {
+          from {
+            transform: translate3d(6%, -4%, 0) scale(1.05);
+          }
+          to {
+            transform: translate3d(-4%, 12%, 0) scale(1.12);
+          }
+        }
+
+        @keyframes hero3dFloat {
+          from {
+            transform: translateZ(-140px) rotateX(66deg) rotateZ(-16deg) translateY(-12px);
+          }
+          to {
+            transform: translateZ(-90px) rotateX(72deg) rotateZ(-20deg) translateY(18px);
+          }
+        }
+
+        @keyframes hero3dDriftDots {
+          from {
+            transform: translateZ(-240px) translate3d(0, -10px, 0);
+          }
+          to {
+            transform: translateZ(-200px) translate3d(0, 14px, 0);
+          }
+        }
+
+        @media (max-width: 640px) {
+          .hero3d-bg {
+            inset: -100px 0 0 0;
+          }
+
+          .hero3d-plane {
+            inset: 20% 6%;
+          }
+
+          .hero3d-plane--front {
+            inset: 14% 12%;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .hero3d-grad,
+          .hero3d-plane,
+          .hero3d-dots {
+            animation: none !important;
+          }
+        }
+      </style>
+    </Fragment>
+
     <Fragment slot="title">
       Exploring XR, spatial computing, and creativity, one project at a time.
     </Fragment>
