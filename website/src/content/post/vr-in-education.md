@@ -1,7 +1,7 @@
 ---
 title: Virtual Reality in Education - Shaping the Campuses of the Future
 publishDate: 2024-06-18T00:00:00Z
-image: ~/assets/images/posts/education-vr.png
+image: ../../assets/images/posts/education-vr.png
 img_alt: A classroom showcasing virtual reality used by students
 description: |
   Virtual Reality (VR) is transforming educational landscapes, creating immersive and interactive learning environments that enhance student engagement and retention. Discover how VR is shaping the campuses of the future and preparing students for a technologically advanced world.

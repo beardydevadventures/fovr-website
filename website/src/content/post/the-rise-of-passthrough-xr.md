@@ -1,7 +1,7 @@
 ---
 title: "The Rise of Passthrough XR: Bridging Digital and Physical Realities in 2025"
 publishDate: 2025-06-09T00:00:00Z
-image: ~/assets/images/posts/passthrough-xr.png
+image: ../../assets/images/posts/passthrough-xr.png
 img_alt: A user wearing a mixed reality headset viewing digital overlays in a real-world room
 description: |
   Passthrough XR is changing how we interact with technology by blending digital content into the physical world. Explore how this emerging tech is unlocking immersive, context-aware experiences in 2025.

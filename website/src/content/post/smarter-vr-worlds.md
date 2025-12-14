@@ -1,7 +1,7 @@
 ---
 title: Smarter Worlds - How AI Is Changing the Way We Build VR Experiences
 publishDate: 2025-05-12T00:00:00Z
-image: ~/assets/images/posts/smarter-worlds-ai-vr.png
+image: ../../assets/images/posts/smarter-worlds-ai-vr.png
 img_alt: A VR environment where AI-driven NPCs interact with the player dynamically
 description: |
   As AI tools become more powerful, they’re opening up new possibilities for immersive and responsive VR worlds. Here’s how intelligent systems are changing the game for indie developers and creators alike.

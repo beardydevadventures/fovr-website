@@ -6,7 +6,7 @@ category: VR Experience
 status: Live on Meta
 highlight: true
 cover:
-  src: '~/assets/images/foe/forge-of-elements-logo.png'
+  src: '@/assets/images/foe/forge-of-elements-logo.png'
   alt: Forge of Elements logo
 tags:
   - VR

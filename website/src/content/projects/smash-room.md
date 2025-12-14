@@ -6,7 +6,7 @@ category: VR Experience
 status: "Live on Meta & Steam"
 highlight: true
 cover:
-  src: '~/assets/images/smash-room.png'
+  src: '@/assets/images/smash-room.png'
   alt: Smash Room key art
 tags:
   - VR

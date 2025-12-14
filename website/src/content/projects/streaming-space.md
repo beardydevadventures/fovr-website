@@ -6,7 +6,7 @@ category: XR Tooling
 status: In development
 highlight: true
 cover:
-  src: '~/assets/images/stream-space.png'
+  src: '@/assets/images/stream-space.png'
   alt: Streaming Space key art
 tags:
   - XR

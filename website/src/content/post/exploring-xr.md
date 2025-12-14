@@ -1,7 +1,7 @@
 ---
 title: Exploring XR - Unveiling the Components and Experiences of Extended Reality
 publishDate: 2024-08-07T00:00:00Z
-image: ~/assets/images/posts/xr-breakdown.png
+image: ../../assets/images/posts/xr-breakdown.png
 img_alt: A person sitting at a desk interacting in VR
 description: |
   Discover how Extended Reality (XR)—encompassing Virtual Reality (VR), Augmented Reality (AR), and Mixed Reality (MR)—is transforming industries like entertainment, education, healthcare, and retail.

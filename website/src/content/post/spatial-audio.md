@@ -1,7 +1,7 @@
 ---
 title: The Power of Spatial Audio in XR Experience
 publishDate: 2025-02-11T00:00:00Z
-image: ~/assets/images/posts/spatial-audio.png
+image: ../../assets/images/posts/spatial-audio.png
 img_alt: A VR environment with 3D spatial audio visualization
 description: |
   Spatial audio enhances immersion and realism in XR experiences by simulating sound directionality and distance. Discover how it transforms virtual environments and improves user interaction.

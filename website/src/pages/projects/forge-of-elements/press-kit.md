@@ -1,6 +1,6 @@
 ---
 title: 'Forge of Elements – Press Kit'
-layout: '~/layouts/MarkdownLayout.astro'
+layout: '@/layouts/MarkdownLayout.astro'
 ---
 
 Welcome to the official press kit for **Forge of Elements**, a VR puzzle-builder by **FoVR Interactive**.  

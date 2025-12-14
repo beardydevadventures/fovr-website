@@ -1,12 +1,12 @@
 ---
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Content from '~/components/widgets/Content.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
-import Layout from '~/layouts/PageLayout.astro';
+import CallToAction from '@/components/widgets/CallToAction.astro';
+import Content from '@/components/widgets/Content.astro';
+import Features2 from '@/components/widgets/Features2.astro';
+import Features3 from '@/components/widgets/Features3.astro';
+import Hero from '@/components/widgets/Hero.astro';
+import Stats from '@/components/widgets/Stats.astro';
+import Steps2 from '@/components/widgets/Steps2.astro';
+import Layout from '@/layouts/PageLayout.astro';
 
 const metadata = {
   title: 'About Us',
@@ -19,7 +19,7 @@ const metadata = {
   <Hero
     tagline="About FoVR Interactive"
     image={{
-      src: '~/assets/images/matt-in-headset.png',
+      src: '@/assets/images/matt-in-headset.png',
       alt: 'Matthew wearing a VR headset in front of a greenscreen.',
     }}
   >
@@ -109,7 +109,7 @@ const metadata = {
       },
     ]}
     image={{
-      src: '~/assets/images/meta-quest-pro-headset.png',
+      src: '@/assets/images/meta-quest-pro-headset.png',
       alt: 'Meta Quest Pro headset sitting on wooden stool.',
     }}
   />
@@ -147,7 +147,7 @@ const metadata = {
       },
     ]}
     image={{
-      src: '~/assets/images/matthew-aisthorpe.png',
+      src: '@/assets/images/matthew-aisthorpe.png',
       alt: 'Avatar image of Matthew Aisthorpe',
       loading: 'eager',
     }}

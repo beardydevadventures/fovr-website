@@ -1,7 +1,7 @@
 ---
 title: "Designing for the Real World: What Makes AR Different from VR"
 publishDate: 2025-07-23T00:00:00Z
-image: ~/assets/images/posts/ar-vs-vr.png
+image: ../../assets/images/posts/ar-vs-vr.png
 img_alt: A person using augmented reality to interact with digital objects in their living room
 description: |
   Augmented Reality isn’t just VR with a see-through background. Learn how designing for AR brings unique challenges, from lighting and occlusion to spatial UX, and how FoVR approaches mixed-reality game mechanics.

@@ -1,25 +1,25 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
+import Layout from '@/layouts/PageLayout.astro';
 
-import Header from '~/components/widgets/Header.astro';
+import Header from '@/components/widgets/Header.astro';
 
-import Hero2 from '~/components/widgets/Hero2.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Content from '~/components/widgets/Content.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
+import Hero2 from '@/components/widgets/Hero2.astro';
+import CallToAction from '@/components/widgets/CallToAction.astro';
+import Steps from '@/components/widgets/Steps.astro';
+import Features3 from '@/components/widgets/Features3.astro';
+import Content from '@/components/widgets/Content.astro';
+import Testimonials from '@/components/widgets/Testimonials.astro';
+import FAQs from '@/components/widgets/FAQs.astro';
+import Stats from '@/components/widgets/Stats.astro';
 
-import Button from '~/components/ui/Button.astro';
-import Image from '~/components/common/Image.astro';
+import Button from '@/components/ui/Button.astro';
+import Image from '@/components/common/Image.astro';
 import { YouTube } from 'astro-embed';
 
-const appStoreImg = '~/assets/images/app-store.png';
+const appStoreImg = '@/assets/images/app-store.png';
 const appLabDownloadLink = 'https://www.oculus.com/deeplink/?action=view&path=/app/5525534314159952';
 
-const googlePlayImg = '~/assets/images/google-play.png';
+const googlePlayImg = '@/assets/images/google-play.png';
 const steamDownloadLink = 'https://store.steampowered.com/app/2370100/Smash_Room/';
 
 const metadata = {
@@ -32,7 +32,7 @@ const metadata = {
   <Hero2
     tagline="Portfolio Project"
     image={{
-      src: '~/assets/images/smash-room.png',
+      src: '@/assets/images/smash-room.png',
       alt: 'Smash Room Logo',
     }}
   >
@@ -124,7 +124,7 @@ const metadata = {
       },
     ]}
     image={{
-      src: '~/assets/images/smash-room-vert.png',
+      src: '@/assets/images/smash-room-vert.png',
       alt: 'Steps image',
     }}
   />
@@ -169,7 +169,7 @@ const metadata = {
       },
     ]}
     image={{
-      src: '~/assets/images/smash-room-rni.png',
+      src: '@/assets/images/smash-room-rni.png',
       alt: 'Vintage Image',
     }}
   >

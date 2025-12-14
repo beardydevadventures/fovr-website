@@ -1,7 +1,7 @@
 ---
 title: Exploring Diegetic UI in XR Experiences
 publishDate: 2025-01-13T00:00:00Z
-image: ~/assets/images/posts/diagetic-ui.png
+image: ../../assets/images/posts/diagetic-ui.png
 img_alt: A hand in VR showing the users health
 description: |
   Diegetic user interfaces (UIs) integrate seamlessly into XR environments, enhancing immersion, usability, and storytelling. Discover how they are shaping the future of interaction in virtual and augmented realities.

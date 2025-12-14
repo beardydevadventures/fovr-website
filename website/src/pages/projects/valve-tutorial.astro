@@ -1,19 +1,19 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
+import Layout from '@/layouts/PageLayout.astro';
 
-import Header from '~/components/widgets/Header.astro';
+import Header from '@/components/widgets/Header.astro';
 
-import Hero2 from '~/components/widgets/Hero2.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Content from '~/components/widgets/Content.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
+import Hero2 from '@/components/widgets/Hero2.astro';
+import CallToAction from '@/components/widgets/CallToAction.astro';
+import Steps from '@/components/widgets/Steps.astro';
+import Features3 from '@/components/widgets/Features3.astro';
+import Content from '@/components/widgets/Content.astro';
+import Testimonials from '@/components/widgets/Testimonials.astro';
+import FAQs from '@/components/widgets/FAQs.astro';
+import Stats from '@/components/widgets/Stats.astro';
 
-import Button from '~/components/ui/Button.astro';
-import Image from '~/components/common/Image.astro';
+import Button from '@/components/ui/Button.astro';
+import Image from '@/components/common/Image.astro';
 import { YouTube } from 'astro-embed';
 
 const appLabDownloadLink = 'https://www.oculus.com/deeplink/?action=view&path=/app/8298310513542583';
@@ -28,7 +28,7 @@ const metadata = {
   <Hero2
     tagline="Portfolio Project"
     image={{
-      src: '~/assets/images/valve-tutorial.png',  // Replace with actual image URL
+      src: '@/assets/images/valve-tutorial.png',  // Replace with actual image URL
       alt: 'Valve Tutorial Logo',
     }}
   >
@@ -113,7 +113,7 @@ const metadata = {
       },
     ]}
     image={{
-      src: '~/assets/images/valve-tute-vert.png',
+      src: '@/assets/images/valve-tute-vert.png',
       alt: 'Steps image',
     }}
   />
@@ -155,7 +155,7 @@ const metadata = {
       },
     ]}
     image={{
-      src: '~/assets/images/valve-tute-rni.png',
+      src: '@/assets/images/valve-tute-rni.png',
       alt: 'Overlooking a bench with valve parts.',
     }}
   >

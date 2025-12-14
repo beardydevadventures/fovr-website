@@ -1,7 +1,7 @@
 ---
 title: Bridging Realities - How Meta Horizons Advances the Metaverse Concept
 publishDate: 2025-03-05T00:00:00Z
-image: ~/assets/images/posts/meta-horizons.png
+image: ../../assets/images/posts/meta-horizons.png
 img_alt: A virtual environment in Meta Horizons with avatars interacting
 description: |
   Meta Horizons is bridging the gap between virtual and real worlds, allowing users to create, explore, and connect through VR, browsers, and mobile. Learn how this platform fosters inclusivity and accessibility in the metaverse.

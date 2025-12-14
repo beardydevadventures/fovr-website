@@ -10,6 +10,7 @@ import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import compress from '@playform/compress';
 import astrowind from './vendor/integration';
+import path from "node:path";
 
 import {
   readingTimeRemarkPlugin,
@@ -93,7 +94,7 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        '~': path.resolve(__dirname, './src'),
+        "@": path.resolve("./src"),
       },
     },
   },

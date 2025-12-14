@@ -1,7 +1,7 @@
 ---
 title: Exploring Spatial Design - Why VR Streaming Spaces Could Be the Future of Content Creation
 publishDate: 2025-04-13T00:00:00Z
-image: ~/assets/images/posts/exploring-spatial-design.png
+image: ../../assets/images/posts/exploring-spatial-design.png
 img_alt: A virtual streaming room with fixed camera angles and lighting in VR
 description: |
   Discover how spatial design in VR is reshaping content creation. From custom streaming rooms to immersive environments, here's why the future of online video might be built inside virtual worlds.

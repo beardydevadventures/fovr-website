@@ -6,7 +6,7 @@ category: Training
 status: Prototype
 highlight: false
 cover:
-  src: '~/assets/images/valve-tutorial.png'
+  src: '@/assets/images/valve-tutorial.png'
   alt: Valve Tutorial preview
 tags:
   - VR
