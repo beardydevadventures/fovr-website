@@ -13,7 +13,8 @@ tags:
   - Training
   - Simulation
 links:
-  - label: Project page
-    href: /projects/valve-tutorial
-    icon: tabler:external-link
+  - label: Meta Quest
+    href: https://www.meta.com/en-gb/experiences/valve-tutorial/8298310513542583
+    icon: tabler:brand-meta
+    external: true
 ---

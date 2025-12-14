@@ -1,40 +1,232 @@
 ---
-import FormContainer from '~/components/ui/Form.astro';
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import type { Contact as Props } from '~/types';
+import Button from '~/components/ui/Button.astro';
+import { Icon } from 'astro-icon/components';
 
 const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline = await Astro.slots.render('tagline'),
-  inputs,
-  textarea,
-  disclaimer,
-  button,
   description,
+  formAction = 'https://formspree.io/f/xnneraoa',
+  successTitle = 'Thank you!',
+  successBody = 'We have your message and will get back to you soon.',
 
   id,
   isDark = false,
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
+
+const formId = id ? `${id}-form` : 'contact-form';
+const successId = `${formId}-success`;
+const resolvedFormAction = formAction ?? '';
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
 
-  {/*
-    inputs && (
-      <div class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full">
-        <FormContainer
-          inputs={inputs}
-          textarea={textarea}
-          disclaimer={disclaimer}
-          button={button}
-          description={description}
-        />
+  <div class="grid gap-8 lg:grid-cols-3">
+    <div class="rounded-3xl border border-slate-200 bg-white/70 p-6 shadow-lg backdrop-blur dark:border-slate-700 dark:bg-slate-900/70">
+      <p class="text-sm font-semibold uppercase tracking-wide text-primary">Talk to a human</p>
+      <h3 class="mt-2 text-xl font-semibold text-heading">We read every message</h3>
+      <p class="mt-3 text-muted">
+        Tell us about your project, ask a question, or just say hello. We typically respond within one business day.
+      </p>
+
+      <dl class="mt-6 space-y-4">
+        <div class="flex items-start gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary dark:bg-primary/20">
+            <Icon name="tabler:mail" class="h-5 w-5" />
+          </div>
+          <div>
+            <dt class="text-sm font-semibold text-heading">Email</dt>
+            <dd class="text-sm text-muted">
+              <a class="hover:text-primary" href="mailto:contact@fovrinteractive.net">contact@fovrinteractive.net</a>
+            </dd>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary dark:bg-primary/20">
+            <Icon name="tabler:clock" class="h-5 w-5" />
+          </div>
+          <div>
+            <dt class="text-sm font-semibold text-heading">Response window</dt>
+            <dd class="text-sm text-muted">Mon-Fri, 9am-6pm AEST</dd>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary dark:bg-primary/20">
+            <Icon name="tabler:map-pin" class="h-5 w-5" />
+          </div>
+          <div>
+            <dt class="text-sm font-semibold text-heading">Location</dt>
+            <dd class="text-sm text-muted">Brisbane, QLD</dd>
+          </div>
+        </div>
+      </dl>
+
+      {description && <p class="mt-6 text-sm text-muted">{description}</p>}
+    </div>
+
+    <div class="lg:col-span-2">
+      <form
+        id={formId}
+        data-form-action={resolvedFormAction}
+        data-success-id={successId}
+        method="POST"
+        class="space-y-4 rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-2xl backdrop-blur dark:border-slate-700 dark:bg-slate-900/80"
+      >
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="space-y-2 text-sm font-medium text-heading">
+            Full name
+            <input
+              type="text"
+              name="name"
+              required
+              autocomplete="name"
+              class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-default shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30 dark:border-slate-700 dark:bg-slate-900"
+              placeholder="Alex Doe"
+            />
+          </label>
+          <label class="space-y-2 text-sm font-medium text-heading">
+            Work email
+            <input
+              type="email"
+              name="email"
+              required
+              autocomplete="email"
+              class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-default shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30 dark:border-slate-700 dark:bg-slate-900"
+              placeholder="you@company.com"
+            />
+          </label>
+          <label class="space-y-2 text-sm font-medium text-heading">
+            Company (optional)
+            <input
+              type="text"
+              name="company"
+              autocomplete="organization"
+              class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-default shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30 dark:border-slate-700 dark:bg-slate-900"
+              placeholder="FoVR Interactive"
+            />
+          </label>
+          <label class="space-y-2 text-sm font-medium text-heading">
+            Topic
+            <select
+              name="topic"
+              class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-default shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30 dark:border-slate-700 dark:bg-slate-900"
+            >
+              <option>Project inquiry</option>
+              <option>Project feedback</option>
+              <option>Support</option>
+              <option>Partnerships</option>
+              <option>Press</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="space-y-2 text-sm font-medium text-heading">
+          How can we help?
+          <textarea
+            name="message"
+            required
+            rows="5"
+            class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-default shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30 dark:border-slate-700 dark:bg-slate-900"
+            placeholder="Share a bit about what you are looking for."
+          ></textarea>
+        </label>
+
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <p class="text-sm text-muted" data-status aria-live="polite"></p>
+          <Button type="submit" variant="primary" class="w-full sm:w-auto">
+            Send message
+          </Button>
+        </div>
+      </form>
+
+      <div
+        id={successId}
+        class="mt-4 hidden rounded-3xl border border-emerald-200 bg-emerald-50 px-6 py-5 text-emerald-900 shadow-lg dark:border-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-50"
+        aria-live="polite"
+      >
+        <div class="flex items-start gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/90 text-white">
+            <Icon name="tabler:circle-check" class="h-5 w-5" />
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold">{successTitle}</h3>
+            <p class="mt-1 text-sm text-emerald-900/90 dark:text-emerald-50/80">{successBody}</p>
+          </div>
+        </div>
       </div>
-    )
-  */}
+    </div>
+  </div>
 </WidgetWrapper>
+
+<script is:inline>
+  (() => {
+    function initContactForm() {
+      const form = document.querySelector('[data-form-action][data-success-id]');
+      if (!form) return;
+
+      const status = form.querySelector('[data-status]');
+      const success = document.getElementById(form.dataset.successId);
+      const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+      const formAction = form.dataset.formAction || '';
+
+      const setStatus = (text, tone = 'muted') => {
+        if (!status) return;
+        status.textContent = text;
+        status.classList.remove('text-emerald-600', 'text-red-600');
+        if (tone === 'success') status.classList.add('text-emerald-600');
+        if (tone === 'error') status.classList.add('text-red-600');
+      };
+
+      if (!formAction) {
+        setStatus('Contact form is not configured yet.', 'error');
+        submitButton?.setAttribute('disabled', 'true');
+        return;
+      }
+
+      if (form.dataset.ajaxBound === 'true') return;
+      form.dataset.ajaxBound = 'true';
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        setStatus('Sending...', 'muted');
+        success?.classList.add('hidden');
+        submitButton?.setAttribute('disabled', 'true');
+
+        try {
+          const response = await fetch(formAction, {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: new FormData(form),
+          });
+
+          if (response.ok) {
+            form.reset();
+            setStatus('Thanks for reaching out! We will reply shortly.', 'success');
+            success?.classList.remove('hidden');
+            return;
+          }
+
+          const data = await response.json().catch(() => null);
+          const errorMessage =
+            data?.errors?.[0]?.message || data?.error || 'Something went wrong. Please try again in a moment.';
+          throw new Error(errorMessage);
+        } catch (error) {
+          setStatus(error?.message || 'Something went wrong. Please try again in a moment.', 'error');
+        } finally {
+          submitButton?.removeAttribute('disabled');
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initContactForm);
+    document.addEventListener('astro:page-load', initContactForm);
+  })();
+</script>

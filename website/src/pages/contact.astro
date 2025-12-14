@@ -15,52 +15,14 @@ const metadata = {
 
   <HeroText tagline="Contact Us" title="Let's Connect!" />
 
-  <!--<ContactUs
-    id="form"
+  <ContactUs
+    id="contact"
     title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
-  />-->
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        target: '_blank',
-        text: 'Contact Us',
-        href: 'mailto:contact@fovrinteractive.net',
-        icon: 'tabler:mail',
-      },
-    ]}
-  >
-    <Fragment slot="title">Connect with Us</Fragment>
-
-    <Fragment slot="subtitle">
-      Contact us to explore exciting opportunities, provide feedback on our projects, and help shape the future of immersive experiences with FoVR Interactive.
-    </Fragment>
-  </CallToAction>
-
+    subtitle="Share a few details about what you need or the feedback you’d like to provide. We read every message and will be in touch shortly to discuss projects, opportunities, or next steps with FoVR Interactive."
+    description="We typically respond within one business day."
+    successTitle="Thanks for reaching out!"
+    successBody="We've received your message and will be in touch shortly."
+  />
 
   <!-- Features2 Widget ************** -->
 
