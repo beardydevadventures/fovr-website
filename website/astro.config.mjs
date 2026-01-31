@@ -1,4 +1,3 @@
-import path from 'path';
 import { fileURLToPath } from 'url';
 
 import { defineConfig, squooshImageService } from 'astro/config';
@@ -10,7 +9,7 @@ import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import compress from '@playform/compress';
 import astrowind from './vendor/integration';
-import path from "node:path";
+import path from 'node:path';
 
 import {
   readingTimeRemarkPlugin,
@@ -25,6 +24,7 @@ const whenExternalScripts = (items = []) =>
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
+  site: 'https://www.fovrinteractive.net',
   output: 'static',
 
   integrations: [
