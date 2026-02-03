@@ -29,6 +29,7 @@ const projects = defineCollection({
     category: z.string().optional(),
     status: z.string().optional(),
     highlight: z.boolean().optional(),
+    order: z.number().optional(),
     cover: z.object({
       src: z.string(),
       alt: z.string(),

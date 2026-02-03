@@ -1,10 +1,11 @@
 ---
 title: Valve Tutorial
-tagline: Hands-on VR training for industrial valve operation.
-excerpt: A guided VR learning module teaching safe valve operation with step-by-step tasks, visual prompts, and progressive difficulty.
-category: Training
-status: Prototype
-highlight: false
+tagline: Hands-on mixed reality learning for industrial valve operation.
+excerpt: A guided learning experience that lets users explore valve operation and assembly through step-by-step tasks and visual prompts, in a risk-free virtual environment.
+category: Immersive Learning
+status: Live on Meta Quest 
+highlight: true
+order: 1
 cover:
   src: '@/assets/images/valve-tutorial.jpg'
   alt: Valve Tutorial preview

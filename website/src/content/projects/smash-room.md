@@ -3,8 +3,9 @@ title: Smash Room
 tagline: Cathartic VR destruction with satisfying physics.
 excerpt: "Built for stress relief and fun: swing, smash, and demolish detailed environments with realistic physics and reactive feedback."
 category: VR Experience
-status: "Live on Meta & Steam"
+status: "Live on Meta Quest & Steam"
 highlight: true
+order: 3
 cover:
   src: '@/assets/images/smash-room.jpg'
   alt: Smash Room key art

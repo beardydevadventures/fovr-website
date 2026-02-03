@@ -6,10 +6,16 @@ import { Icon } from 'astro-icon/components';
 import { getCollection } from 'astro:content';
 
 const projectEntries = await getCollection('projects');
-const projects = projectEntries.map(({ slug, data }) => ({
-  slug,
-  ...data,
-}));
+const projects = projectEntries
+  .map(({ slug, data }) => ({
+    slug,
+    ...data,
+  }))
+  .sort((a, b) => {
+    const orderA = a.order ?? 999;
+    const orderB = b.order ?? 999;
+    return orderA - orderB || a.title.localeCompare(b.title);
+  });
 
 const metadata = {
   title: 'Projects',

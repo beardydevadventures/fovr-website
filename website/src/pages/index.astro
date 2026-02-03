@@ -20,6 +20,11 @@ const projectEntries = await getCollection('projects');
 const highlightedProjects = projectEntries
   .map(({ slug, data }) => ({ slug, ...data }))
   .filter((project) => project.highlight !== false)
+  .sort((a, b) => {
+    const orderA = a.order ?? 999;
+    const orderB = b.order ?? 999;
+    return orderA - orderB || a.title.localeCompare(b.title);
+  })
   .slice(0, 3);
 ---
 
