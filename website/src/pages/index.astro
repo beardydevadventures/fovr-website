@@ -248,7 +248,7 @@ const highlightedProjects = projectEntries
         {highlightedProjects.map((project) => (
           <article class="group relative overflow-hidden rounded-2xl border border-slate-100/80 bg-white/90 shadow-lg shadow-primary/5 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 dark:border-slate-700/70 dark:bg-slate-900/70">
             <a class="absolute inset-0 z-0" href={`/projects/${project.slug}`} aria-label={`Open ${project.title}`} />
-            <div class="relative z-10 aspect-[4/3] overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 dark:from-slate-800 dark:via-slate-900 dark:to-slate-950">
+            <div class="relative z-10 aspect-[4/3] overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-800 dark:via-slate-900 dark:to-slate-950">
               <Image
                 class="h-full w-full object-contain p-6 transition duration-500 group-hover:scale-[1.02]"
                 src={project.cover.src}
