@@ -7,7 +7,7 @@ status: Prototype
 highlight: false
 order: 12
 cover:
-  src: 'https://www.matthewaisthorpe.com.au/assets/projects/vinyl-collection-viewer.jpg'
+  src: '@/assets/images/vinyl-collection-viewer.jpg'
   alt: 3D vinyl collection laid out in front of the user.
 trailer:
   youtubeId: iH6pDGvQwvU
