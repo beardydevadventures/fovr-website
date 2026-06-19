@@ -60,4 +60,77 @@ import '@fontsource-variable/inter';
       color: snow;
     }
   }
+
+  /* FoVR custom sections use inline styles, so keep dark mode overrides global. */
+  .dark .fovr-chip,
+  .dark .portfolio-chip,
+  .dark .project-chip-row span {
+    color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .dark .project-showcase-card,
+  .dark .portfolio-card {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.86), rgba(2, 6, 23, 0.92));
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  }
+
+  .dark .project-media,
+  .dark .portfolio-media {
+    background:
+      radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.18), transparent 12rem),
+      radial-gradient(circle at 82% 18%, rgba(236, 72, 153, 0.14), transparent 12rem),
+      linear-gradient(135deg, #0f172a, #020617);
+  }
+
+  .dark .project-copy h3,
+  .dark .portfolio-content h2,
+  .dark .project-fact-card strong,
+  .dark .project-sidebar h2 {
+    color: white;
+  }
+
+  .dark .project-excerpt,
+  .dark .portfolio-excerpt {
+    color: #cbd5e1;
+  }
+
+  .dark .lab-board {
+    background:
+      radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.13), transparent 16rem),
+      rgba(15, 23, 42, 0.72);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .lab-board span,
+  .dark .portfolio-filter-row span {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+  }
+
+  .dark .portfolio-button-secondary {
+    color: #e2e8f0;
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .dark .project-fact-card,
+  .dark .project-sidebar,
+  .dark .project-content,
+  .dark .project-video-card {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.74);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+  }
+
+  .showcase-video lite-youtube,
+  .project-video-card lite-youtube {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 1.2rem;
+    overflow: hidden;
+  }
 </style>
