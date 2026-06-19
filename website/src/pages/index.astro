@@ -1,19 +1,13 @@
 ---
 import Layout from '@/layouts/PageLayout.astro';
-
-import Hero from '@/components/widgets/Hero.astro';
-import CallToAction from '@/components/widgets/CallToAction.astro';
-import Features2 from '@/components/widgets/Features2.astro';
-import Features from '@/components/widgets/Features.astro';
-import Stats from '@/components/widgets/Stats.astro';
-import FAQs from '@/components/widgets/FAQs.astro';
 import Image from '@/components/common/Image.astro';
 import { getCollection } from 'astro:content';
-
 import { YouTube } from 'astro-embed';
 
 const metadata = {
-  title: 'Home',
+  title: 'Indie XR Studio',
+  description:
+    'FoVR Interactive is an indie XR studio creating playful VR games, immersive learning experiences, and spatial prototypes for Meta Quest, SteamVR, and emerging XR platforms.',
 };
 
 const projectEntries = await getCollection('projects');
@@ -26,319 +20,550 @@ const highlightedProjects = projectEntries
     return orderA - orderB || a.title.localeCompare(b.title);
   })
   .slice(0, 3);
+
+const studioFocus = [
+  {
+    title: 'VR Games',
+    description: 'Playful, tactile VR experiences built around interaction feel, comfort, and satisfying moments.',
+  },
+  {
+    title: 'Immersive Learning',
+    description: 'Guided training prototypes and spatial workflows that help people understand by doing.',
+  },
+  {
+    title: 'Spatial Prototypes',
+    description: 'Fast XR experiments for Quest, WebXR, passthrough, hand tracking, and new interaction ideas.',
+  },
+  {
+    title: 'XR Consulting',
+    description: 'Practical support for shaping XR ideas into demos, prototypes, and production-ready experiences.',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
+  <section class="fovr-hero relative isolate overflow-hidden px-4 py-20 sm:px-6 lg:py-28">
+    <div class="hero-glow hero-glow-a" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
 
-  <!-- Hero Widget ******************* -->
-
-  <Hero
-    tagline="Immersive Worlds, Innovative Technology"
-    actions={[
-      { text: 'Learn more', href: '#projects' },
-    ]}
-  >
-    <Fragment slot="background">
-      <div class="hero3d-bg absolute inset-0">
-        <div class="hero3d-grad hero3d-grad-1"></div>
-        <div class="hero3d-grad hero3d-grad-2"></div>
-      </div>
-      <style is:inline>
-        .hero3d-bg {
-          position: absolute;
-          inset: -140px 0 0 0;
-          overflow: hidden;
-          perspective: 1400px;
-          background: radial-gradient(closest-side at 18% 20%, rgba(94, 234, 212, 0.25), transparent 55%),
-            radial-gradient(closest-side at 82% 70%, rgba(59, 130, 246, 0.16), transparent 60%);
-          filter: saturate(1.1);
-        }
-
-        .hero3d-grad {
-          position: absolute;
-          width: 70vmax;
-          height: 70vmax;
-          border-radius: 50%;
-          opacity: 0.55;
-          filter: blur(72px);
-          transform-origin: center;
-        }
-
-        .hero3d-grad-1 {
-          background: radial-gradient(circle at 30% 35%, rgba(14, 165, 233, 0.6), rgba(59, 130, 246, 0.12));
-          transform: translate3d(-2%, -4%, 0) scale(1.02);
-        }
-
-        .hero3d-grad-2 {
-          background: radial-gradient(circle at 65% 55%, rgba(236, 72, 153, 0.45), rgba(45, 212, 191, 0.08));
-          transform: translate3d(2%, 4%, 0) scale(1.06);
-        }
-
-        @media (max-width: 640px) {
-          .hero3d-bg {
-            inset: -100px 0 0 0;
-          }
-        }
-
-      </style>
-    </Fragment>
-
-    <Fragment slot="title">
-      Exploring XR, spatial computing, and creativity, one project at a time.
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      Join us on this exciting journey as we explore and build immersive VR experiences. At <span class='font-semibold'>FoVR Interactive</span>, it’s all about pushing the boundaries of creativity and innovation in XR to create something truly impactful.
-    </Fragment>
-
-    <Fragment slot="image">
-      <YouTube id="92JRz7ZpLtQ" title="Discover FoVR Interactive: Revolutionising VR Experiences" />
-      <style is:inline>
-        lite-youtube {
-          margin: 0 auto;
-          max-width: 100%;
-        }
-      </style>
-    </Fragment>
-  </Hero>
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="About FoVR Interactive"
-    subtitle="<b>FoVR Interactive</b>, is a one-person indie studio with a passion for crafting immersive XR experiences. Whether it's building captivating games, designing tools, or creating entirely new worlds, our goal is simple: to make experiences that feel magical, personal, and accessible."
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
-
-  <!-- Stats Widget ****************** -->
-
-<Stats
-    title="What Has Been Achieved So Far?"
-    subtitle="FoVR Interactive is growing, fueled by curiosity, caffeine, and creativity."
-    stats={[
-      { title: 'Experiences Created', amount: '3', source: 'Unique VR applications launched.'},
-      { title: 'App Downloads', amount: '1000+', source: 'across global platforms.'},
-      { title: 'Minutes Per Day', amount: '16', source: 'Average daily time spent per user.'},
-      { title: 'Caffeine Charged', amount: '95%', source: 'The other 5% is love.'},
-    ]}
-  />
-
-  <section id="projects" class="relative py-16 sm:py-20">
-    <div class="absolute inset-0 bg-blue-50/60 blur-3xl opacity-40 pointer-events-none dark:bg-slate-900/40"></div>
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-12">
-        <p class="text-sm font-semibold uppercase tracking-wide text-primary">Projects</p>
-        <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Our latest work</h2>
-        <p class="mt-3 text-muted dark:text-slate-300">
-          A quick look at the VR and XR experiences we are building. Jump into a case study or launch the live builds.
+    <div class="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.04fr_0.96fr]">
+      <div class="relative z-10">
+        <p class="kicker">Indie XR Studio · Brisbane</p>
+        <h1 class="mt-5 max-w-4xl text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
+          Playful VR, immersive learning and spatial prototypes.
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
+          FoVR Interactive creates hands-on XR experiences for Meta Quest, SteamVR and emerging spatial platforms. From shipped VR games to learning prototypes, the focus is simple: make interaction feel good.
         </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="fovr-button fovr-button-primary" href="#projects">View projects</a>
+          <a class="fovr-button fovr-button-secondary" href="https://www.meta.com/en-gb/experiences/forge-of-elements/7956388831140201/" target="_blank" rel="noreferrer">Play on Meta Quest</a>
+          <a class="fovr-button fovr-button-ghost" href="/contact">Start a conversation</a>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-2">
+          <span class="fovr-pill">Meta Quest</span>
+          <span class="fovr-pill">SteamVR</span>
+          <span class="fovr-pill">Unity</span>
+          <span class="fovr-pill">Training</span>
+          <span class="fovr-pill">Prototypes</span>
+        </div>
       </div>
 
-      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {highlightedProjects.map((project) => (
-          <article class="group relative overflow-hidden rounded-2xl border border-slate-100/80 bg-white/90 shadow-lg shadow-primary/5 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 dark:border-slate-700/70 dark:bg-slate-900/70">
-            <a class="absolute inset-0 z-0" href={`/projects/${project.slug}`} aria-label={`Open ${project.title}`} />
-            <div class="relative z-10 aspect-[4/3] overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-800 dark:via-slate-900 dark:to-slate-950">
-              <Image
-                class="h-full w-full object-contain p-6 transition duration-500 group-hover:scale-[1.02]"
-                src={project.cover.src}
-                alt={project.cover.alt}
-                width={960}
-                height={720}
-                loading="lazy"
-              />
+      <div class="relative z-10">
+        <div class="showcase-panel">
+          <div class="showcase-topline">
+            <span>Studio reel</span>
+            <span class="live-dot">Live builds</span>
+          </div>
+          <div class="showcase-video">
+            <YouTube id="92JRz7ZpLtQ" title="Discover FoVR Interactive: Revolutionising VR Experiences" />
+          </div>
+          <div class="showcase-footer">
+            <div>
+              <strong>3</strong>
+              <span>released experiences</span>
             </div>
-            <div class="relative z-10 p-5 md:p-6">
-              <div class="mb-2 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
-                <span>{project.category ?? 'XR Project'}</span>
-                {project.status && <span class="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] text-primary">{project.status}</span>}
-              </div>
-              <h3 class="text-xl font-bold text-slate-900 transition-colors group-hover:text-primary dark:text-white">
-                <a class="hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-900" href={`/projects/${project.slug}`}>
-                  {project.title}
-                </a>
-              </h3>
-              {project.tagline && <p class="mt-1 text-sm text-primary dark:text-blue-200">{project.tagline}</p>}
-              <p class="mt-3 text-muted dark:text-slate-300">{project.excerpt}</p>
-              {project.tags?.length ? (
-                <div class="mt-4 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-200">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              ) : (
-                ''
-              )}
-
-              <div class="mt-5 flex flex-wrap items-center gap-3">
-                <a
-                  class="inline-flex items-center gap-1 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                  href={`/projects/${project.slug}`}
-                >
-                  View project <span aria-hidden="true" class="ml-1">→</span>
-                </a>
-                {project.links?.[0] && (
-                  <a
-                    class="inline-flex items-center gap-1 text-sm font-semibold text-slate-700 underline underline-offset-4 transition hover:text-primary dark:text-slate-200 dark:hover:text-primary"
-                    href={project.links[0].href}
-                    {...project.links[0].external ? { target: '_blank', rel: 'noreferrer' } : {}}
-                  >
-                    {project.links[0].label}
-                  </a>
-                )}
-              </div>
+            <div>
+              <strong>1000+</strong>
+              <span>downloads</span>
             </div>
-          </article>
-        ))}
-      </div>
-      <div class="mt-10 text-center">
-        <a
-          class="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-          href="/projects"
-        >
-          View all projects
-        </a>
+            <div>
+              <strong>Quest</strong>
+              <span>primary platform</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Features2 Widget ************** -->
+  <section id="projects" class="relative px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-12 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="kicker">Featured projects</p>
+          <h2 class="mt-3 max-w-3xl text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+            Shipped XR work with a stronger product story.
+          </h2>
+          <p class="mt-4 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
+            A focused look at the VR games, training experiences and immersive prototypes currently representing FoVR Interactive.
+          </p>
+        </div>
+        <a class="fovr-button fovr-button-dark" href="/projects">View all projects</a>
+      </div>
 
-  <Features2
-    title="What We Create at FoVR Interactive"
-    subtitle="As a indie developer, we specialise in bringing imaginative VR ideas to life. From custom projects to creative solutions, every experience is crafted with care."
-    items={[
-      {
-        title: 'VR Development',
-        description:
-          'We create custom VR experiences that bring your ideas to life, from concept to execution, ensuring a highly engaging and immersive environment.',
-        icon: 'flat-color-icons:command-line',
-      },
-      {
-        title: 'Interactive Solutions',
-        description:
-          'Experience our VR solutions firsthand with interactive demos and previews that showcase the full potential of Immersive technology.',
-        icon: 'flat-color-icons:donate',
-      },
-      {
-        title: 'XR Consulting',
-        description:
-          'Want to learn more about extended reality? Our consultants offer strategic advice to help you fully leverage VR technology for your projects.',
-        icon: 'flat-color-icons:idea',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
+      <div class="project-showcase-grid">
+        {highlightedProjects.map((project, index) => (
+          <article class:list={['project-showcase-card group', index === 0 && 'project-showcase-card-large']}>
+            <a class="absolute inset-0 z-20" href={`/projects/${project.slug}`} aria-label={`Open ${project.title}`} />
+            <div class="project-media">
+              <Image
+                class="h-full w-full object-contain p-6 transition duration-700 group-hover:scale-[1.04]"
+                src={project.cover.src}
+                alt={project.cover.alt}
+                width={1280}
+                height={900}
+                loading={index === 0 ? 'eager' : 'lazy'}
+              />
+            </div>
+            <div class="project-copy">
+              <div class="mb-3 flex flex-wrap items-center gap-2">
+                <span class="project-label">{project.category ?? 'XR Project'}</span>
+                {project.status && <span class="project-status">{project.status}</span>}
+              </div>
+              <h3>{project.title}</h3>
+              {project.tagline && <p class="project-tagline">{project.tagline}</p>}
+              <p class="project-excerpt">{project.excerpt}</p>
+              {project.tags?.length ? (
+                <div class="mt-5 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => <span class="fovr-chip">{tag}</span>)}
+                </div>
+              ) : ''}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
 
-  <!-- Features Widget *************** -->
+  <section class="relative px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-6xl rounded-[2rem] border border-slate-200/70 bg-slate-950 p-6 shadow-2xl shadow-cyan-500/10 dark:border-white/10 sm:p-10">
+      <div class="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+        <div>
+          <p class="kicker">Studio focus</p>
+          <h2 class="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl">
+            Not just demos. Experiences people can actually try.
+          </h2>
+          <p class="mt-5 text-lg leading-8 text-slate-300">
+            FoVR is the polished side of the lab: shipped games, learning experiences, prototypes and the occasional idea that gets big enough to become a real product.
+          </p>
+        </div>
 
-  <Features
-    id="features"
-    title="Main Features of Our Immersive Solutions"
-    subtitle="Our VR solutions are designed to meet the needs of educational and entertainment industries, offering several key features that ensure success."
-    columns={3}
-    items={[
-      {
-        title: 'Immersive and Professional Design',
-        description:
-          'Our solutions feature cutting-edge design trends, providing a highly immersive and professional experience.',
-        icon: 'tabler:artboard',
-      },
-      {
-        title: 'Multi-Device Compatibility',
-        description: 'Our XR experiences adapt seamlessly across different platforms, ensuring a consistent and engaging experience.',
-        icon: 'tabler:picture-in-picture',
-      },
-      {
-        title: 'Customisability',
-        description:
-          'Highly customisable to match your experience, allowing adjustments in design, interactions, and content to fit your needs.',
-        icon: 'tabler:adjustments-horizontal',
-      },
-      {
-        title: 'Fast Performance',
-        description: 'Optimised for speed to ensure a smooth, uninterrupted immersive experience with minimal latency.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Interactivity',
-        description:
-          'Engage users with interactive elements that enhance the XR experience, making it more immersive and enjoyable.',
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Cross-Platform Compatibility',
-        description: 'Our solutions are compatible with various XR hardware and software platforms, ensuring broad accessibility.',
-        icon: 'tabler:plug-connected',
-      },
-    ]}
-  />
+        <div class="grid gap-4 sm:grid-cols-2">
+          {studioFocus.map((item) => (
+            <article class="focus-card">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- FAQs Widget ******************* -->
+  <section class="relative px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <div>
+        <p class="kicker">Labs and prototypes</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+          A place for the next weird spatial idea.
+        </h2>
+        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
+          Some builds are polished products. Others are experiments that test hand tracking, passthrough, spatial interfaces, AI-assisted workflows or browser-based XR. FoVR Labs gives those prototypes a proper home without mixing them into shipped releases.
+        </p>
+      </div>
+      <div class="lab-board">
+        <span>Mixed reality</span>
+        <span>Hand tracking</span>
+        <span>Passthrough</span>
+        <span>AI-assisted XR</span>
+        <span>WebXR</span>
+        <span>Training sims</span>
+        <span>Spatial UI</span>
+        <span>Quest prototypes</span>
+      </div>
+    </div>
+  </section>
 
-  <FAQs
-    title="Frequently Asked Questions"
-    items={[
-      {
-        title: 'What services does FoVR Interactive provide?',
-        description:
-          'FoVR Interactive specialises in creating immersive VR, AR, and XR experiences. Our services include custom VR development, interactive demos and previews, and XR consulting.',
-      },
-      {
-        title: 'Why should I choose immersive VR/AR/XR experiences?',
-        description:
-          'Immersive experiences provide unparalleled engagement and interactivity, making them ideal for training, marketing, education, and entertainment. They help create memorable and impactful experiences for users.',
-      },
-      {
-        title: 'Can I see a demo of your Immersive projects?',
-        description:
-          'Yes, we offer interactive demos and previews of our projects. You can experience the full potential of our technology and see how it can be tailored to your needs before implementation.',
-      },
-      {
-        title: 'Do I need special equipment to use your Immersive solutions?',
-        description:
-          'While some experiences may require specific hardware like VR headsets or AR-enabled devices, we design our solutions to be compatible with a wide range of equipment. We can guide you on the best setup for your needs.',
-      },
-      {
-        title: 'How customisable are your Immersive solutions?',
-        description:
-          'Our solutions are highly customisable. You can adjust the design, interactions, and content to match your brand identity and specific project requirements.',
-      },
-      {
-        title: 'What support do you offer for your Immersive solutions?',
-        description:
-          "We provide comprehensive support including step-by-step guides for customisation and a dedicated support team to assist with any technical issues or questions you may have.",
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </FAQs>
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Contact Us',
-        href: '/contact',
-      },
-    ]}
-  >
-    <Fragment slot="title">Let’s Collaborate or Chat</Fragment>
-
-    <Fragment slot="subtitle">
-      Have an idea? Want to know more about VR? Reach out. We would love to hear from you! Together, we can shape the future of immersive experiences.
-    </Fragment>
-  </CallToAction>
+  <section class="relative px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-slate-200/70 bg-white p-8 text-center shadow-2xl shadow-slate-200/70 dark:border-white/10 dark:bg-slate-900 dark:shadow-black/20 sm:p-12">
+      <p class="kicker">Work with FoVR</p>
+      <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+        Have an XR prototype, training idea or immersive product concept?
+      </h2>
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+        Let’s shape it into something people can understand, try and build on.
+      </p>
+      <div class="mt-8 flex justify-center">
+        <a class="fovr-button fovr-button-primary" href="/contact">Start a conversation</a>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<style is:inline>
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  .fovr-hero {
+    min-height: calc(100vh - 5rem);
+    background:
+      radial-gradient(circle at 18% 15%, rgba(34, 211, 238, 0.22), transparent 32rem),
+      radial-gradient(circle at 82% 12%, rgba(168, 85, 247, 0.22), transparent 34rem),
+      linear-gradient(135deg, #020617, #07111f 52%, #0f172a);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    background-size: 54px 54px;
+    mask-image: linear-gradient(to bottom, transparent, black 22%, black 72%, transparent);
+    opacity: 0.8;
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 32rem;
+    height: 32rem;
+    border-radius: 999px;
+    filter: blur(80px);
+    opacity: 0.35;
+  }
+
+  .hero-glow-a {
+    left: -12rem;
+    top: 12rem;
+    background: #22d3ee;
+  }
+
+  .hero-glow-b {
+    right: -12rem;
+    top: 4rem;
+    background: #ec4899;
+  }
+
+  .kicker {
+    margin: 0;
+    color: #22d3ee;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .fovr-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    border-radius: 999px;
+    padding: 0.8rem 1.15rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .fovr-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .fovr-button-primary {
+    color: #06111f;
+    background: linear-gradient(135deg, #22d3ee, #a78bfa 55%, #f472b6);
+    box-shadow: 0 18px 55px rgba(34, 211, 238, 0.26);
+  }
+
+  .fovr-button-secondary {
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+  }
+
+  .fovr-button-ghost {
+    color: #cbd5e1;
+    border: 1px solid rgba(148, 163, 184, 0.28);
+  }
+
+  .fovr-button-dark {
+    color: white;
+    background: #0f172a;
+  }
+
+  .fovr-pill,
+  .fovr-chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    border: 1px solid rgba(34, 211, 238, 0.28);
+    background: rgba(34, 211, 238, 0.08);
+    color: #bae6fd;
+    padding: 0.42rem 0.72rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .fovr-chip {
+    color: #0f172a;
+    background: rgba(15, 23, 42, 0.06);
+    border-color: rgba(15, 23, 42, 0.08);
+  }
+
+  :global(.dark) .fovr-chip {
+    color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .showcase-panel {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 2rem;
+    background: rgba(15, 23, 42, 0.72);
+    box-shadow: 0 34px 90px rgba(0, 0, 0, 0.42), 0 0 80px rgba(34, 211, 238, 0.14);
+    backdrop-filter: blur(22px);
+  }
+
+  .showcase-topline,
+  .showcase-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    color: #cbd5e1;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .live-dot {
+    color: #bef264;
+  }
+
+  .showcase-video {
+    padding: 0 1rem;
+  }
+
+  .showcase-video :global(lite-youtube) {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 1.25rem;
+    overflow: hidden;
+  }
+
+  .showcase-footer {
+    align-items: stretch;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .showcase-footer div {
+    flex: 1;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.07);
+    padding: 0.85rem;
+  }
+
+  .showcase-footer strong,
+  .showcase-footer span {
+    display: block;
+  }
+
+  .showcase-footer strong {
+    color: white;
+    font-size: 1.1rem;
+  }
+
+  .showcase-footer span {
+    margin-top: 0.1rem;
+    color: #94a3b8;
+    font-size: 0.78rem;
+  }
+
+  .project-showcase-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-showcase-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 34rem;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 2rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 250, 252, 0.9));
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  :global(.dark) .project-showcase-card {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.86), rgba(2, 6, 23, 0.92));
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  }
+
+  .project-showcase-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(34, 211, 238, 0.48);
+    box-shadow: 0 34px 100px rgba(34, 211, 238, 0.14);
+  }
+
+  .project-showcase-card-large {
+    grid-column: span 1;
+  }
+
+  .project-media {
+    height: 16rem;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.16), transparent 12rem),
+      radial-gradient(circle at 82% 18%, rgba(236, 72, 153, 0.13), transparent 12rem),
+      linear-gradient(135deg, #f8fafc, #e2e8f0);
+  }
+
+  :global(.dark) .project-media {
+    background:
+      radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.18), transparent 12rem),
+      radial-gradient(circle at 82% 18%, rgba(236, 72, 153, 0.14), transparent 12rem),
+      linear-gradient(135deg, #0f172a, #020617);
+  }
+
+  .project-copy {
+    position: relative;
+    z-index: 10;
+    padding: 1.35rem;
+  }
+
+  .project-label,
+  .project-status {
+    border-radius: 999px;
+    padding: 0.3rem 0.55rem;
+    color: #0891b2;
+    background: rgba(34, 211, 238, 0.12);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .project-status {
+    color: #be185d;
+    background: rgba(244, 114, 182, 0.12);
+  }
+
+  .project-copy h3 {
+    color: #020617;
+    font-size: 1.6rem;
+    font-weight: 950;
+    letter-spacing: -0.04em;
+    line-height: 1.04;
+  }
+
+  :global(.dark) .project-copy h3 {
+    color: white;
+  }
+
+  .project-tagline {
+    margin-top: 0.45rem;
+    color: #0891b2;
+    font-weight: 800;
+  }
+
+  .project-excerpt {
+    margin-top: 0.85rem;
+    color: #475569;
+  }
+
+  :global(.dark) .project-excerpt {
+    color: #cbd5e1;
+  }
+
+  .focus-card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.4rem;
+    background: rgba(255, 255, 255, 0.07);
+    padding: 1.25rem;
+  }
+
+  .focus-card h3 {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 900;
+  }
+
+  .focus-card p {
+    margin-top: 0.55rem;
+    color: #cbd5e1;
+  }
+
+  .lab-board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 2rem;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.12), transparent 16rem),
+      rgba(255, 255, 255, 0.72);
+    padding: 1.25rem;
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+  }
+
+  :global(.dark) .lab-board {
+    background:
+      radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.13), transparent 16rem),
+      rgba(15, 23, 42, 0.72);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .lab-board span {
+    border-radius: 999px;
+    background: #0f172a;
+    color: white;
+    padding: 0.75rem 1rem;
+    font-weight: 850;
+  }
+
+  :global(.dark) .lab-board span {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  @media (max-width: 1024px) {
+    .project-showcase-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-showcase-card {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .showcase-footer {
+      flex-direction: column;
+    }
+
+    .fovr-button {
+      width: 100%;
+    }
+  }
+</style>
