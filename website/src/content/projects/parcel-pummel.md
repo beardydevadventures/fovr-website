@@ -7,7 +7,7 @@ status: Completed
 highlight: true
 order: 4
 cover:
-  src: '@/assets/images/parcel-pummel.svg'
+  src: '@/assets/images/parcel-pummel-cover.webp'
   alt: Parcel Pummel cover artwork
 role: Design, development and completed project release
 platforms:
