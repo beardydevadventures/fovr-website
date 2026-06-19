@@ -1,0 +1,76 @@
+<svg width="1400" height="900" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Parcel Pummel cover artwork</title>
+  <desc id="desc">Stylised XR cover art with parcels, motion trails and FoVR-style neon gradients.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06111f"/>
+      <stop offset="0.48" stop-color="#13213a"/>
+      <stop offset="1" stop-color="#2b174a"/>
+    </linearGradient>
+    <linearGradient id="cyanPink" x1="190" y1="124" x2="1242" y2="782" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="0.52" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#f472b6"/>
+    </linearGradient>
+    <linearGradient id="box" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f8c471"/>
+      <stop offset="1" stop-color="#b7791f"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.133 0 0 0 0 0.827 0 0 0 0 0.933 0 0 0 0.55 0"/>
+      <feBlend in="SourceGraphic" mode="screen"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#bg)"/>
+  <g opacity="0.22">
+    <path d="M0 190H1400" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 350H1400" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 510H1400" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 670H1400" stroke="#ffffff" stroke-width="1"/>
+    <path d="M190 0V900" stroke="#ffffff" stroke-width="1"/>
+    <path d="M390 0V900" stroke="#ffffff" stroke-width="1"/>
+    <path d="M590 0V900" stroke="#ffffff" stroke-width="1"/>
+    <path d="M790 0V900" stroke="#ffffff" stroke-width="1"/>
+    <path d="M990 0V900" stroke="#ffffff" stroke-width="1"/>
+    <path d="M1190 0V900" stroke="#ffffff" stroke-width="1"/>
+  </g>
+
+  <circle cx="1120" cy="130" r="260" fill="#ec4899" opacity="0.22"/>
+  <circle cx="260" cy="650" r="300" fill="#22d3ee" opacity="0.2"/>
+  <path d="M178 622C344 444 544 326 770 270C954 224 1120 224 1248 270" stroke="url(#cyanPink)" stroke-width="34" stroke-linecap="round" opacity="0.32" filter="url(#glow)"/>
+  <path d="M220 706C430 520 626 438 828 430C1006 422 1166 470 1284 574" stroke="#22d3ee" stroke-width="10" stroke-linecap="round" opacity="0.52"/>
+
+  <g transform="translate(370 280) rotate(-11)">
+    <path d="M0 84L180 0L382 98L202 196L0 84Z" fill="#f6d08a"/>
+    <path d="M0 84L202 196V394L0 276V84Z" fill="url(#box)"/>
+    <path d="M202 196L382 98V294L202 394V196Z" fill="#8f5c18"/>
+    <path d="M108 32L306 128" stroke="#73430f" stroke-width="18" stroke-linecap="round" opacity="0.45"/>
+    <path d="M82 132L282 238" stroke="#fff7d6" stroke-width="18" stroke-linecap="round" opacity="0.38"/>
+    <path d="M42 202L160 270" stroke="#5c3209" stroke-width="10" stroke-linecap="round" opacity="0.35"/>
+  </g>
+
+  <g transform="translate(830 230) rotate(17) scale(0.82)">
+    <path d="M0 84L180 0L382 98L202 196L0 84Z" fill="#ffe0a3"/>
+    <path d="M0 84L202 196V394L0 276V84Z" fill="#d89027"/>
+    <path d="M202 196L382 98V294L202 394V196Z" fill="#996112"/>
+    <path d="M108 32L306 128" stroke="#73430f" stroke-width="18" stroke-linecap="round" opacity="0.45"/>
+  </g>
+
+  <g transform="translate(720 542) rotate(-4) scale(0.66)">
+    <path d="M0 84L180 0L382 98L202 196L0 84Z" fill="#ffe0a3"/>
+    <path d="M0 84L202 196V394L0 276V84Z" fill="#c87920"/>
+    <path d="M202 196L382 98V294L202 394V196Z" fill="#875410"/>
+  </g>
+
+  <g filter="url(#glow)">
+    <path d="M270 178L322 244L244 232L196 162L270 178Z" fill="#22d3ee" opacity="0.72"/>
+    <path d="M1166 642L1238 682L1172 728L1096 682L1166 642Z" fill="#f472b6" opacity="0.72"/>
+    <path d="M1040 122L1096 172L1028 208L972 154L1040 122Z" fill="#a78bfa" opacity="0.68"/>
+  </g>
+
+  <text x="96" y="120" fill="#22d3ee" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="5">FOVR INTERACTIVE</text>
+  <text x="96" y="805" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="92" font-weight="900" letter-spacing="-4">Parcel Pummel</text>
+  <text x="101" y="850" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Chaotic VR delivery arcade</text>
+</svg>
