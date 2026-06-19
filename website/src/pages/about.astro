@@ -1,188 +1,422 @@
 ---
-import CallToAction from '@/components/widgets/CallToAction.astro';
-import Content from '@/components/widgets/Content.astro';
-import Features2 from '@/components/widgets/Features2.astro';
-import Features3 from '@/components/widgets/Features3.astro';
-import Hero from '@/components/widgets/Hero.astro';
-import Stats from '@/components/widgets/Stats.astro';
-import Steps2 from '@/components/widgets/Steps2.astro';
 import Layout from '@/layouts/PageLayout.astro';
+import Image from '@/components/common/Image.astro';
 
 const metadata = {
-  title: 'About Us',
+  title: 'About FoVR Interactive',
+  description:
+    'FoVR Interactive is a Brisbane-based indie XR studio led by Matthew Aisthorpe, creating playful VR games, immersive learning experiences, and spatial prototypes.',
 };
+
+const focusAreas = [
+  {
+    title: 'Shipped XR experiences',
+    description: 'VR games and learning experiences that move beyond prototypes and make it onto real platforms.',
+  },
+  {
+    title: 'Immersive learning',
+    description: 'Hands-on training flows that help people understand equipment, procedures and spatial concepts by doing.',
+  },
+  {
+    title: 'Spatial experiments',
+    description: 'Prototype work across passthrough, hand tracking, Quest, WebXR and emerging interaction ideas.',
+  },
+  {
+    title: 'Practical XR thinking',
+    description: 'A focus on interaction feel, comfort, clarity and building things people can actually try.',
+  },
+];
+
+const values = ['Playful', 'Hands-on', 'Practical', 'Curious', 'Quest-first', 'Built to learn'];
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+  <section class="about-hero relative isolate overflow-hidden px-4 py-20 sm:px-6 lg:py-28">
+    <div class="about-grid-bg" aria-hidden="true"></div>
+    <div class="about-glow about-glow-a" aria-hidden="true"></div>
+    <div class="about-glow about-glow-b" aria-hidden="true"></div>
 
-  <Hero
-    tagline="About FoVR Interactive"
-    image={{
-      src: '@/assets/images/matt-in-headset.jpg',
-      alt: 'Matthew wearing a VR headset in front of a greenscreen.',
-    }}
-  >
-    <Fragment slot="title">
-      Creating <span class="text-accent dark:text-white highlight">immersive</span> VR, AR, and XR experiences with a personal touch.
-    </Fragment>
+    <div class="relative z-10 mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+      <div>
+        <p class="about-kicker">About FoVR Interactive</p>
+        <h1 class="mt-5 max-w-4xl text-5xl font-black tracking-tight text-slate-950 dark:text-white sm:text-6xl lg:text-7xl">
+          An indie XR studio for playful VR and spatial experiments.
+        </h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-700 dark:text-slate-300 sm:text-xl">
+          FoVR Interactive is a Brisbane-based XR studio led by Matthew Aisthorpe. It is the polished home for shipped VR projects, immersive learning ideas, and spatial prototypes that are ready to be shown properly.
+        </p>
 
-    <Fragment slot="subtitle">
-      FoVR Interactive is an indie studio dedicated to crafting immersive VR, AR, and XR experiences, leveraging cutting-edge spatial computing to create environments that feel truly alive and interactive.
-    </Fragment>
-  </Hero>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="about-button about-button-primary" href="/projects">View projects</a>
+          <a class="about-button about-button-secondary" href="/contact">Start a conversation</a>
+        </div>
+      </div>
 
-  <!-- Features2 Widget ************** -->
+      <div class="about-image-card">
+        <Image
+          class="h-full w-full object-cover"
+          src="@/assets/images/matt-in-headset.jpg"
+          alt="Matthew wearing a VR headset in front of a greenscreen."
+          width={900}
+          height={900}
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
 
-  <Features2
-    title="Mission & Vision"
-    columns={2}
-    items={[
-      {
-        title: 'Mission',
-        description:
-          'My mission is to innovate and inspire through immersive technology. By harnessing the power of VR, AR, and spatial computing, I aim to create experiences that enhance learning, engagement, and connection.',
-        icon: 'tabler:license',
-      },
-      {
-        title: 'Vision',
-        description:
-          'To keep pushing boundaries in immersive technology, exploring new ideas and building experiences that demostrate what is possible in VR, AR, and XR.',
-        icon: 'tabler:telescope',
-      },
-    ]}
-  />
+  <section class="relative px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
+      <div>
+        <p class="about-kicker">Studio story</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+          Built from curiosity, side quests and a love of immersive tech.
+        </h2>
+      </div>
+      <div class="about-copy-card">
+        <p>
+          FoVR started as a place to explore VR, games and spatial computing without waiting for permission. It has grown into a focused studio brand for the projects that are polished enough to stand on their own.
+        </p>
+        <p>
+          The work sits between playful XR, practical training and experimental interaction design. Some projects become shipped Quest or Steam experiences. Others stay in the lab long enough to test a new idea, mechanic or workflow.
+        </p>
+        <p>
+          The goal is not to make every idea huge. The goal is to keep building, learning and turning the best ideas into something people can actually try.
+        </p>
+      </div>
+    </div>
+  </section>
 
-  <!-- Features2 Widget ************** -->
+  <section class="relative px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-10 max-w-3xl">
+        <p class="about-kicker">What FoVR focuses on</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+          A small studio with a clear XR lane.
+        </h2>
+      </div>
 
-  <Features2
-    title="Our Story"
-    subtitle="Starting in 2018, Fovr Interactive began with a simple idea, to create immersive experiences that connect people with digital content in exciting and impactful ways. What began as a passion project has grown into something much bigger, fueled by curiosity, creativity, and a love for pushing the limits of what’s possible. From early experiments to fully immersive VR projects, every step of the journey has been about learning, innovating, and finding new ways to make technology feel magical."
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
+      <div class="about-focus-grid">
+        {focusAreas.map((item) => (
+          <article class="about-focus-card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
 
-  <!-- Features3 Widget ************** -->
+  <section class="relative px-4 py-16 sm:px-6 sm:py-24">
+    <div class="about-founder mx-auto grid max-w-6xl gap-8 overflow-hidden rounded-[2rem] p-6 shadow-2xl sm:p-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+      <div class="about-avatar-card">
+        <Image
+          class="h-full w-full object-cover"
+          src="@/assets/images/matthew-aisthorpe.jpg"
+          alt="Matthew Aisthorpe"
+          width={900}
+          height={900}
+          loading="lazy"
+        />
+      </div>
+      <div>
+        <p class="about-kicker">Founder / Developer</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+          Matthew Aisthorpe
+        </h2>
+        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
+          I build and lead XR, AI and web projects, with FoVR acting as the studio home for my independent immersive work. I’m interested in the point where technology becomes tangible: when someone can pick something up, try it, break it, learn from it and understand it faster because it is spatial.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a class="about-button about-button-secondary" href="https://www.matthewaisthorpe.com.au/" target="_blank" rel="noreferrer">Personal site</a>
+          <a class="about-button about-button-secondary" href="https://www.linkedin.com/in/matthewaisthorpe/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="about-button about-button-secondary" href="https://github.com/beardydevadventures" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<Features3
-    title="Our Skills"
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: '3D Modeling',
-        description:
-          'Bringing environments to life with detailed, high-quality 3D assets.',
-        icon: 'tabler:3d-cube-sphere',
-      },
-      {
-        title: 'Animation',
-        description:
-          'Making virtual worlds feel alive with dynamic, engaging animations.',
-        icon: 'tabler:clothes-rack',
-      },
-      {
-        title: 'VR Game Development',
-        description:
-          'Building immersive, interactive VR games using Unity and Unreal Engine.',
-        icon: 'tabler:cardboards',
-      },
-      {
-        title: 'User Experience (UX) Design',
-        description:
-          'Crafting user friendly interfaces that feel intuitive and natural.',
-        icon: 'tabler:layout-dashboard',
-      },
-      {
-        title: 'Software Development',
-        description:
-          'Writing code that’s efficient, scalable, and tailored to immersive tech.',
-        icon: 'tabler:code',
-      },
-      {
-        title: 'Project Management',
-        description:
-          'Taking ideas from concept to completion, ensuring every detail is polished.',
-        icon: 'tabler:clipboard-list',
-      },
-    ]}
-    image={{
-      src: '@/assets/images/meta-quest-pro-headset.jpg',
-      alt: 'Meta Quest Pro headset sitting on wooden stool.',
-    }}
-  />
+  <section class="relative px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+      <div>
+        <p class="about-kicker">How it should feel</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+          Playful enough to explore. Practical enough to ship.
+        </h2>
+        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
+          FoVR is not trying to look like a giant agency. It is a focused indie studio for XR products, learning tools and prototypes with a clear hands-on feel.
+        </p>
+      </div>
+      <div class="about-value-board">
+        {values.map((value) => <span>{value}</span>)}
+      </div>
+    </div>
+  </section>
 
-   <!-- Content Widget **************** -->
-
-  <Content
-    title="Meet the Team"
-    id="about"
-    columns={3}
-    items={[
-      {
-        icon: 'tabler:brand-linkedin',
-        callToAction: {
-          target: '_blank',
-          text: 'LinkedIn',
-          href: 'https://www.linkedin.com/in/matthewaisthorpe/',
-        },
-      },
-      {
-        icon: 'tabler:brand-youtube',
-        callToAction: {
-          target: '_blank',
-          text: 'YouTube',
-          href: 'https://www.youtube.com/@beardydevadventures',
-        },
-      },
-      {
-        icon: 'tabler:brand-github',
-        callToAction: {
-          target: '_blank',
-          text: 'GitHub',
-          href: 'https://github.com/beardydevadventures',
-        },
-      },
-    ]}
-    image={{
-      src: '@/assets/images/matthew-aisthorpe.jpg',
-      alt: 'Avatar image of Matthew Aisthorpe',
-      loading: 'eager',
-    }}
-  >
-    <Fragment slot="content">
-      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Matthew Aisthorpe</h2>
-      <p class="text-lg font-semibold">Founder/Developer</p>
-      <br />
-      <p>
-        Hey there! I'm the founder and developer behind FoVR Interactive, bringing over a decade of experience in developing and managing digital projects. I'm dedicated to bringing innovative ideas to life through immersive VR, AR, and XR experiences. Each project is a step towards transforming how we interact with digital content.
+  <section class="relative px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-slate-200/70 bg-white p-8 text-center shadow-2xl shadow-slate-200/70 dark:border-white/10 dark:bg-slate-900 dark:shadow-black/20 sm:p-12">
+      <p class="about-kicker">Work with FoVR</p>
+      <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+        Have an XR prototype, training idea or immersive product concept?
+      </h2>
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+        Reach out and we can shape the idea into something clear, testable and useful.
       </p>
-      <br />
-      <p>
-        Ever since I put on the original Oculus Quest, I could see great potential in immersive technologies and the experiences they can bring. This drives my passion to push this technology to its full potential.
-      </p>
-      <br />
-      <p>If you're curious about my other work, you can find me on:</p>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Contact us',
-        href: '/contact',
-      }
-    ]}
-    title="Ready to Get Started?"
-    subtitle="Contact us today to discuss your project and how we can help bring your vision to life with immersive solutions."
-  />
+      <div class="mt-8 flex justify-center">
+        <a class="about-button about-button-primary" href="/contact">Start a conversation</a>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<style is:inline>
+  .about-hero {
+    background:
+      radial-gradient(circle at 18% 15%, rgba(34, 211, 238, 0.18), transparent 32rem),
+      radial-gradient(circle at 82% 12%, rgba(168, 85, 247, 0.16), transparent 34rem),
+      linear-gradient(135deg, #f8fafc, #eff6ff 52%, #ffffff);
+  }
+
+  .dark .about-hero {
+    background:
+      radial-gradient(circle at 18% 15%, rgba(34, 211, 238, 0.22), transparent 32rem),
+      radial-gradient(circle at 82% 12%, rgba(168, 85, 247, 0.22), transparent 34rem),
+      linear-gradient(135deg, #020617, #07111f 52%, #0f172a);
+  }
+
+  .about-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+    background-size: 54px 54px;
+    mask-image: linear-gradient(to bottom, transparent, black 22%, black 72%, transparent);
+    opacity: 0.8;
+  }
+
+  .dark .about-grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  }
+
+  .about-glow {
+    position: absolute;
+    width: 32rem;
+    height: 32rem;
+    border-radius: 999px;
+    filter: blur(80px);
+    opacity: 0.24;
+  }
+
+  .dark .about-glow {
+    opacity: 0.35;
+  }
+
+  .about-glow-a {
+    left: -12rem;
+    top: 12rem;
+    background: #22d3ee;
+  }
+
+  .about-glow-b {
+    right: -12rem;
+    top: 4rem;
+    background: #ec4899;
+  }
+
+  .about-kicker {
+    margin: 0;
+    color: #0891b2;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .dark .about-kicker {
+    color: #22d3ee;
+  }
+
+  .about-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    border-radius: 999px;
+    padding: 0.8rem 1.15rem;
+    font-weight: 850;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .about-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .about-button-primary {
+    color: #06111f;
+    background: linear-gradient(135deg, #22d3ee, #a78bfa 55%, #f472b6);
+    box-shadow: 0 18px 55px rgba(34, 211, 238, 0.24);
+  }
+
+  .about-button-secondary {
+    color: #0f172a;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(18px);
+  }
+
+  .dark .about-button-secondary {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .about-image-card,
+  .about-avatar-card {
+    overflow: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 34px 90px rgba(15, 23, 42, 0.12), 0 0 80px rgba(34, 211, 238, 0.12);
+    backdrop-filter: blur(22px);
+  }
+
+  .dark .about-image-card,
+  .dark .about-avatar-card {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(15, 23, 42, 0.72);
+    box-shadow: 0 34px 90px rgba(0, 0, 0, 0.42), 0 0 80px rgba(34, 211, 238, 0.14);
+  }
+
+  .about-image-card {
+    aspect-ratio: 1 / 1;
+  }
+
+  .about-avatar-card {
+    aspect-ratio: 4 / 3;
+  }
+
+  .about-copy-card,
+  .about-focus-card,
+  .about-founder,
+  .about-value-board {
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+  }
+
+  .dark .about-copy-card,
+  .dark .about-focus-card,
+  .dark .about-founder,
+  .dark .about-value-board {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.74);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+  }
+
+  .about-copy-card {
+    border-radius: 2rem;
+    padding: clamp(1.35rem, 4vw, 2.5rem);
+  }
+
+  .about-copy-card p {
+    margin: 0;
+    color: #475569;
+    font-size: 1.08rem;
+    line-height: 1.85;
+  }
+
+  .about-copy-card p + p {
+    margin-top: 1rem;
+  }
+
+  .dark .about-copy-card p {
+    color: #cbd5e1;
+  }
+
+  .about-focus-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .about-focus-card {
+    border-radius: 1.5rem;
+    padding: 1.25rem;
+  }
+
+  .about-focus-card h3 {
+    color: #0f172a;
+    font-size: 1.25rem;
+    font-weight: 950;
+    line-height: 1.1;
+  }
+
+  .dark .about-focus-card h3 {
+    color: white;
+  }
+
+  .about-focus-card p {
+    margin-top: 0.75rem;
+    color: #475569;
+    line-height: 1.7;
+  }
+
+  .dark .about-focus-card p {
+    color: #cbd5e1;
+  }
+
+  .about-founder {
+    background:
+      radial-gradient(circle at 12% 16%, rgba(34, 211, 238, 0.14), transparent 18rem),
+      radial-gradient(circle at 88% 18%, rgba(236, 72, 153, 0.12), transparent 18rem),
+      rgba(255, 255, 255, 0.86);
+  }
+
+  .dark .about-founder {
+    background:
+      radial-gradient(circle at 12% 16%, rgba(34, 211, 238, 0.13), transparent 18rem),
+      radial-gradient(circle at 88% 18%, rgba(236, 72, 153, 0.12), transparent 18rem),
+      rgba(15, 23, 42, 0.74);
+  }
+
+  .about-value-board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    border-radius: 2rem;
+    padding: 1.25rem;
+  }
+
+  .about-value-board span {
+    border-radius: 999px;
+    background: #0f172a;
+    color: white;
+    padding: 0.75rem 1rem;
+    font-weight: 850;
+  }
+
+  .dark .about-value-board span {
+    background: rgba(255, 255, 255, 0.08);
+    color: #e2e8f0;
+  }
+
+  @media (max-width: 1024px) {
+    .about-focus-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .about-button {
+      width: 100%;
+    }
+
+    .about-focus-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
