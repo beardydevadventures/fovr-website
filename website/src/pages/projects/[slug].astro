@@ -1,0 +1,343 @@
+---
+import Layout from '@/layouts/PageLayout.astro';
+import Image from '@/components/common/Image.astro';
+import { Icon } from 'astro-icon/components';
+import { YouTube } from 'astro-embed';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projectEntries = await getCollection('projects');
+
+  return projectEntries.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+const data = project.data;
+
+const metadata = {
+  title: data.title,
+  description: data.excerpt,
+};
+
+const detailItems = [
+  data.category && { label: 'Type', value: data.category },
+  data.status && { label: 'Status', value: data.status },
+  data.role && { label: 'Role', value: data.role },
+].filter(Boolean);
+---
+
+<Layout metadata={metadata}>
+  <section class="project-hero relative isolate overflow-hidden px-4 py-20 sm:px-6 lg:py-28">
+    <div class="project-grid-bg" aria-hidden="true"></div>
+    <div class="project-glow project-glow-a" aria-hidden="true"></div>
+    <div class="project-glow project-glow-b" aria-hidden="true"></div>
+
+    <div class="relative z-10 mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_0.92fr] lg:items-center">
+      <div>
+        <p class="project-kicker">FoVR Project</p>
+        <h1 class="mt-5 max-w-4xl text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
+          {data.title}
+        </h1>
+        {data.tagline && <p class="mt-5 text-xl font-bold text-cyan-200">{data.tagline}</p>}
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">{data.excerpt}</p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          {data.links?.map((link) => (
+            <a
+              class="project-button project-button-primary"
+              href={link.href}
+              {...link.external ? { target: '_blank', rel: 'noreferrer' } : {}}
+            >
+              {link.icon && <Icon name={link.icon} class="h-4 w-4" aria-hidden="true" />}
+              {link.label}
+            </a>
+          ))}
+          <a class="project-button project-button-secondary" href="/projects">All projects</a>
+        </div>
+      </div>
+
+      <div class="project-hero-card">
+        <Image
+          class="h-full w-full object-contain p-6"
+          src={data.cover.src}
+          alt={data.cover.alt}
+          width={1280}
+          height={900}
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="relative px-4 py-12 sm:px-6 sm:py-16">
+    <div class="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
+      {detailItems.map((item) => (
+        <article class="project-fact-card">
+          <span>{item.label}</span>
+          <strong>{item.value}</strong>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  {data.trailer && (
+    <section class="relative px-4 py-12 sm:px-6 sm:py-16">
+      <div class="mx-auto max-w-5xl">
+        <div class="project-video-card">
+          <YouTube id={data.trailer.youtubeId} title={data.trailer.title ?? data.title} />
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="relative px-4 py-12 sm:px-6 sm:py-16">
+    <div class="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+      <aside class="project-sidebar">
+        {data.platforms?.length ? (
+          <div>
+            <h2>Platforms</h2>
+            <div class="project-chip-row">
+              {data.platforms.map((platform) => <span>{platform}</span>)}
+            </div>
+          </div>
+        ) : null}
+
+        {data.techStack?.length ? (
+          <div>
+            <h2>Tech stack</h2>
+            <div class="project-chip-row">
+              {data.techStack.map((tech) => <span>{tech}</span>)}
+            </div>
+          </div>
+        ) : null}
+
+        {data.tags?.length ? (
+          <div>
+            <h2>Tags</h2>
+            <div class="project-chip-row">
+              {data.tags.map((tag) => <span>{tag}</span>)}
+            </div>
+          </div>
+        ) : null}
+      </aside>
+
+      <article class="project-content prose prose-slate max-w-none dark:prose-invert prose-headings:tracking-tight prose-headings:font-black prose-a:text-cyan-600 dark:prose-a:text-cyan-300 prose-li:marker:text-cyan-500">
+        <Content />
+      </article>
+    </div>
+  </section>
+</Layout>
+
+<style is:inline>
+  .project-hero {
+    background:
+      radial-gradient(circle at 20% 18%, rgba(34, 211, 238, 0.22), transparent 32rem),
+      radial-gradient(circle at 84% 12%, rgba(236, 72, 153, 0.18), transparent 34rem),
+      linear-gradient(135deg, #020617, #08111f 55%, #111827);
+  }
+
+  .project-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    background-size: 54px 54px;
+    mask-image: linear-gradient(to bottom, transparent, black 18%, black 72%, transparent);
+  }
+
+  .project-glow {
+    position: absolute;
+    width: 32rem;
+    height: 32rem;
+    border-radius: 999px;
+    filter: blur(80px);
+    opacity: 0.32;
+  }
+
+  .project-glow-a {
+    left: -12rem;
+    top: 12rem;
+    background: #22d3ee;
+  }
+
+  .project-glow-b {
+    right: -12rem;
+    top: 4rem;
+    background: #ec4899;
+  }
+
+  .project-kicker {
+    margin: 0;
+    color: #22d3ee;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .project-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 3rem;
+    border-radius: 999px;
+    padding: 0.8rem 1.1rem;
+    font-weight: 850;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .project-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .project-button-primary {
+    color: #06111f;
+    background: linear-gradient(135deg, #22d3ee, #a78bfa 55%, #f472b6);
+    box-shadow: 0 18px 55px rgba(34, 211, 238, 0.24);
+  }
+
+  .project-button-secondary {
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+  }
+
+  .project-hero-card {
+    min-height: 24rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 2rem;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.16), transparent 14rem),
+      radial-gradient(circle at 82% 18%, rgba(236, 72, 153, 0.14), transparent 14rem),
+      rgba(15, 23, 42, 0.72);
+    box-shadow: 0 34px 90px rgba(0, 0, 0, 0.42), 0 0 80px rgba(34, 211, 238, 0.14);
+    backdrop-filter: blur(22px);
+  }
+
+  .project-fact-card,
+  .project-sidebar,
+  .project-content,
+  .project-video-card {
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 1.6rem;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+  }
+
+  :global(.dark) .project-fact-card,
+  :global(.dark) .project-sidebar,
+  :global(.dark) .project-content,
+  :global(.dark) .project-video-card {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.74);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+  }
+
+  .project-fact-card {
+    padding: 1.2rem;
+  }
+
+  .project-fact-card span,
+  .project-fact-card strong {
+    display: block;
+  }
+
+  .project-fact-card span {
+    color: #0891b2;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .project-fact-card strong {
+    margin-top: 0.45rem;
+    color: #020617;
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+
+  :global(.dark) .project-fact-card strong {
+    color: white;
+  }
+
+  .project-video-card {
+    overflow: hidden;
+    padding: 1rem;
+  }
+
+  .project-video-card :global(lite-youtube) {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 1.2rem;
+    overflow: hidden;
+  }
+
+  .project-sidebar {
+    position: sticky;
+    top: 6rem;
+    display: grid;
+    gap: 1.4rem;
+    padding: 1.2rem;
+  }
+
+  .project-sidebar h2 {
+    margin: 0 0 0.65rem;
+    color: #020617;
+    font-size: 0.85rem;
+    font-weight: 950;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  :global(.dark) .project-sidebar h2 {
+    color: white;
+  }
+
+  .project-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .project-chip-row span {
+    border-radius: 999px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(15, 23, 42, 0.06);
+    color: #0f172a;
+    padding: 0.42rem 0.72rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  :global(.dark) .project-chip-row span {
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
+  }
+
+  .project-content {
+    padding: clamp(1.35rem, 4vw, 2.5rem);
+  }
+
+  @media (max-width: 1024px) {
+    .project-sidebar {
+      position: static;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .project-button {
+      width: 100%;
+    }
+  }
+</style>
