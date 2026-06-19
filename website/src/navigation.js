@@ -29,10 +29,10 @@ export const footerData = {
       ],
     },
     {
-      title: 'Contact Us',
+      title: 'Contact',
       links: [
         { text: 'contact@fovrinteractive.net', href: 'mailto:contact@fovrinteractive.net' },
-        { text: 'Brisbane, QLD, 4000', href: '#' },
+        { text: 'Brisbane, Queensland', href: '/contact' },
       ],
     },
   ],
@@ -46,5 +46,5 @@ export const footerData = {
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/FovrInteractive' },
     { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: 'https://www.youtube.com/@fovrinteractive' },
   ],
-  footNote: '© 2025 FoVR Interactive. All rights reserved.',
+  footNote: '© 2026 FoVR Interactive. All rights reserved.',
 };
