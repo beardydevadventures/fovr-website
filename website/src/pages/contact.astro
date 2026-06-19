@@ -1,63 +1,404 @@
 ---
 import Layout from '@/layouts/PageLayout.astro';
-import HeroText from '@/components/widgets/HeroText.astro';
-import CallToAction from '@/components/widgets/CallToAction.astro';
 import ContactUs from '@/components/widgets/Contact.astro';
-import Features2 from '@/components/widgets/Features2.astro';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
-  title: 'Contact',
+  title: 'Contact FoVR Interactive',
+  description:
+    'Contact FoVR Interactive about VR projects, immersive learning ideas, spatial prototypes, support or collaboration opportunities.',
 };
+
+const contactReasons = [
+  {
+    title: 'XR project idea',
+    description: 'You have a VR, mixed reality or spatial prototype idea and want to shape it into something testable.',
+    icon: 'tabler:cube-send',
+  },
+  {
+    title: 'Immersive learning',
+    description: 'You are exploring training, simulation or guided learning workflows that could benefit from XR.',
+    icon: 'tabler:school',
+  },
+  {
+    title: 'FoVR support',
+    description: 'You have a question about a FoVR project, store listing, compatibility or access.',
+    icon: 'tabler:help-circle',
+  },
+];
+
+const directLinks = [
+  {
+    label: 'Email',
+    value: 'contact@fovrinteractive.net',
+    href: 'mailto:contact@fovrinteractive.net',
+    icon: 'tabler:mail',
+  },
+  {
+    label: 'Location',
+    value: 'Brisbane, Queensland',
+    href: '#',
+    icon: 'tabler:map-pin',
+  },
+  {
+    label: 'LinkedIn',
+    value: 'FoVR Interactive',
+    href: 'https://www.linkedin.com/company/fovr-interactive/',
+    icon: 'tabler:brand-linkedin',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
+  <section class="contact-hero relative isolate overflow-hidden px-4 py-20 sm:px-6 lg:py-28">
+    <div class="contact-grid-bg" aria-hidden="true"></div>
+    <div class="contact-glow contact-glow-a" aria-hidden="true"></div>
+    <div class="contact-glow contact-glow-b" aria-hidden="true"></div>
 
-  <HeroText tagline="Contact Us" title="Let's Connect!" />
+    <div class="relative z-10 mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+      <div>
+        <p class="contact-kicker">Contact FoVR</p>
+        <h1 class="mt-5 max-w-4xl text-5xl font-black tracking-tight text-slate-950 dark:text-white sm:text-6xl lg:text-7xl">
+          Have an XR idea, project question or prototype to shape?
+        </h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-700 dark:text-slate-300 sm:text-xl">
+          Reach out about FoVR projects, immersive learning, Quest prototypes, support, or collaboration opportunities. The best conversations usually start with a rough idea and a clear problem to solve.
+        </p>
 
-  <ContactUs
-    id="contact"
-    title="Drop us a message today!"
-    subtitle="Share a few details about what you need or the feedback you'd like to provide. We read every message and will be in touch shortly to discuss projects, opportunities, or next steps with FoVR Interactive."
-    description="We typically respond within one business day."
-    successTitle="Thanks for reaching out!"
-    successBody="We've received your message and will be in touch shortly."
-  />
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="contact-button contact-button-primary" href="#contact">Send a message</a>
+          <a class="contact-button contact-button-secondary" href="mailto:contact@fovrinteractive.net">Email directly</a>
+        </div>
+      </div>
 
-  <!-- Features2 Widget ************** -->
+      <div class="contact-hero-panel">
+        <p class="contact-panel-label">Good fit for</p>
+        <div class="contact-reason-list">
+          {contactReasons.map((item) => (
+            <article class="contact-reason-card">
+              <div class="contact-icon-wrap">
+                <Icon name={item.icon} class="h-5 w-5" />
+              </div>
+              <div>
+                <h2>{item.title}</h2>
+                <p>{item.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to navigating our VR experiences, payment issues, accessing purchased content, or general questions about our services.`,
-      },
-      {
-        title: 'Immersive Solutions',
-        description:
-          'Chat with us for questions about purchases, customisation options, licensing for commercial use, or inquiries about specific VR projects.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like VR setup, troubleshooting, compatibility issues with VR hardware or software, or other technical challenges related to our immersive experiences.',
-      },
-      {
-        title: 'Email',
-        description: '<a rel="noreferrer" href="mailto:contact@fovrinteractive.net">contact@fovrinteractive.net</a>',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Social Media Support',
-        description: 'Reach out to us on X with <a rel="noreferrer" target="_new" href="https://twitter.com/FovrInteractive">@FovrInteractive</a>',
-        icon: 'tabler:brand-x',
-      },
-      {
-        title: 'Location',
-        description: 'Brisbane, QLD, 4000',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
+  <section class="relative px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-10 max-w-3xl">
+        <p class="contact-kicker">Message FoVR</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+          Tell me what you are building or where you are stuck.
+        </h2>
+        <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">
+          Keep it simple: what the idea is, who it is for, what platform you are thinking about, and whether you are after support, feedback or a prototype conversation.
+        </p>
+      </div>
+
+      <div class="contact-form-shell">
+        <ContactUs
+          id="contact"
+          title="Send a message"
+          subtitle="Share a few details and I’ll get back to you when I can. For store/support questions, include the project name and platform."
+          description="Based in Brisbane, working across XR games, learning experiences and spatial prototypes."
+          successTitle="Thanks for reaching out!"
+          successBody="Your message has been received. I’ll reply as soon as I can."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="relative px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-10 max-w-3xl">
+        <p class="contact-kicker">Direct links</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+          Prefer to reach out another way?
+        </h2>
+      </div>
+
+      <div class="contact-link-grid">
+        {directLinks.map((item) => (
+          <a class="contact-link-card" href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noreferrer' : undefined}>
+            <div class="contact-icon-wrap">
+              <Icon name={item.icon} class="h-5 w-5" />
+            </div>
+            <div>
+              <span>{item.label}</span>
+              <strong>{item.value}</strong>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<style is:inline>
+  .contact-hero {
+    background:
+      radial-gradient(circle at 18% 15%, rgba(34, 211, 238, 0.18), transparent 32rem),
+      radial-gradient(circle at 82% 12%, rgba(168, 85, 247, 0.16), transparent 34rem),
+      linear-gradient(135deg, #f8fafc, #eff6ff 52%, #ffffff);
+  }
+
+  .dark .contact-hero {
+    background:
+      radial-gradient(circle at 18% 15%, rgba(34, 211, 238, 0.22), transparent 32rem),
+      radial-gradient(circle at 82% 12%, rgba(168, 85, 247, 0.22), transparent 34rem),
+      linear-gradient(135deg, #020617, #07111f 52%, #0f172a);
+  }
+
+  .contact-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+    background-size: 54px 54px;
+    mask-image: linear-gradient(to bottom, transparent, black 22%, black 72%, transparent);
+    opacity: 0.8;
+  }
+
+  .dark .contact-grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  }
+
+  .contact-glow {
+    position: absolute;
+    width: 32rem;
+    height: 32rem;
+    border-radius: 999px;
+    filter: blur(80px);
+    opacity: 0.24;
+  }
+
+  .dark .contact-glow {
+    opacity: 0.35;
+  }
+
+  .contact-glow-a {
+    left: -12rem;
+    top: 12rem;
+    background: #22d3ee;
+  }
+
+  .contact-glow-b {
+    right: -12rem;
+    top: 4rem;
+    background: #ec4899;
+  }
+
+  .contact-kicker,
+  .contact-panel-label {
+    margin: 0;
+    color: #0891b2;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .dark .contact-kicker,
+  .dark .contact-panel-label {
+    color: #22d3ee;
+  }
+
+  .contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    border-radius: 999px;
+    padding: 0.8rem 1.15rem;
+    font-weight: 850;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .contact-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .contact-button-primary {
+    color: #06111f;
+    background: linear-gradient(135deg, #22d3ee, #a78bfa 55%, #f472b6);
+    box-shadow: 0 18px 55px rgba(34, 211, 238, 0.24);
+  }
+
+  .contact-button-secondary {
+    color: #0f172a;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(18px);
+  }
+
+  .dark .contact-button-secondary {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .contact-hero-panel,
+  .contact-link-card,
+  .contact-form-shell {
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+    backdrop-filter: blur(22px);
+  }
+
+  .dark .contact-hero-panel,
+  .dark .contact-link-card,
+  .dark .contact-form-shell {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.74);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+  }
+
+  .contact-hero-panel {
+    border-radius: 2rem;
+    padding: 1.25rem;
+  }
+
+  .contact-reason-list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .contact-reason-card {
+    display: flex;
+    gap: 1rem;
+    border-radius: 1.35rem;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1rem;
+  }
+
+  .dark .contact-reason-card {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .contact-reason-card h2 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 1.05rem;
+    font-weight: 950;
+  }
+
+  .dark .contact-reason-card h2 {
+    color: white;
+  }
+
+  .contact-reason-card p {
+    margin: 0.35rem 0 0;
+    color: #475569;
+    line-height: 1.65;
+  }
+
+  .dark .contact-reason-card p {
+    color: #cbd5e1;
+  }
+
+  .contact-icon-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    color: #0891b2;
+    background: rgba(34, 211, 238, 0.12);
+  }
+
+  .dark .contact-icon-wrap {
+    color: #67e8f9;
+    background: rgba(34, 211, 238, 0.16);
+  }
+
+  .contact-form-shell {
+    overflow: hidden;
+    border-radius: 2rem;
+    padding: 0.25rem;
+  }
+
+  .contact-form-shell :global(section),
+  .contact-form-shell :global(.py-16),
+  .contact-form-shell :global(.py-20) {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .contact-form-shell :global(.max-w-7xl) {
+    max-width: none;
+  }
+
+  .contact-link-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .contact-link-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 1.5rem;
+    padding: 1.25rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .contact-link-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(34, 211, 238, 0.48);
+    box-shadow: 0 24px 80px rgba(34, 211, 238, 0.12);
+  }
+
+  .contact-link-card span,
+  .contact-link-card strong {
+    display: block;
+  }
+
+  .contact-link-card span {
+    color: #0891b2;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .contact-link-card strong {
+    margin-top: 0.25rem;
+    color: #0f172a;
+    font-size: 1.05rem;
+  }
+
+  .dark .contact-link-card strong {
+    color: white;
+  }
+
+  @media (max-width: 900px) {
+    .contact-link-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .contact-button {
+      width: 100%;
+    }
+  }
+</style>
