@@ -83,7 +83,7 @@ export default defineConfig({
 
   image: {
     service: sharpImageService(),
-    domains: ['cdn.pixabay.com', 'www.matthewaisthorpe.com.au', 'matthewaisthorpe.com.au'],
+    domains: ['cdn.pixabay.com'],
   },
 
   markdown: {
