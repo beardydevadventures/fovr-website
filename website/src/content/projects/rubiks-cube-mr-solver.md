@@ -7,7 +7,7 @@ status: Prototype
 highlight: false
 order: 10
 cover:
-  src: 'https://www.matthewaisthorpe.com.au/assets/projects/rubiks-cube-solver.jpg'
+  src: '@/assets/images/rubiks-cube-solver.jpg'
   alt: Rubik’s Cube being scanned in VR via passthrough.
 trailer:
   youtubeId: EJ0kb_iAUuU
