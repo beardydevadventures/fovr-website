@@ -12,14 +12,10 @@ export const headerData = {
     },
     {
       text: 'About',
-      href: getPermalink('/about'), 
-    },
-    {
-      text: 'Services',
-      href: getPermalink('/services'),
+      href: getPermalink('/about'),
     },
   ],
-  actions: [{ text: 'Contact', href: '/contact', target: '_blank', icon: 'tabler:mail'}],
+  actions: [{ text: 'Contact', href: '/contact', icon: 'tabler:mail' }],
 };
 
 export const footerData = {
@@ -28,14 +24,8 @@ export const footerData = {
       title: 'Quick Links',
       links: [
         { text: 'Home', href: '/' },
+        { text: 'Projects', href: '/projects' },
         { text: 'About', href: '/about' },
-        { text: 'Services', href: '/services' },
-      ],
-    },
-    {
-      title: 'Portfolio',
-      links: [
-        { text: 'All Projects', href: '/projects' },
       ],
     },
     {
@@ -56,7 +46,5 @@ export const footerData = {
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/FovrInteractive' },
     { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: 'https://www.youtube.com/@fovrinteractive' },
   ],
-  footNote: `
-    &copy; 2025 FoVR Interactive. All rights reserved.
-  `,
+  footNote: '© 2025 FoVR Interactive. All rights reserved.',
 };
