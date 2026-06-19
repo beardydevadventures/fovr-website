@@ -7,7 +7,7 @@ status: Research
 highlight: false
 order: 14
 cover:
-  src: 'https://www.matthewaisthorpe.com.au/assets/posts/true-ar-glasses-next-step/true-ar-glasses-hero.jpg'
+  src: '@/assets/images/true-ar-glasses-hero.jpg'
   alt: View through passthrough MR headset showing virtual objects anchored to a real home environment.
 role: Research, interaction design and prototype direction
 platforms:
