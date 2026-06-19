@@ -7,7 +7,7 @@ status: Prototype
 highlight: false
 order: 11
 cover:
-  src: 'https://www.matthewaisthorpe.com.au/assets/brick-forge.jpg'
+  src: '@/assets/images/brick-forge.jpg'
   alt: Screenshot of Brick Forge displaying LEGO building instructions in mixed reality.
 trailer:
   youtubeId: Jln9pIWArjA
