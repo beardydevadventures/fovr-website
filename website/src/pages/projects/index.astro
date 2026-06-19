@@ -1,6 +1,5 @@
 ---
 import Layout from '@/layouts/PageLayout.astro';
-import Hero from '@/components/widgets/Hero.astro';
 import Image from '@/components/common/Image.astro';
 import { Icon } from 'astro-icon/components';
 import { getCollection } from 'astro:content';
@@ -17,29 +16,71 @@ const projects = projectEntries
     return orderA - orderB || a.title.localeCompare(b.title);
   });
 
+const shippedCount = projects.filter((project) => project.status?.toLowerCase().includes('live')).length;
+
 const metadata = {
   title: 'Projects',
   description:
-    'Browse FoVR Interactive projects across VR games, tools, and training. Each project includes its own deep dive and links to try it out.',
+    'Browse FoVR Interactive projects across VR games, immersive learning, tools, and XR prototypes. Each project includes links to try or learn more.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <Hero
-    tagline="Project overview"
-    title="XR projects built by FoVR Interactive"
-    subtitle="A snapshot of our VR and XR work to date, spanning shipped experiences, tooling, and prototypes. Dive into any project for a closer look."
-  />
+  <section class="portfolio-hero relative isolate overflow-hidden px-4 py-20 sm:px-6 lg:py-28">
+    <div class="portfolio-grid-bg" aria-hidden="true"></div>
+    <div class="mx-auto max-w-6xl">
+      <p class="portfolio-kicker">FoVR Portfolio</p>
+      <h1 class="mt-5 max-w-4xl text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
+        XR projects with shipped products, training ideas and studio experiments.
+      </h1>
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">
+        A cleaner home for the FoVR body of work: VR games, immersive learning experiences, and prototypes that test new spatial interaction ideas.
+      </p>
 
-  <section class="relative pb-16 sm:pb-24">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="grid gap-8 sm:grid-cols-2">
+      <div class="mt-8 grid gap-4 sm:grid-cols-3">
+        <div class="portfolio-stat">
+          <strong>{projects.length}</strong>
+          <span>portfolio projects</span>
+        </div>
+        <div class="portfolio-stat">
+          <strong>{shippedCount}</strong>
+          <span>live experiences</span>
+        </div>
+        <div class="portfolio-stat">
+          <strong>Quest</strong>
+          <span>primary XR platform</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p class="portfolio-kicker portfolio-kicker-dark">Project collection</p>
+          <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+            Shipped work first. Experiments clearly labelled.
+          </h2>
+          <p class="mt-4 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+            Each card now reads more like a product entry: what it is, where it lives, and what kind of XR work it represents.
+          </p>
+        </div>
+        <div class="portfolio-filter-row" aria-label="Project categories">
+          <span>VR Games</span>
+          <span>Immersive Learning</span>
+          <span>Labs</span>
+        </div>
+      </div>
+
+      <div class="portfolio-grid">
         {projects.map((project) => (
-          <article class="relative overflow-hidden rounded-2xl border border-slate-100/80 bg-white/80 shadow-lg shadow-primary/5 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 dark:border-slate-700/70 dark:bg-slate-900/70">
-            <a class="absolute inset-0 z-0" href={`/projects/${project.slug}`} aria-label={`Open ${project.title}`} />
-            <div class="relative z-10 aspect-[16/9] overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-800 dark:via-slate-900 dark:to-slate-950">
+          <article class="portfolio-card group">
+            <a class="absolute inset-0 z-20" href={`/projects/${project.slug}`} aria-label={`Open ${project.title}`} />
+
+            <div class="portfolio-media">
               <Image
-                class="h-full w-full object-contain p-6 transition duration-500 group-hover:scale-[1.02]"
+                class="h-full w-full object-contain p-6 transition duration-700 group-hover:scale-[1.04]"
                 src={project.cover.src}
                 alt={project.cover.alt}
                 width={1280}
@@ -47,41 +88,31 @@ const metadata = {
                 loading="lazy"
               />
             </div>
-            <div class="relative z-10 p-6 md:p-7">
-              <div class="mb-3 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
-                <span>{project.category ?? 'Project'}</span>
-                {project.status && <span class="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] text-primary">{project.status}</span>}
+
+            <div class="portfolio-content">
+              <div class="mb-3 flex flex-wrap items-center gap-2">
+                <span class="portfolio-label">{project.category ?? 'XR Project'}</span>
+                {project.status && <span class="portfolio-status">{project.status}</span>}
               </div>
-              <h2 class="text-2xl font-bold text-slate-900 dark:text-white">
-                <a class="hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-900" href={`/projects/${project.slug}`}>
-                  {project.title}
-                </a>
+
+              <h2>
+                <a href={`/projects/${project.slug}`}>{project.title}</a>
               </h2>
-              {project.tagline && <p class="mt-1 text-sm text-primary dark:text-blue-200">{project.tagline}</p>}
-              <p class="mt-3 text-base text-muted dark:text-slate-300">{project.excerpt}</p>
+
+              {project.tagline && <p class="portfolio-tagline">{project.tagline}</p>}
+              <p class="portfolio-excerpt">{project.excerpt}</p>
 
               {project.tags?.length ? (
-                <div class="mt-4 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-200">
-                      {tag}
-                    </span>
-                  ))}
+                <div class="mt-5 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => <span class="portfolio-chip">{tag}</span>)}
                 </div>
-              ) : (
-                ''
-              )}
+              ) : ''}
 
-              <div class="mt-6 flex flex-wrap gap-3">
-                <a
-                  class="inline-flex items-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                  href={`/projects/${project.slug}`}
-                >
-                  View case study
-                </a>
+              <div class="relative z-30 mt-6 flex flex-wrap gap-3">
+                <a class="portfolio-button portfolio-button-primary" href={`/projects/${project.slug}`}>View project</a>
                 {project.links?.map((link) => (
                   <a
-                    class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-primary hover:text-primary dark:border-slate-700 dark:text-slate-200 dark:hover:border-primary dark:hover:text-primary"
+                    class="portfolio-button portfolio-button-secondary"
                     href={link.href}
                     {...link.external ? { target: '_blank', rel: 'noreferrer' } : {}}
                   >
@@ -97,3 +128,249 @@ const metadata = {
     </div>
   </section>
 </Layout>
+
+<style is:inline>
+  .portfolio-hero {
+    background:
+      radial-gradient(circle at 20% 18%, rgba(34, 211, 238, 0.2), transparent 32rem),
+      radial-gradient(circle at 82% 10%, rgba(236, 72, 153, 0.19), transparent 30rem),
+      linear-gradient(135deg, #020617, #08111f 55%, #111827);
+  }
+
+  .portfolio-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    background-size: 54px 54px;
+    mask-image: linear-gradient(to bottom, black, transparent 78%);
+    opacity: 0.72;
+  }
+
+  .portfolio-kicker {
+    margin: 0;
+    color: #22d3ee;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .portfolio-kicker-dark {
+    color: #0891b2;
+  }
+
+  .portfolio-stat {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1.4rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1rem;
+    backdrop-filter: blur(18px);
+  }
+
+  .portfolio-stat strong,
+  .portfolio-stat span {
+    display: block;
+  }
+
+  .portfolio-stat strong {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 950;
+    line-height: 1;
+  }
+
+  .portfolio-stat span {
+    margin-top: 0.35rem;
+    color: #cbd5e1;
+    font-weight: 750;
+  }
+
+  .portfolio-filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .portfolio-filter-row span {
+    border-radius: 999px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(15, 23, 42, 0.06);
+    color: #0f172a;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 850;
+  }
+
+  :global(.dark) .portfolio-filter-row span {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    color: #e2e8f0;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem;
+  }
+
+  .portfolio-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 2rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.9));
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  :global(.dark) .portfolio-card {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.86), rgba(2, 6, 23, 0.92));
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(34, 211, 238, 0.48);
+    box-shadow: 0 34px 100px rgba(34, 211, 238, 0.14);
+  }
+
+  .portfolio-media {
+    height: 18rem;
+    background:
+      radial-gradient(circle at 18% 20%, rgba(34, 211, 238, 0.16), transparent 13rem),
+      radial-gradient(circle at 82% 18%, rgba(236, 72, 153, 0.14), transparent 13rem),
+      linear-gradient(135deg, #f8fafc, #e2e8f0);
+  }
+
+  :global(.dark) .portfolio-media {
+    background:
+      radial-gradient(circle at 18% 20%, rgba(34, 211, 238, 0.18), transparent 13rem),
+      radial-gradient(circle at 82% 18%, rgba(236, 72, 153, 0.14), transparent 13rem),
+      linear-gradient(135deg, #0f172a, #020617);
+  }
+
+  .portfolio-content {
+    position: relative;
+    z-index: 10;
+    padding: 1.35rem;
+  }
+
+  .portfolio-label,
+  .portfolio-status {
+    border-radius: 999px;
+    padding: 0.3rem 0.55rem;
+    color: #0891b2;
+    background: rgba(34, 211, 238, 0.12);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .portfolio-status {
+    color: #be185d;
+    background: rgba(244, 114, 182, 0.12);
+  }
+
+  .portfolio-content h2 {
+    color: #020617;
+    font-size: 1.85rem;
+    font-weight: 950;
+    letter-spacing: -0.045em;
+    line-height: 1.04;
+  }
+
+  :global(.dark) .portfolio-content h2 {
+    color: white;
+  }
+
+  .portfolio-content h2 a {
+    text-decoration: none;
+  }
+
+  .portfolio-tagline {
+    margin-top: 0.5rem;
+    color: #0891b2;
+    font-weight: 850;
+  }
+
+  .portfolio-excerpt {
+    margin-top: 0.85rem;
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  :global(.dark) .portfolio-excerpt {
+    color: #cbd5e1;
+  }
+
+  .portfolio-chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(15, 23, 42, 0.06);
+    color: #0f172a;
+    padding: 0.42rem 0.72rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  :global(.dark) .portfolio-chip {
+    color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .portfolio-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 2.65rem;
+    border-radius: 999px;
+    padding: 0.68rem 0.95rem;
+    font-size: 0.9rem;
+    font-weight: 850;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .portfolio-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .portfolio-button-primary {
+    color: #06111f;
+    background: linear-gradient(135deg, #22d3ee, #a78bfa 55%, #f472b6);
+    box-shadow: 0 14px 38px rgba(34, 211, 238, 0.18);
+  }
+
+  .portfolio-button-secondary {
+    color: #0f172a;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  :global(.dark) .portfolio-button-secondary {
+    color: #e2e8f0;
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  @media (max-width: 900px) {
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .portfolio-button {
+      width: 100%;
+    }
+  }
+</style>
