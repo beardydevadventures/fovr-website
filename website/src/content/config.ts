@@ -20,6 +20,13 @@ const postCollection = defineCollection({
   }),
 });
 
+const linkSchema = z.object({
+  label: z.string(),
+  href: z.string(),
+  icon: z.string().optional(),
+  external: z.boolean().optional(),
+});
+
 const projects = defineCollection({
   type: 'content',
   schema: z.object({
@@ -34,17 +41,17 @@ const projects = defineCollection({
       src: z.string(),
       alt: z.string(),
     }),
-    tags: z.array(z.string()).optional(),
-    links: z
-      .array(
-        z.object({
-          label: z.string(),
-          href: z.string(),
-          icon: z.string().optional(),
-          external: z.boolean().optional(),
-        }),
-      )
+    trailer: z
+      .object({
+        youtubeId: z.string(),
+        title: z.string().optional(),
+      })
       .optional(),
+    role: z.string().optional(),
+    platforms: z.array(z.string()).optional(),
+    techStack: z.array(z.string()).optional(),
+    tags: z.array(z.string()).optional(),
+    links: z.array(linkSchema).optional(),
   }),
 });
 
