@@ -50,10 +50,10 @@ const studioFocus = [
     <div class="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.04fr_0.96fr]">
       <div class="relative z-10">
         <p class="kicker">Indie XR Studio · Brisbane</p>
-        <h1 class="mt-5 max-w-4xl text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
+        <h1 class="mt-5 max-w-4xl text-5xl font-black tracking-tight text-slate-950 dark:text-white sm:text-6xl lg:text-7xl">
           Playful VR, immersive learning and spatial prototypes.
         </h1>
-        <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-700 dark:text-slate-300 sm:text-xl">
           FoVR Interactive creates hands-on XR experiences for Meta Quest, SteamVR and emerging spatial platforms. From shipped VR games to learning prototypes, the focus is simple: make interaction feel good.
         </p>
 
@@ -150,14 +150,14 @@ const studioFocus = [
   </section>
 
   <section class="relative px-4 py-16 sm:px-6 sm:py-24">
-    <div class="mx-auto max-w-6xl rounded-[2rem] border border-slate-200/70 bg-slate-950 p-6 shadow-2xl shadow-cyan-500/10 dark:border-white/10 sm:p-10">
+    <div class="studio-focus-panel mx-auto max-w-6xl rounded-[2rem] p-6 shadow-2xl sm:p-10">
       <div class="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
         <div>
           <p class="kicker">Studio focus</p>
-          <h2 class="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl">
+          <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
             Not just demos. Experiences people can actually try.
           </h2>
-          <p class="mt-5 text-lg leading-8 text-slate-300">
+          <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
             FoVR is the polished side of the lab: shipped games, learning experiences, prototypes and the occasional idea that gets big enough to become a real product.
           </p>
         </div>
@@ -215,12 +215,19 @@ const studioFocus = [
 </Layout>
 
 <style is:inline>
-  :global(html) {
+  html {
     scroll-behavior: smooth;
   }
 
   .fovr-hero {
     min-height: calc(100vh - 5rem);
+    background:
+      radial-gradient(circle at 18% 15%, rgba(34, 211, 238, 0.18), transparent 32rem),
+      radial-gradient(circle at 82% 12%, rgba(168, 85, 247, 0.16), transparent 34rem),
+      linear-gradient(135deg, #f8fafc, #eff6ff 52%, #ffffff);
+  }
+
+  .dark .fovr-hero {
     background:
       radial-gradient(circle at 18% 15%, rgba(34, 211, 238, 0.22), transparent 32rem),
       radial-gradient(circle at 82% 12%, rgba(168, 85, 247, 0.22), transparent 34rem),
@@ -231,11 +238,17 @@ const studioFocus = [
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+      linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
     background-size: 54px 54px;
     mask-image: linear-gradient(to bottom, transparent, black 22%, black 72%, transparent);
     opacity: 0.8;
+  }
+
+  .dark .hero-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
   }
 
   .hero-glow {
@@ -244,6 +257,10 @@ const studioFocus = [
     height: 32rem;
     border-radius: 999px;
     filter: blur(80px);
+    opacity: 0.24;
+  }
+
+  .dark .hero-glow {
     opacity: 0.35;
   }
 
@@ -261,11 +278,15 @@ const studioFocus = [
 
   .kicker {
     margin: 0;
-    color: #22d3ee;
+    color: #0891b2;
     font-size: 0.78rem;
     font-weight: 900;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+  }
+
+  .dark .kicker {
+    color: #22d3ee;
   }
 
   .fovr-button {
@@ -291,15 +312,28 @@ const studioFocus = [
   }
 
   .fovr-button-secondary {
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    background: rgba(255, 255, 255, 0.08);
+    color: #0f172a;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: rgba(255, 255, 255, 0.72);
     backdrop-filter: blur(18px);
   }
 
+  .dark .fovr-button-secondary {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
   .fovr-button-ghost {
+    color: #0f172a;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    background: rgba(255, 255, 255, 0.38);
+  }
+
+  .dark .fovr-button-ghost {
     color: #cbd5e1;
-    border: 1px solid rgba(148, 163, 184, 0.28);
+    border-color: rgba(148, 163, 184, 0.28);
+    background: transparent;
   }
 
   .fovr-button-dark {
@@ -314,10 +348,15 @@ const studioFocus = [
     border-radius: 999px;
     border: 1px solid rgba(34, 211, 238, 0.28);
     background: rgba(34, 211, 238, 0.08);
-    color: #bae6fd;
+    color: #0e7490;
     padding: 0.42rem 0.72rem;
     font-size: 0.78rem;
     font-weight: 800;
+  }
+
+  .dark .fovr-pill,
+  .dark .fovr-chip {
+    color: #bae6fd;
   }
 
   .fovr-chip {
@@ -326,7 +365,7 @@ const studioFocus = [
     border-color: rgba(15, 23, 42, 0.08);
   }
 
-  :global(.dark) .fovr-chip {
+  .dark .fovr-chip {
     color: #cbd5e1;
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.12);
@@ -334,11 +373,17 @@ const studioFocus = [
 
   .showcase-panel {
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(148, 163, 184, 0.22);
     border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 34px 90px rgba(15, 23, 42, 0.12), 0 0 80px rgba(34, 211, 238, 0.12);
+    backdrop-filter: blur(22px);
+  }
+
+  .dark .showcase-panel {
+    border-color: rgba(255, 255, 255, 0.14);
     background: rgba(15, 23, 42, 0.72);
     box-shadow: 0 34px 90px rgba(0, 0, 0, 0.42), 0 0 80px rgba(34, 211, 238, 0.14);
-    backdrop-filter: blur(22px);
   }
 
   .showcase-topline,
@@ -348,14 +393,23 @@ const studioFocus = [
     justify-content: space-between;
     gap: 1rem;
     padding: 1rem;
-    color: #cbd5e1;
+    color: #475569;
     font-size: 0.82rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
 
+  .dark .showcase-topline,
+  .dark .showcase-footer {
+    color: #cbd5e1;
+  }
+
   .live-dot {
+    color: #15803d;
+  }
+
+  .dark .live-dot {
     color: #bef264;
   }
 
@@ -363,7 +417,7 @@ const studioFocus = [
     padding: 0 1rem;
   }
 
-  .showcase-video :global(lite-youtube) {
+  .showcase-video lite-youtube {
     max-width: 100%;
     margin: 0;
     border-radius: 1.25rem;
@@ -379,8 +433,12 @@ const studioFocus = [
   .showcase-footer div {
     flex: 1;
     border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(15, 23, 42, 0.06);
     padding: 0.85rem;
+  }
+
+  .dark .showcase-footer div {
+    background: rgba(255, 255, 255, 0.07);
   }
 
   .showcase-footer strong,
@@ -389,14 +447,22 @@ const studioFocus = [
   }
 
   .showcase-footer strong {
-    color: white;
+    color: #0f172a;
     font-size: 1.1rem;
+  }
+
+  .dark .showcase-footer strong {
+    color: white;
   }
 
   .showcase-footer span {
     margin-top: 0.1rem;
-    color: #94a3b8;
+    color: #64748b;
     font-size: 0.78rem;
+  }
+
+  .dark .showcase-footer span {
+    color: #94a3b8;
   }
 
   .project-showcase-grid {
@@ -416,7 +482,7 @@ const studioFocus = [
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
 
-  :global(.dark) .project-showcase-card {
+  .dark .project-showcase-card {
     background: linear-gradient(180deg, rgba(15, 23, 42, 0.86), rgba(2, 6, 23, 0.92));
     border-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
@@ -440,7 +506,7 @@ const studioFocus = [
       linear-gradient(135deg, #f8fafc, #e2e8f0);
   }
 
-  :global(.dark) .project-media {
+  .dark .project-media {
     background:
       radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.18), transparent 12rem),
       radial-gradient(circle at 82% 18%, rgba(236, 72, 153, 0.14), transparent 12rem),
@@ -478,7 +544,7 @@ const studioFocus = [
     line-height: 1.04;
   }
 
-  :global(.dark) .project-copy h3 {
+  .dark .project-copy h3 {
     color: white;
   }
 
@@ -493,25 +559,56 @@ const studioFocus = [
     color: #475569;
   }
 
-  :global(.dark) .project-excerpt {
+  .dark .project-excerpt {
     color: #cbd5e1;
   }
 
+  .studio-focus-panel {
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    background:
+      radial-gradient(circle at 12% 16%, rgba(34, 211, 238, 0.14), transparent 18rem),
+      radial-gradient(circle at 88% 18%, rgba(236, 72, 153, 0.12), transparent 18rem),
+      rgba(255, 255, 255, 0.86);
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.1);
+  }
+
+  .dark .studio-focus-panel {
+    border-color: rgba(255, 255, 255, 0.1);
+    background:
+      radial-gradient(circle at 12% 16%, rgba(34, 211, 238, 0.13), transparent 18rem),
+      radial-gradient(circle at 88% 18%, rgba(236, 72, 153, 0.12), transparent 18rem),
+      #0f172a;
+    box-shadow: 0 24px 80px rgba(34, 211, 238, 0.1);
+  }
+
   .focus-card {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(148, 163, 184, 0.22);
     border-radius: 1.4rem;
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.78);
     padding: 1.25rem;
   }
 
+  .dark .focus-card {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.07);
+  }
+
   .focus-card h3 {
-    color: white;
+    color: #0f172a;
     font-size: 1.25rem;
     font-weight: 900;
   }
 
+  .dark .focus-card h3 {
+    color: white;
+  }
+
   .focus-card p {
     margin-top: 0.55rem;
+    color: #475569;
+  }
+
+  .dark .focus-card p {
     color: #cbd5e1;
   }
 
@@ -528,7 +625,7 @@ const studioFocus = [
     box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
   }
 
-  :global(.dark) .lab-board {
+  .dark .lab-board {
     background:
       radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.13), transparent 16rem),
       rgba(15, 23, 42, 0.72);
@@ -543,7 +640,7 @@ const studioFocus = [
     font-weight: 850;
   }
 
-  :global(.dark) .lab-board span {
+  .dark .lab-board span {
     background: rgba(255, 255, 255, 0.08);
   }
 
