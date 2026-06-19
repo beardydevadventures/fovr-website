@@ -3,17 +3,16 @@ title: Parcel Pummel
 tagline: Chaotic VR delivery arcade with parcels, pressure and physics.
 excerpt: A completed VR arcade experience about throwing, sorting and smashing parcels under pressure, built around quick physical fun and satisfying object interaction.
 category: VR Experience
-status: Completed
+status: Live on Meta Quest
 highlight: true
 order: 4
 cover:
   src: '@/assets/images/parcel-pummel-cover.webp'
   alt: Parcel Pummel cover artwork
-role: Design, development and completed project release
+role: Design, development and Quest release
 platforms:
   - VR
   - Meta Quest
-actions:
 techStack:
   - Unity
   - C#
@@ -23,7 +22,12 @@ tags:
   - VR
   - Arcade
   - Physics
-  - Completed
+  - Quest
+links:
+  - label: Meta Quest
+    href: https://www.meta.com/en-gb/experiences/parcel-pummel/25487402420903795/
+    icon: tabler:brand-meta
+    external: true
 ---
 
 ## Overview
@@ -60,9 +64,9 @@ The experience is built around timing, reaction and a little bit of chaos, givin
 
 The project uses physics interaction to make throwing and object movement feel satisfying, unpredictable and playful.
 
-### Completed project identity
+### Meta Quest release
 
-Parcel Pummel now sits alongside FoVR’s other completed VR work as a finished project rather than an in-development experiment.
+Parcel Pummel is available on Meta Quest, giving FoVR another live VR experience alongside Forge of Elements, Smash Room and Valve Tutorial.
 
 ## Process and development
 
@@ -90,14 +94,14 @@ Physics-driven VR needs enough unpredictability to feel playful, but not so much
 
 ## Results and impact
 
-### A completed FoVR project
+### A live FoVR project
 
-Parcel Pummel has moved out of the in-development bucket and now belongs in the completed FoVR project set.
+Parcel Pummel has moved out of the in-development bucket and now belongs in the live FoVR project set.
 
 ### Broader VR games portfolio
 
 The project gives FoVR another playful VR experience alongside Forge of Elements and Smash Room.
 
-### Strong fit for future visuals
+### Strong visual identity
 
-The current cover artwork is a placeholder. A real gameplay screenshot or short trailer would make this page much stronger once available.
+The updated project page uses a real gameplay cover image, making the project feel much more connected to the actual experience.
