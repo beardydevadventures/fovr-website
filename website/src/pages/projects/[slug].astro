@@ -4,6 +4,9 @@ import Image from '@/components/common/Image.astro';
 import { Icon } from 'astro-icon/components';
 import { YouTube } from 'astro-embed';
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+type ProjectEntry = CollectionEntry<'projects'>;
 
 export async function getStaticPaths() {
   const projectEntries = await getCollection('projects');
@@ -14,7 +17,7 @@ export async function getStaticPaths() {
   }));
 }
 
-const { project } = Astro.props;
+const { project } = Astro.props as { project: ProjectEntry };
 const { Content } = await project.render();
 const data = project.data;
 
@@ -23,11 +26,11 @@ const metadata = {
   description: data.excerpt,
 };
 
-const detailItems = [
-  data.category && { label: 'Type', value: data.category },
-  data.status && { label: 'Status', value: data.status },
-  data.role && { label: 'Role', value: data.role },
-].filter(Boolean);
+const detailItems: { label: string; value: string }[] = [
+  ...(data.category ? [{ label: 'Type', value: data.category }] : []),
+  ...(data.status ? [{ label: 'Status', value: data.status }] : []),
+  ...(data.role ? [{ label: 'Role', value: data.role }] : []),
+];
 ---
 
 <Layout metadata={metadata}>
