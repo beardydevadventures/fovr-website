@@ -30,10 +30,10 @@ const metadata = {
     <div class="portfolio-grid-bg" aria-hidden="true"></div>
     <div class="mx-auto max-w-6xl">
       <p class="portfolio-kicker">FoVR Portfolio</p>
-      <h1 class="mt-5 max-w-4xl text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
+      <h1 class="mt-5 max-w-4xl text-5xl font-black tracking-tight text-slate-950 dark:text-white sm:text-6xl lg:text-7xl">
         XR projects with shipped products, training ideas and studio experiments.
       </h1>
-      <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-700 dark:text-slate-300 sm:text-xl">
         A cleaner home for the FoVR body of work: VR games, immersive learning experiences, and prototypes that test new spatial interaction ideas.
       </p>
 
@@ -132,6 +132,13 @@ const metadata = {
 <style is:inline>
   .portfolio-hero {
     background:
+      radial-gradient(circle at 20% 18%, rgba(34, 211, 238, 0.18), transparent 32rem),
+      radial-gradient(circle at 82% 10%, rgba(236, 72, 153, 0.15), transparent 30rem),
+      linear-gradient(135deg, #f8fafc, #eff6ff 55%, #ffffff);
+  }
+
+  .dark .portfolio-hero {
+    background:
       radial-gradient(circle at 20% 18%, rgba(34, 211, 238, 0.2), transparent 32rem),
       radial-gradient(circle at 82% 10%, rgba(236, 72, 153, 0.19), transparent 30rem),
       linear-gradient(135deg, #020617, #08111f 55%, #111827);
@@ -141,20 +148,30 @@ const metadata = {
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+      linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
     background-size: 54px 54px;
     mask-image: linear-gradient(to bottom, black, transparent 78%);
     opacity: 0.72;
   }
 
+  .dark .portfolio-grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  }
+
   .portfolio-kicker {
     margin: 0;
-    color: #22d3ee;
+    color: #0891b2;
     font-size: 0.78rem;
     font-weight: 900;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+  }
+
+  .dark .portfolio-kicker {
+    color: #22d3ee;
   }
 
   .portfolio-kicker-dark {
@@ -162,11 +179,18 @@ const metadata = {
   }
 
   .portfolio-stat {
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(148, 163, 184, 0.22);
     border-radius: 1.4rem;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.76);
     padding: 1rem;
     backdrop-filter: blur(18px);
+    box-shadow: 0 18px 55px rgba(15, 23, 42, 0.08);
+  }
+
+  .dark .portfolio-stat {
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
   }
 
   .portfolio-stat strong,
@@ -175,16 +199,24 @@ const metadata = {
   }
 
   .portfolio-stat strong {
-    color: white;
+    color: #0f172a;
     font-size: 1.8rem;
     font-weight: 950;
     line-height: 1;
   }
 
+  .dark .portfolio-stat strong {
+    color: white;
+  }
+
   .portfolio-stat span {
     margin-top: 0.35rem;
-    color: #cbd5e1;
+    color: #475569;
     font-weight: 750;
+  }
+
+  .dark .portfolio-stat span {
+    color: #cbd5e1;
   }
 
   .portfolio-filter-row {
@@ -203,7 +235,7 @@ const metadata = {
     font-weight: 850;
   }
 
-  :global(.dark) .portfolio-filter-row span {
+  .dark .portfolio-filter-row span {
     border-color: rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.08);
     color: #e2e8f0;
@@ -225,7 +257,7 @@ const metadata = {
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
 
-  :global(.dark) .portfolio-card {
+  .dark .portfolio-card {
     background: linear-gradient(180deg, rgba(15, 23, 42, 0.86), rgba(2, 6, 23, 0.92));
     border-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
@@ -245,7 +277,7 @@ const metadata = {
       linear-gradient(135deg, #f8fafc, #e2e8f0);
   }
 
-  :global(.dark) .portfolio-media {
+  .dark .portfolio-media {
     background:
       radial-gradient(circle at 18% 20%, rgba(34, 211, 238, 0.18), transparent 13rem),
       radial-gradient(circle at 82% 18%, rgba(236, 72, 153, 0.14), transparent 13rem),
@@ -283,7 +315,7 @@ const metadata = {
     line-height: 1.04;
   }
 
-  :global(.dark) .portfolio-content h2 {
+  .dark .portfolio-content h2 {
     color: white;
   }
 
@@ -304,7 +336,7 @@ const metadata = {
     line-height: 1.7;
   }
 
-  :global(.dark) .portfolio-excerpt {
+  .dark .portfolio-excerpt {
     color: #cbd5e1;
   }
 
@@ -320,7 +352,7 @@ const metadata = {
     font-weight: 800;
   }
 
-  :global(.dark) .portfolio-chip {
+  .dark .portfolio-chip {
     color: #cbd5e1;
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.12);
@@ -356,7 +388,7 @@ const metadata = {
     background: rgba(255, 255, 255, 0.5);
   }
 
-  :global(.dark) .portfolio-button-secondary {
+  .dark .portfolio-button-secondary {
     color: #e2e8f0;
     border-color: rgba(255, 255, 255, 0.12);
     background: rgba(255, 255, 255, 0.07);
