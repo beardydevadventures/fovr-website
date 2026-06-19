@@ -7,7 +7,7 @@ status: Prototype
 highlight: false
 order: 13
 cover:
-  src: 'https://www.matthewaisthorpe.com.au/assets/virtual-assistant.jpg'
+  src: '@/assets/images/virtual-assistant.jpg'
   alt: AI assistant looking at the screen.
 trailer:
   youtubeId: 0N-nQ2UNufc
