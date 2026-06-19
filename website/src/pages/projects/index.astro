@@ -21,7 +21,7 @@ const shippedCount = projects.filter((project) => project.status?.toLowerCase().
 const metadata = {
   title: 'Projects',
   description:
-    'Browse FoVR Interactive projects across VR games, immersive learning, tools, and XR prototypes. Each project includes links to try or learn more.',
+    'Browse FoVR Interactive projects across released VR experiences, Meta Quest games, immersive learning, WebXR, mixed reality and FoVR Labs prototypes.',
 };
 ---
 
@@ -31,10 +31,10 @@ const metadata = {
     <div class="mx-auto max-w-6xl">
       <p class="portfolio-kicker">FoVR Portfolio</p>
       <h1 class="mt-5 max-w-4xl text-5xl font-black tracking-tight text-slate-950 dark:text-white sm:text-6xl lg:text-7xl">
-        XR projects with shipped products, training ideas and studio experiments.
+        Released VR experiences and FoVR Labs experiments.
       </h1>
       <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-700 dark:text-slate-300 sm:text-xl">
-        A cleaner home for the FoVR body of work: VR games, immersive learning experiences, and prototypes that test new spatial interaction ideas.
+        A mix of playable Quest and SteamVR projects, immersive learning work, and smaller lab builds exploring mixed reality, WebXR, AI and spatial UI.
       </p>
 
       <div class="mt-8 grid gap-4 sm:grid-cols-3">
@@ -60,10 +60,10 @@ const metadata = {
         <div>
           <p class="portfolio-kicker portfolio-kicker-dark">Project collection</p>
           <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
-            Shipped work first. Experiments clearly labelled.
+            Shipped work, prototypes and research in one place.
           </h2>
           <p class="mt-4 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-            Each card now reads more like a product entry: what it is, where it lives, and what kind of XR work it represents.
+            Live projects link through to their store pages. Lab projects show the experiments behind FoVR’s next ideas.
           </p>
         </div>
         <div class="portfolio-filter-row" aria-label="Project categories">
@@ -258,151 +258,8 @@ const metadata = {
   }
 
   .dark .portfolio-card {
-    background: linear-gradient(180deg, rgba(15, 23, 42, 0.86), rgba(2, 6, 23, 0.92));
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
-  }
-
-  .portfolio-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(34, 211, 238, 0.48);
-    box-shadow: 0 34px 100px rgba(34, 211, 238, 0.14);
-  }
-
-  .portfolio-media {
-    height: 18rem;
-    background:
-      radial-gradient(circle at 18% 20%, rgba(34, 211, 238, 0.16), transparent 13rem),
-      radial-gradient(circle at 82% 18%, rgba(236, 72, 153, 0.14), transparent 13rem),
-      linear-gradient(135deg, #f8fafc, #e2e8f0);
-  }
-
-  .dark .portfolio-media {
-    background:
-      radial-gradient(circle at 18% 20%, rgba(34, 211, 238, 0.18), transparent 13rem),
-      radial-gradient(circle at 82% 18%, rgba(236, 72, 153, 0.14), transparent 13rem),
-      linear-gradient(135deg, #0f172a, #020617);
-  }
-
-  .portfolio-content {
-    position: relative;
-    z-index: 10;
-    padding: 1.35rem;
-  }
-
-  .portfolio-label,
-  .portfolio-status {
-    border-radius: 999px;
-    padding: 0.3rem 0.55rem;
-    color: #0891b2;
-    background: rgba(34, 211, 238, 0.12);
-    font-size: 0.68rem;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .portfolio-status {
-    color: #be185d;
-    background: rgba(244, 114, 182, 0.12);
-  }
-
-  .portfolio-content h2 {
-    color: #020617;
-    font-size: 1.85rem;
-    font-weight: 950;
-    letter-spacing: -0.045em;
-    line-height: 1.04;
-  }
-
-  .dark .portfolio-content h2 {
-    color: white;
-  }
-
-  .portfolio-content h2 a {
-    text-decoration: none;
-  }
-
-  .portfolio-tagline {
-    margin-top: 0.5rem;
-    color: #0891b2;
-    font-weight: 850;
-  }
-
-  .portfolio-excerpt {
-    margin-top: 0.85rem;
-    color: #475569;
-    font-size: 1rem;
-    line-height: 1.7;
-  }
-
-  .dark .portfolio-excerpt {
-    color: #cbd5e1;
-  }
-
-  .portfolio-chip {
-    display: inline-flex;
-    align-items: center;
-    border-radius: 999px;
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    background: rgba(15, 23, 42, 0.06);
-    color: #0f172a;
-    padding: 0.42rem 0.72rem;
-    font-size: 0.78rem;
-    font-weight: 800;
-  }
-
-  .dark .portfolio-chip {
-    color: #cbd5e1;
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.12);
-  }
-
-  .portfolio-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    min-height: 2.65rem;
-    border-radius: 999px;
-    padding: 0.68rem 0.95rem;
-    font-size: 0.9rem;
-    font-weight: 850;
-    text-decoration: none;
-    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-  }
-
-  .portfolio-button:hover {
-    transform: translateY(-2px);
-  }
-
-  .portfolio-button-primary {
-    color: #06111f;
-    background: linear-gradient(135deg, #22d3ee, #a78bfa 55%, #f472b6);
-    box-shadow: 0 14px 38px rgba(34, 211, 238, 0.18);
-  }
-
-  .portfolio-button-secondary {
-    color: #0f172a;
-    border: 1px solid rgba(15, 23, 42, 0.12);
-    background: rgba(255, 255, 255, 0.5);
-  }
-
-  .dark .portfolio-button-secondary {
-    color: #e2e8f0;
-    border-color: rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.07);
-  }
-
-  @media (max-width: 900px) {
-    .portfolio-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .portfolio-button {
-      width: 100%;
-    }
+    border-color: rgba(255, 255, 255, 0.11);
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.98));
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
   }
 </style>
