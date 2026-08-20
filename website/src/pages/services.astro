@@ -1,26 +1,231 @@
 ---
 import Layout from '@/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
-  title: 'Services moved',
+  title: 'XR Development Services | VR Training & Mixed Reality',
   description:
-    'FoVR Interactive has retired its old services page. View projects or contact FoVR about XR prototypes, learning experiences and support.',
+    'FoVR Interactive is a Brisbane XR development studio offering VR training, mixed reality, Meta Quest development, interactive simulations, XR prototyping and technical consulting.',
 };
+
+const services = [
+  {
+    icon: 'tabler:device-vision-pro',
+    title: 'XR Application Development',
+    description:
+      'Custom virtual reality and mixed reality applications designed around the people, environment and outcome that matter to your project.',
+    detail: 'From interaction design and Unity development through testing, optimisation and deployment.',
+  },
+  {
+    icon: 'tabler:school',
+    title: 'VR Training & Simulation',
+    description:
+      'Hands-on training experiences for equipment, procedures, familiarisation, safety and spatial learning.',
+    detail: 'Turn complex processes into guided, repeatable experiences that people can learn by doing.',
+  },
+  {
+    icon: 'tabler:augmented-reality',
+    title: 'Mixed Reality Development',
+    description:
+      'Passthrough, hand tracking and spatial interfaces that bring digital content into real environments.',
+    detail: 'Ideal for product demonstrations, guided workflows, training and new forms of spatial interaction.',
+  },
+  {
+    icon: 'tabler:flask',
+    title: 'XR Prototypes & Proofs of Concept',
+    description:
+      'Focused prototypes that test an immersive idea before committing to a larger production build.',
+    detail: 'Validate the interaction, platform and user experience early so investment decisions are based on something tangible.',
+  },
+  {
+    icon: 'tabler:cube',
+    title: 'Immersive Products & Experiences',
+    description:
+      'Interactive XR products, games and branded experiences built to be engaging, comfortable and intuitive to use.',
+    detail: 'FoVR can help shape the product concept, interaction model, technical approach and release path.',
+  },
+  {
+    icon: 'tabler:route',
+    title: 'XR Consulting & Technical Discovery',
+    description:
+      'Practical advice for organisations working out where XR fits, what platform to choose and how to approach delivery.',
+    detail: 'Useful for feasibility, scoping, platform selection, technical reviews and planning an XR roadmap.',
+  },
+];
+
+const capabilities = [
+  'Meta Quest',
+  'Unity',
+  'SteamVR',
+  'Mixed Reality',
+  'Hand Tracking',
+  'Passthrough',
+  'WebXR',
+  'Spatial UI',
+  'Real-time 3D',
+  'C#',
+];
+
+const process = [
+  {
+    title: 'Discover',
+    description: 'Clarify the problem, audience, environment, success criteria and platform constraints.',
+  },
+  {
+    title: 'Prototype',
+    description: 'Test the interaction and experience quickly on real hardware before over-investing in production.',
+  },
+  {
+    title: 'Build',
+    description: 'Develop the application, content and interaction flow with performance and usability in mind.',
+  },
+  {
+    title: 'Validate & deploy',
+    description: 'Test on-device, refine the experience and prepare the build for its intended deployment or store release.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What kind of XR projects can FoVR Interactive build?',
+    answer:
+      'FoVR develops virtual reality, mixed reality and spatial applications including training experiences, equipment simulations, interactive products, Meta Quest applications, prototypes and experimental XR interfaces.',
+  },
+  {
+    question: 'Does FoVR develop for Meta Quest?',
+    answer:
+      'Yes. Meta Quest is a core platform for FoVR, including standalone VR, mixed reality, passthrough and hand-tracked experiences. Other immersive platforms can be considered based on the project requirements.',
+  },
+  {
+    question: 'Can we start with a prototype before commissioning a full XR application?',
+    answer:
+      'Yes. A focused prototype or proof of concept is often the best first step when the interaction, platform or business case still needs to be validated. The prototype can then inform the scope of a production build.',
+  },
+  {
+    question: 'Can existing CAD or 3D models be used in a VR project?',
+    answer:
+      'Often, yes. Existing CAD and 3D assets can frequently be adapted for real-time XR, although they may need optimisation, material work, hierarchy changes or interaction preparation before they are suitable for standalone hardware.',
+  },
+  {
+    question: 'Does FoVR work with organisations outside Brisbane?',
+    answer:
+      'Yes. FoVR Interactive is based in Brisbane, Queensland and can work remotely with organisations across Australia and on suitable international projects.',
+  },
+  {
+    question: 'How does an XR project usually start?',
+    answer:
+      'The first step is a practical discovery conversation covering the problem, intended users, environment, hardware, content, timeline and desired outcome. From there FoVR can recommend a prototype, technical discovery phase or production approach.',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <section class="relative px-4 py-24 sm:px-6 lg:py-32">
-    <div class="mx-auto max-w-4xl rounded-[2rem] border border-slate-200/70 bg-white p-8 text-center shadow-2xl shadow-slate-200/70 dark:border-white/10 dark:bg-slate-900 dark:shadow-black/20 sm:p-12">
-      <p class="text-sm font-black uppercase tracking-[0.18em] text-cyan-600 dark:text-cyan-300">FoVR Interactive</p>
-      <h1 class="mt-4 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
-        The old Services page has been retired.
+  <section class="relative isolate overflow-hidden bg-slate-950 px-4 py-20 text-white sm:px-6 lg:py-28">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,0.18),transparent_32rem),radial-gradient(circle_at_84%_12%,rgba(168,85,247,0.16),transparent_34rem)]" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-6xl">
+      <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-300">XR development services · Brisbane, Australia</p>
+      <h1 class="mt-5 max-w-5xl text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
+        Immersive technology built around real-world outcomes.
       </h1>
-      <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-        FoVR is now organised around released projects and lab experiments. For the clearest view of the work, start with the project collection. For a new XR idea, support question or prototype conversation, head to Contact.
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">
+        FoVR Interactive designs and develops virtual reality, mixed reality and spatial applications for organisations and audiences that need more than a flat screen. From early technical discovery through to production-ready builds, the focus is on useful interaction, clear delivery and experiences that work on real hardware.
       </p>
-      <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <a class="rounded-full bg-cyan-400 px-5 py-3 font-black text-slate-950 shadow-lg shadow-cyan-400/20 transition hover:-translate-y-0.5" href="/projects">View projects</a>
-        <a class="rounded-full border border-slate-300 px-5 py-3 font-black text-slate-950 transition hover:-translate-y-0.5 dark:border-white/15 dark:text-white" href="/contact">Contact FoVR</a>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a class="rounded-full bg-cyan-300 px-5 py-3 font-black text-slate-950 transition hover:-translate-y-0.5" href="/contact">Discuss a project</a>
+        <a class="rounded-full border border-white/20 bg-white/5 px-5 py-3 font-black text-white transition hover:-translate-y-0.5" href="/projects">See our work</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="max-w-3xl">
+        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">What FoVR does</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">Specialist XR capability from concept to deployment.</h2>
+        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
+          Every project starts with the problem to solve. The technology follows from there.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => (
+          <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/40 dark:border-white/10 dark:bg-slate-900 dark:shadow-black/20">
+            <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700 dark:bg-cyan-400/10 dark:text-cyan-300">
+              <Icon name={service.icon} class="h-6 w-6" />
+            </div>
+            <h3 class="mt-5 text-2xl font-black tracking-tight text-slate-950 dark:text-white">{service.title}</h3>
+            <p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">{service.description}</p>
+            <p class="mt-4 border-t border-slate-200 pt-4 text-sm font-semibold leading-6 text-slate-500 dark:border-white/10 dark:text-slate-400">{service.detail}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 px-4 py-16 dark:bg-slate-950/50 sm:px-6 sm:py-24">
+    <div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+      <div>
+        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">Platforms & capability</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">Built for immersive platforms, not just desktop demos.</h2>
+        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
+          FoVR works across the real-time technology stack required to design, build and optimise interactive XR experiences.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3 rounded-3xl border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-slate-900 sm:p-8">
+        {capabilities.map((capability) => (
+          <span class="rounded-full border border-cyan-200 bg-cyan-50 px-4 py-2 font-bold text-cyan-900 dark:border-cyan-400/20 dark:bg-cyan-400/10 dark:text-cyan-200">{capability}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="max-w-3xl">
+        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">How projects move</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">A practical path from idea to working experience.</h2>
+      </div>
+      <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {process.map((step, index) => (
+          <article class="rounded-3xl border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-slate-900">
+            <span class="text-sm font-black text-cyan-700 dark:text-cyan-300">0{index + 1}</span>
+            <h3 class="mt-3 text-xl font-black text-slate-950 dark:text-white">{step.title}</h3>
+            <p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">{step.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 px-4 py-16 dark:bg-slate-950/50 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-5xl">
+      <div class="max-w-3xl">
+        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">XR development FAQ</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">Common questions before an XR project starts.</h2>
+        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
+          Clear answers to the questions organisations commonly need to resolve before deciding whether immersive technology is the right fit.
+        </p>
+      </div>
+      <div class="mt-10 space-y-4">
+        {faqs.map((faq) => (
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-slate-900">
+            <h3 class="text-xl font-black text-slate-950 dark:text-white">{faq.question}</h3>
+            <p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">{faq.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-5xl rounded-[2rem] bg-slate-950 p-8 text-center text-white shadow-2xl sm:p-12">
+      <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-300">Start with the problem</p>
+      <h2 class="mt-3 text-4xl font-black tracking-tight sm:text-5xl">Have an XR project in mind?</h2>
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+        Tell FoVR what you need people to learn, understand, experience or do. We can work out whether VR, mixed reality, a prototype or another approach makes sense from there.
+      </p>
+      <div class="mt-8">
+        <a class="inline-flex rounded-full bg-cyan-300 px-5 py-3 font-black text-slate-950 transition hover:-translate-y-0.5" href="/contact">Discuss your project</a>
       </div>
     </div>
   </section>
