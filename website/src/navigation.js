@@ -25,6 +25,7 @@ export const footerData = {
       links: [
         { text: 'Home', href: '/' },
         { text: 'Projects', href: '/projects' },
+        { text: 'Diamond Easy', href: '/projects/diamond-easy' },
         { text: 'About', href: '/about' },
       ],
     },
@@ -39,6 +40,7 @@ export const footerData = {
   secondaryLinks: [
     { text: 'Terms', href: getPermalink('/terms') },
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    { text: 'Diamond Easy Privacy', href: '/projects/diamond-easy/privacy-policy' },
   ],
   socialLinks: [
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/fovr.interactive' },

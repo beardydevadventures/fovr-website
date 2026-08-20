@@ -20,10 +20,23 @@ export async function getStaticPaths() {
 const { project } = Astro.props as { project: ProjectEntry };
 const { Content } = await project.render();
 const data = project.data;
+const isDiamondEasy = project.slug === 'diamond-easy';
 
 const metadata = {
-  title: data.title,
-  description: data.excerpt,
+  title: isDiamondEasy ? 'Diamond Easy | Relaxing Diamond Painting in VR' : data.title,
+  ignoreTitleTemplate: isDiamondEasy,
+  description: isDiamondEasy
+    ? 'Relax, create and watch your artwork sparkle in Diamond Easy, a cosy diamond-painting experience made for VR.'
+    : data.excerpt,
+  ...(isDiamondEasy
+    ? {
+        openGraph: {
+          title: 'Diamond Easy | Relaxing Diamond Painting in VR',
+          description:
+            'Relax, create and watch your artwork sparkle in Diamond Easy, a cosy diamond-painting experience made for VR.',
+        },
+      }
+    : {}),
 };
 
 const detailItems: { label: string; value: string }[] = [
@@ -330,6 +343,35 @@ const detailItems: { label: string; value: string }[] = [
 
   .project-content {
     padding: clamp(1.35rem, 4vw, 2.5rem);
+  }
+
+  .project-content .diamond-easy-media {
+    margin: 1.75rem 0 2.75rem;
+    overflow: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 1.35rem;
+    background: #020617;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+  }
+
+  .project-content .diamond-easy-media video {
+    display: block;
+    width: 100%;
+    max-height: 42rem;
+    margin: 0;
+    background: #020617;
+    object-fit: contain;
+  }
+
+  .project-content .diamond-easy-media figcaption {
+    margin: 0;
+    padding: 0.8rem 1rem;
+    color: #cbd5e1;
+    background: linear-gradient(135deg, #0f172a, #172033);
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
   }
 
   @media (max-width: 1024px) {
