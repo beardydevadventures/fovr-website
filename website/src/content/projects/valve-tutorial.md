@@ -1,17 +1,17 @@
 ---
 title: Valve Tutorial
 tagline: Hands-on mixed reality learning for industrial valve operation.
-excerpt: A guided learning experience that lets users explore valve operation and assembly through step-by-step tasks and visual prompts, in a risk-free virtual environment.
+excerpt: A Meta Quest mixed reality training experience that teaches valve operation and assembly through guided tasks, hand-tracked interaction and clear visual feedback in a risk-free environment.
 category: Immersive Learning
 status: Live on Meta Quest
 highlight: true
 order: 1
 cover:
   src: '@/assets/images/valve-tutorial.jpg'
-  alt: Valve Tutorial preview
+  alt: Valve Tutorial mixed reality training experience on Meta Quest
 trailer:
   youtubeId: wP6mO2jT8-E
-  title: Valve Tutorial
+  title: Valve Tutorial mixed reality training experience
 role: Design, development and Quest deployment
 platforms:
   - Meta Quest
@@ -23,9 +23,10 @@ techStack:
   - Meta Quest SDK
   - Hand Tracking
 tags:
-  - VR
-  - Training
+  - VR Training
+  - Mixed Reality
   - Simulation
+  - Meta Quest
 links:
   - label: Meta Quest
     href: https://www.meta.com/en-gb/experiences/valve-tutorial/8298310513542583
@@ -35,70 +36,76 @@ links:
 
 ## Overview
 
-Valve Tutorial is a mixed reality valve training experience for Meta Quest. It helps users learn operation and assembly through guided, hands-on modules using hand tracking, with the option to switch into full VR when they want a more focused learning environment.
+Valve Tutorial is a mixed reality training experience for Meta Quest that demonstrates how immersive technology can make mechanical equipment easier to understand through direct interaction.
 
-The project is designed around the idea that people understand equipment better when they can interact with it directly. Instead of reading a procedure or watching a flat video, users can explore parts, follow prompts, complete tasks and build confidence in a risk-free virtual space.
+Users learn valve operation and assembly through guided, hands-on modules. They can inspect components, follow visual prompts, complete an assembly sequence and see how the valve functions without needing access to physical training equipment. Hand tracking supports direct interaction, while a full VR mode provides a more focused learning environment when needed.
 
-## Goals and objectives
+The project was designed around a simple training principle: if understanding depends on spatial relationships and physical steps, the learner should be able to interact with those relationships rather than only read about them or watch them on a flat screen.
 
-### Enhance learning
+## Training goals
 
-Provide an engaging and interactive training environment that improves understanding and retention of valve operation through guided modules and direct interaction.
+### Make equipment operation easier to understand
 
-### Risk-free learning
+Use an interactive 3D valve to show how components relate to one another and how the internal mechanism changes as the valve is operated.
 
-Create a safe virtual environment where users can explore, make mistakes and learn without risk to themselves or damage to real equipment.
+### Provide a safe place to practise
 
-### Hands-on experience
+Allow users to explore the equipment and repeat guided tasks without risk to people, production equipment or physical training assets.
 
-Use hand tracking and mixed reality to mirror the feel of handling components, inspecting parts and working through an assembly sequence.
+### Turn procedures into actions
 
-## Process and development
+Present the assembly process as a sequence of direct interactions rather than a passive list of instructions, helping the learner connect each step with the component and spatial relationship involved.
 
-### 1. Concept and learning flow
+## Design and development approach
 
-The project started with defining the learning objectives, valve operation flow and assembly sequence. The key question was not just what needed to be shown, but what the user needed to do in order to understand the process.
+### 1. Define the learning flow
 
-### 2. Model and interaction design
+The experience began with the learning objective, valve operation and assembly sequence. Each step was considered in terms of what the user needed to understand and what action would make that understanding clearer.
 
-Detailed interaction flows were created to map how users would move through the experience, what they would interact with, and how prompts would guide the training sequence.
+### 2. Prepare the equipment model for XR
 
-### 3. Build in Unity for Quest
+The valve was represented in detail while still being prepared for real-time standalone hardware. Components needed clear relationships, usable interaction points and visual behaviour that supported the learning goal.
 
-The experience was built in Unity for Meta Quest, combining realistic valve models, guided prompts, hand-tracked interaction and virtual learning stages.
+### 3. Design guided interaction
 
-### 4. Playtesting and iteration
+Prompts, highlights and interaction states were used to make the next action clear without overwhelming the user. The experience was structured so that users could focus on the equipment rather than learning a complicated interface.
 
-Testing focused on clarity, comfort, accuracy and interaction feel. The experience was refined based on feedback around pacing, task order and how clearly users understood the next step.
+### 4. Build and optimise for Meta Quest
 
-### 5. Ongoing updates
+Valve Tutorial was developed in Unity for standalone Meta Quest hardware, combining mixed reality, VR, hand tracking, guided interactions and real-time 3D content.
 
-The experience can continue to improve as modules, interactions and learning requirements evolve.
+### 5. Test on device and iterate
 
-## Challenges and solutions
+On-device testing focused on interaction clarity, comfort, task order, feedback and performance. The flow was refined around where users hesitated, what they understood immediately and what needed stronger visual guidance.
 
-### Ensuring realism and accuracy
+## Technical considerations
 
-The training needed to feel credible without becoming too complex. The solution was to focus on clear component relationships, practical interaction points and guided steps that supported the learning goal.
+### Mixed reality and VR in one learning experience
 
-### Optimising performance
+Mixed reality allows the valve to sit naturally within the learner's real environment, while VR provides a controlled alternative when a more focused setting is useful. Supporting both modes makes the same learning content adaptable to different contexts.
 
-The project needed to run smoothly on standalone Quest hardware. Asset optimisation and focused scene design helped keep the experience responsive while still feeling immersive.
+### Hand-tracked mechanical interaction
 
-## Results and impact
+Assembly training benefits from direct manipulation, but hand tracking also requires careful consideration of grab targets, spacing, feedback and task tolerances. Interactions were designed to remain understandable and forgiving enough for a learning context.
 
-### Clearer understanding
+### Standalone Quest performance
 
-Guided hands-on modules help users understand valve operation, component relationships and assembly flow more clearly than a passive explanation.
+Detailed mechanical assets can be expensive to render on standalone hardware. The valve and scene content therefore needed to balance visual clarity with geometry, material and runtime performance constraints.
 
-### Safe learning environment
+## What this project demonstrates
 
-Users can experiment in a virtual environment where mistakes carry no risk to people or equipment.
+Valve Tutorial is a practical example of FoVR Interactive's capability across:
 
-### Positive feedback
+- immersive training and guided procedure design
+- Meta Quest standalone development
+- mixed reality and passthrough experiences
+- hand-tracked interaction
+- mechanical and equipment visualisation
+- real-time 3D optimisation
+- interaction prototyping and on-device iteration
 
-Users consistently call out the clarity of the guided flow and the value of interacting with parts directly.
+It also demonstrates where XR can add value to training: situations where understanding depends on scale, spatial relationships, component behaviour and the order of physical actions.
 
 ## Availability
 
-Valve Tutorial is available on Meta Quest through the Meta store link above.
+Valve Tutorial is available on Meta Quest through the store link above.
