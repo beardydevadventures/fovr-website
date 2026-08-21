@@ -6,81 +6,71 @@ import { getCollection } from 'astro:content';
 
 const projectEntries = await getCollection('projects');
 const projects = projectEntries
-  .map(({ slug, data }) => ({
-    slug,
-    ...data,
-  }))
+  .map(({ slug, data }) => ({ slug, ...data }))
   .sort((a, b) => {
     const orderA = a.order ?? 999;
     const orderB = b.order ?? 999;
     return orderA - orderB || a.title.localeCompare(b.title);
   });
 
-const shippedCount = projects.filter((project) => project.status?.toLowerCase().includes('live')).length;
+const studioProjects = projects.filter((project) => project.category !== 'FoVR Labs');
+const labProjects = projects.filter((project) => project.category === 'FoVR Labs');
+const liveCount = studioProjects.filter((project) => project.status?.toLowerCase().includes('live')).length;
 
 const metadata = {
-  title: 'Projects',
+  title: 'XR Projects & Case Studies',
   description:
-    'Browse FoVR Interactive projects across released VR experiences, Meta Quest games, immersive learning, WebXR, mixed reality and FoVR Labs prototypes.',
+    'Explore FoVR Interactive XR projects across VR training, Meta Quest applications, mixed reality, immersive products and applied FoVR Labs research.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <section class="portfolio-hero relative isolate overflow-hidden px-4 py-20 sm:px-6 lg:py-28">
-    <div class="portfolio-grid-bg" aria-hidden="true"></div>
-    <div class="mx-auto max-w-6xl">
-      <p class="portfolio-kicker">FoVR Portfolio</p>
-      <h1 class="mt-5 max-w-4xl text-5xl font-black tracking-tight text-slate-950 dark:text-white sm:text-6xl lg:text-7xl">
-        Released VR experiences and FoVR Labs experiments.
+  <section class="relative isolate overflow-hidden bg-slate-950 px-4 py-20 text-white sm:px-6 lg:py-28">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,0.18),transparent_32rem),radial-gradient(circle_at_84%_12%,rgba(236,72,153,0.15),transparent_32rem)]" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-6xl">
+      <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-300">FoVR Interactive portfolio</p>
+      <h1 class="mt-5 max-w-5xl text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
+        XR products, training and research built for real platforms.
       </h1>
-      <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-700 dark:text-slate-300 sm:text-xl">
-        A mix of playable Quest and SteamVR projects, immersive learning work, and smaller lab builds exploring mixed reality, WebXR, AI and spatial UI.
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">
+        FoVR’s portfolio includes released virtual reality products, immersive learning experiences and applied R&D. Production work demonstrates what has been taken onto real devices; FoVR Labs shows the technical research that informs what comes next.
       </p>
-
       <div class="mt-8 grid gap-4 sm:grid-cols-3">
-        <div class="portfolio-stat">
-          <strong>{projects.length}</strong>
-          <span>portfolio projects</span>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <strong class="block text-3xl font-black">{studioProjects.length}</strong>
+          <span class="mt-1 block font-semibold text-slate-300">studio projects</span>
         </div>
-        <div class="portfolio-stat">
-          <strong>{shippedCount}</strong>
-          <span>live experiences</span>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <strong class="block text-3xl font-black">{liveCount}</strong>
+          <span class="mt-1 block font-semibold text-slate-300">live experiences</span>
         </div>
-        <div class="portfolio-stat">
-          <strong>Quest</strong>
-          <span>primary XR platform</span>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <strong class="block text-3xl font-black">{labProjects.length}</strong>
+          <span class="mt-1 block font-semibold text-slate-300">FoVR Labs projects</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="relative px-4 py-16 sm:px-6 sm:py-24">
+  <section class="px-4 py-16 sm:px-6 sm:py-24">
     <div class="mx-auto max-w-6xl">
-      <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-        <div>
-          <p class="portfolio-kicker portfolio-kicker-dark">Project collection</p>
-          <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
-            Shipped work, prototypes and research in one place.
-          </h2>
-          <p class="mt-4 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-            Live projects link through to their store pages. Lab projects show the experiments behind FoVR’s next ideas.
-          </p>
-        </div>
-        <div class="portfolio-filter-row" aria-label="Project categories">
-          <span>VR Games</span>
-          <span>Immersive Learning</span>
-          <span>Labs</span>
-        </div>
+      <div class="mb-10 max-w-3xl">
+        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">Studio projects</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+          Released and production-focused XR work.
+        </h2>
+        <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">
+          These projects represent FoVR’s product, training and immersive application work, including experiences released on Meta Quest and other XR platforms.
+        </p>
       </div>
 
-      <div class="portfolio-grid">
-        {projects.map((project) => (
-          <article class="portfolio-card group">
+      <div class="grid gap-6 lg:grid-cols-2">
+        {studioProjects.map((project) => (
+          <article class="group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-xl shadow-slate-200/40 dark:border-white/10 dark:bg-slate-900 dark:shadow-black/20">
             <a class="absolute inset-0 z-20" href={`/projects/${project.slug}`} aria-label={`Open ${project.title}`} />
-
-            <div class="portfolio-media">
+            <div class="grid min-h-72 place-items-center bg-gradient-to-br from-cyan-50 via-slate-50 to-violet-50 p-6 dark:from-slate-950 dark:via-slate-900 dark:to-violet-950/40">
               <Image
-                class="h-full w-full object-contain p-6 transition duration-700 group-hover:scale-[1.04]"
+                class="h-full max-h-64 w-full object-contain transition duration-500 group-hover:scale-[1.03]"
                 src={project.cover.src}
                 alt={project.cover.alt}
                 width={1280}
@@ -88,31 +78,24 @@ const metadata = {
                 loading="lazy"
               />
             </div>
-
-            <div class="portfolio-content">
-              <div class="mb-3 flex flex-wrap items-center gap-2">
-                <span class="portfolio-label">{project.category ?? 'XR Project'}</span>
-                {project.status && <span class="portfolio-status">{project.status}</span>}
+            <div class="p-6">
+              <div class="flex flex-wrap gap-2 text-xs font-black uppercase tracking-[0.08em]">
+                <span class="rounded-full bg-cyan-100 px-3 py-1 text-cyan-800 dark:bg-cyan-400/10 dark:text-cyan-200">{project.category ?? 'XR Project'}</span>
+                {project.status && <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-700 dark:bg-white/10 dark:text-slate-300">{project.status}</span>}
               </div>
-
-              <h2>
-                <a href={`/projects/${project.slug}`}>{project.title}</a>
-              </h2>
-
-              {project.tagline && <p class="portfolio-tagline">{project.tagline}</p>}
-              <p class="portfolio-excerpt">{project.excerpt}</p>
-
+              <h3 class="mt-4 text-2xl font-black tracking-tight text-slate-950 dark:text-white">{project.title}</h3>
+              {project.tagline && <p class="mt-2 font-bold text-slate-800 dark:text-slate-200">{project.tagline}</p>}
+              <p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">{project.excerpt}</p>
               {project.tags?.length ? (
                 <div class="mt-5 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => <span class="portfolio-chip">{tag}</span>)}
+                  {project.tags.map((tag) => <span class="rounded-full border border-slate-200 px-3 py-1 text-xs font-bold text-slate-600 dark:border-white/10 dark:text-slate-300">{tag}</span>)}
                 </div>
-              ) : ''}
-
+              ) : null}
               <div class="relative z-30 mt-6 flex flex-wrap gap-3">
-                <a class="portfolio-button portfolio-button-primary" href={`/projects/${project.slug}`}>View project</a>
+                <a class="rounded-full bg-slate-950 px-4 py-2.5 text-sm font-black text-white dark:bg-white dark:text-slate-950" href={`/projects/${project.slug}`}>View project</a>
                 {project.links?.map((link) => (
                   <a
-                    class="portfolio-button portfolio-button-secondary"
+                    class="inline-flex items-center gap-1.5 rounded-full border border-slate-300 px-4 py-2.5 text-sm font-black text-slate-900 dark:border-white/15 dark:text-white"
                     href={link.href}
                     {...link.external ? { target: '_blank', rel: 'noreferrer' } : {}}
                   >
@@ -127,296 +110,60 @@ const metadata = {
       </div>
     </div>
   </section>
+
+  {labProjects.length > 0 && (
+    <section class="bg-slate-50 px-4 py-16 dark:bg-slate-950/50 sm:px-6 sm:py-24">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-10 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+          <div>
+            <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">FoVR Labs</p>
+            <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">Applied R&D for emerging XR interaction.</h2>
+          </div>
+          <p class="text-lg leading-8 text-slate-600 dark:text-slate-300">
+            Labs projects are deliberately separated from production work. They explore new interaction patterns, platforms and technologies so FoVR can evaluate what is useful before those ideas are applied to larger products or client work.
+          </p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {labProjects.map((project) => (
+            <article class="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-white/10 dark:bg-slate-900">
+              <a class="absolute inset-0 z-20" href={`/projects/${project.slug}`} aria-label={`Open ${project.title}`} />
+              <div class="grid min-h-52 place-items-center bg-gradient-to-br from-slate-100 to-cyan-50 p-5 dark:from-slate-950 dark:to-cyan-950/30">
+                <Image
+                  class="h-full max-h-44 w-full object-contain transition duration-500 group-hover:scale-[1.03]"
+                  src={project.cover.src}
+                  alt={project.cover.alt}
+                  width={900}
+                  height={600}
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-5">
+                <div class="flex flex-wrap gap-2 text-xs font-black uppercase tracking-[0.08em]">
+                  <span class="rounded-full bg-cyan-100 px-3 py-1 text-cyan-800 dark:bg-cyan-400/10 dark:text-cyan-200">FoVR Labs</span>
+                  {project.status && <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-700 dark:bg-white/10 dark:text-slate-300">{project.status}</span>}
+                </div>
+                <h3 class="mt-4 text-xl font-black tracking-tight text-slate-950 dark:text-white">{project.title}</h3>
+                <p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">{project.excerpt}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-5xl rounded-[2rem] bg-slate-950 p-8 text-center text-white shadow-2xl sm:p-12">
+      <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-300">Your project</p>
+      <h2 class="mt-3 text-4xl font-black tracking-tight sm:text-5xl">Need something similar built for your organisation?</h2>
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+        FoVR can help with XR discovery, prototyping, training simulations, mixed reality and production application development.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a class="rounded-full bg-cyan-300 px-5 py-3 font-black text-slate-950" href="/contact">Discuss a project</a>
+        <a class="rounded-full border border-white/20 px-5 py-3 font-black text-white" href="/services">Explore services</a>
+      </div>
+    </div>
+  </section>
 </Layout>
-
-<style is:inline>
-  .portfolio-hero {
-    background:
-      radial-gradient(circle at 20% 18%, rgba(34, 211, 238, 0.18), transparent 32rem),
-      radial-gradient(circle at 82% 10%, rgba(236, 72, 153, 0.15), transparent 30rem),
-      linear-gradient(135deg, #f8fafc, #eff6ff 55%, #ffffff);
-  }
-
-  .dark .portfolio-hero {
-    background:
-      radial-gradient(circle at 20% 18%, rgba(34, 211, 238, 0.2), transparent 32rem),
-      radial-gradient(circle at 82% 10%, rgba(236, 72, 153, 0.19), transparent 30rem),
-      linear-gradient(135deg, #020617, #08111f 55%, #111827);
-  }
-
-  .portfolio-grid-bg {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
-    background-size: 54px 54px;
-    mask-image: linear-gradient(to bottom, black, transparent 78%);
-    opacity: 0.72;
-  }
-
-  .dark .portfolio-grid-bg {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
-  }
-
-  .portfolio-kicker {
-    margin: 0;
-    color: #0891b2;
-    font-size: 0.78rem;
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .dark .portfolio-kicker {
-    color: #22d3ee;
-  }
-
-  .portfolio-kicker-dark {
-    color: #0891b2;
-  }
-
-  .portfolio-stat {
-    border: 1px solid rgba(148, 163, 184, 0.22);
-    border-radius: 1.4rem;
-    background: rgba(255, 255, 255, 0.76);
-    padding: 1rem;
-    backdrop-filter: blur(18px);
-    box-shadow: 0 18px 55px rgba(15, 23, 42, 0.08);
-  }
-
-  .dark .portfolio-stat {
-    border-color: rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: none;
-  }
-
-  .portfolio-stat strong,
-  .portfolio-stat span {
-    display: block;
-  }
-
-  .portfolio-stat strong {
-    color: #0f172a;
-    font-size: 1.8rem;
-    font-weight: 950;
-    line-height: 1;
-  }
-
-  .dark .portfolio-stat strong {
-    color: white;
-  }
-
-  .portfolio-stat span {
-    margin-top: 0.35rem;
-    color: #475569;
-    font-weight: 750;
-  }
-
-  .dark .portfolio-stat span {
-    color: #cbd5e1;
-  }
-
-  .portfolio-filter-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-  }
-
-  .portfolio-filter-row span,
-  .portfolio-chip {
-    border-radius: 999px;
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    background: rgba(15, 23, 42, 0.06);
-    color: #0f172a;
-    padding: 0.55rem 0.85rem;
-    font-size: 0.8rem;
-    font-weight: 850;
-  }
-
-  .portfolio-chip {
-    padding: 0.4rem 0.65rem;
-    font-size: 0.74rem;
-  }
-
-  .dark .portfolio-filter-row span,
-  .dark .portfolio-chip {
-    border-color: rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.08);
-    color: #e2e8f0;
-  }
-
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.4rem;
-  }
-
-  .portfolio-card {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(148, 163, 184, 0.22);
-    border-radius: 2rem;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.9));
-    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.1);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  }
-
-  .portfolio-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(34, 211, 238, 0.32);
-    box-shadow: 0 30px 90px rgba(15, 23, 42, 0.14);
-  }
-
-  .dark .portfolio-card {
-    border-color: rgba(255, 255, 255, 0.11);
-    background: linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.98));
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
-  }
-
-  .dark .portfolio-card:hover {
-    border-color: rgba(34, 211, 238, 0.34);
-    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
-  }
-
-  .portfolio-media {
-    display: grid;
-    min-height: 18rem;
-    place-items: center;
-    background:
-      radial-gradient(circle at 25% 20%, rgba(34, 211, 238, 0.16), transparent 26rem),
-      radial-gradient(circle at 78% 22%, rgba(236, 72, 153, 0.12), transparent 22rem),
-      linear-gradient(135deg, #eff6ff, #f8fafc);
-  }
-
-  .dark .portfolio-media {
-    background:
-      radial-gradient(circle at 25% 20%, rgba(34, 211, 238, 0.18), transparent 26rem),
-      radial-gradient(circle at 78% 22%, rgba(236, 72, 153, 0.18), transparent 22rem),
-      linear-gradient(135deg, #020617, #0f172a);
-  }
-
-  .portfolio-content {
-    padding: 1.5rem;
-  }
-
-  .portfolio-label,
-  .portfolio-status {
-    border-radius: 999px;
-    padding: 0.4rem 0.65rem;
-    font-size: 0.72rem;
-    font-weight: 900;
-  }
-
-  .portfolio-label {
-    color: #075985;
-    background: rgba(34, 211, 238, 0.12);
-  }
-
-  .portfolio-status {
-    color: #831843;
-    background: rgba(244, 114, 182, 0.12);
-  }
-
-  .dark .portfolio-label {
-    color: #67e8f9;
-    background: rgba(34, 211, 238, 0.14);
-  }
-
-  .dark .portfolio-status {
-    color: #f9a8d4;
-    background: rgba(244, 114, 182, 0.14);
-  }
-
-  .portfolio-content h2 {
-    margin: 0;
-    color: #0f172a;
-    font-size: 1.65rem;
-    font-weight: 950;
-    letter-spacing: -0.04em;
-    line-height: 1.1;
-  }
-
-  .portfolio-content h2 a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .dark .portfolio-content h2 {
-    color: white;
-  }
-
-  .portfolio-tagline {
-    margin-top: 0.85rem;
-    color: #0f172a;
-    font-weight: 850;
-    line-height: 1.45;
-  }
-
-  .dark .portfolio-tagline {
-    color: #e2e8f0;
-  }
-
-  .portfolio-excerpt {
-    margin-top: 0.75rem;
-    color: #475569;
-    line-height: 1.7;
-  }
-
-  .dark .portfolio-excerpt {
-    color: #cbd5e1;
-  }
-
-  .portfolio-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    border-radius: 999px;
-    padding: 0.7rem 0.95rem;
-    font-size: 0.84rem;
-    font-weight: 900;
-    text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  }
-
-  .portfolio-button:hover {
-    transform: translateY(-2px);
-  }
-
-  .portfolio-button-primary {
-    color: #06111f;
-    background: linear-gradient(135deg, #22d3ee, #a78bfa 55%, #f472b6);
-    box-shadow: 0 18px 45px rgba(34, 211, 238, 0.2);
-  }
-
-  .portfolio-button-secondary {
-    color: #0f172a;
-    border: 1px solid rgba(15, 23, 42, 0.12);
-    background: rgba(255, 255, 255, 0.72);
-  }
-
-  .dark .portfolio-button-secondary {
-    color: #e2e8f0;
-    border-color: rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.08);
-  }
-
-  @media (max-width: 900px) {
-    .portfolio-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .portfolio-media {
-      min-height: 14rem;
-    }
-
-    .portfolio-content {
-      padding: 1.15rem;
-    }
-  }
-</style>

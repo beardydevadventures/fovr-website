@@ -1,0 +1,99 @@
+---
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://www.fovrinteractive.net/#organization',
+      name: 'FoVR Interactive',
+      url: 'https://www.fovrinteractive.net/',
+      email: 'contact@fovrinteractive.net',
+      description:
+        'Australian XR development studio based in Brisbane, creating VR training, mixed reality applications, interactive simulations and immersive products.',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Brisbane',
+        addressRegion: 'Queensland',
+        addressCountry: 'AU',
+      },
+      areaServed: [
+        {
+          '@type': 'Country',
+          name: 'Australia',
+        },
+      ],
+      sameAs: [
+        'https://www.linkedin.com/company/fovr-interactive/',
+        'https://www.facebook.com/fovr.interactive',
+        'https://x.com/FovrInteractive',
+        'https://www.youtube.com/@fovrinteractive',
+      ],
+      knowsAbout: [
+        'Virtual reality development',
+        'Mixed reality development',
+        'VR training',
+        'XR simulation',
+        'Meta Quest development',
+        'Unity development',
+        'Hand tracking',
+        'WebXR',
+        'Spatial computing',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://www.fovrinteractive.net/#website',
+      url: 'https://www.fovrinteractive.net/',
+      name: 'FoVR Interactive',
+      publisher: {
+        '@id': 'https://www.fovrinteractive.net/#organization',
+      },
+      inLanguage: 'en-AU',
+    },
+    {
+      '@type': 'Service',
+      '@id': 'https://www.fovrinteractive.net/services#xr-development',
+      name: 'XR Application Development',
+      serviceType: 'Virtual reality and mixed reality application development',
+      provider: {
+        '@id': 'https://www.fovrinteractive.net/#organization',
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'Australia',
+      },
+      url: 'https://www.fovrinteractive.net/services',
+    },
+    {
+      '@type': 'Service',
+      '@id': 'https://www.fovrinteractive.net/services#vr-training',
+      name: 'VR Training and Simulation',
+      serviceType: 'Immersive training and simulation development',
+      provider: {
+        '@id': 'https://www.fovrinteractive.net/#organization',
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'Australia',
+      },
+      url: 'https://www.fovrinteractive.net/services',
+    },
+    {
+      '@type': 'Service',
+      '@id': 'https://www.fovrinteractive.net/services#mixed-reality',
+      name: 'Mixed Reality Development',
+      serviceType: 'Mixed reality, passthrough and hand-tracked application development',
+      provider: {
+        '@id': 'https://www.fovrinteractive.net/#organization',
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'Australia',
+      },
+      url: 'https://www.fovrinteractive.net/services',
+    },
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

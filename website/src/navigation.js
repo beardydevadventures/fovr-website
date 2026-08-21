@@ -7,33 +7,46 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
+      text: 'Services',
+      href: getPermalink('/services'),
+    },
+    {
       text: 'Projects',
-      href: '/projects',
+      href: getPermalink('/projects'),
     },
     {
       text: 'About',
       href: getPermalink('/about'),
     },
   ],
-  actions: [{ text: 'Contact', href: '/contact', icon: 'tabler:mail' }],
+  actions: [{ text: 'Discuss a Project', href: '/contact', icon: 'tabler:mail' }],
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Quick Links',
+      title: 'Studio',
       links: [
-        { text: 'Home', href: '/' },
-        { text: 'Projects', href: '/projects' },
-        { text: 'Diamond Easy', href: '/projects/diamond-easy' },
-        { text: 'About', href: '/about' },
+        { text: 'XR Development Services', href: '/services' },
+        { text: 'Projects & Case Studies', href: '/projects' },
+        { text: 'About FoVR', href: '/about' },
+        { text: 'Contact', href: '/contact' },
+      ],
+    },
+    {
+      title: 'Capabilities',
+      links: [
+        { text: 'VR Training & Simulation', href: '/services' },
+        { text: 'Mixed Reality Development', href: '/services' },
+        { text: 'Meta Quest Development', href: '/services' },
+        { text: 'XR Prototyping & R&D', href: '/services' },
       ],
     },
     {
       title: 'Contact',
       links: [
         { text: 'contact@fovrinteractive.net', href: 'mailto:contact@fovrinteractive.net' },
-        { text: 'Brisbane, Queensland', href: '/contact' },
+        { text: 'Brisbane, Queensland, Australia', href: '/contact' },
       ],
     },
   ],
@@ -48,5 +61,5 @@ export const footerData = {
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/FovrInteractive' },
     { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: 'https://www.youtube.com/@fovrinteractive' },
   ],
-  footNote: '© 2026 FoVR Interactive. All rights reserved.',
+  footNote: '© 2026 FoVR Interactive. Australian XR development studio based in Brisbane, Queensland.',
 };
