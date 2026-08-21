@@ -2,7 +2,6 @@
 import Layout from '@/layouts/PageLayout.astro';
 import Image from '@/components/common/Image.astro';
 import { getCollection } from 'astro:content';
-import { YouTube } from 'astro-embed';
 import { Icon } from 'astro-icon/components';
 
 const metadata = {
@@ -66,16 +65,25 @@ const delivery = [
 ---
 
 <Layout metadata={metadata}>
-  <section class="relative isolate overflow-hidden bg-slate-950 px-4 py-20 text-white sm:px-6 lg:py-28">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,0.2),transparent_32rem),radial-gradient(circle_at_82%_12%,rgba(168,85,247,0.18),transparent_34rem)]" aria-hidden="true"></div>
-    <div class="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.04fr_0.96fr]">
+  <section class="relative isolate flex min-h-[720px] items-center overflow-hidden bg-slate-950 px-4 py-20 text-white sm:px-6 lg:py-28">
+    <div class="hero-reel absolute inset-0" aria-hidden="true">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/92JRz7ZpLtQ?autoplay=1&mute=1&controls=0&loop=1&playlist=92JRz7ZpLtQ&playsinline=1&rel=0&disablekb=1&iv_load_policy=3"
+        title=""
+        tabindex="-1"
+        allow="autoplay; encrypted-media"
+      ></iframe>
+    </div>
+    <div class="absolute inset-0 bg-slate-950/65" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,0.25),transparent_32rem),linear-gradient(90deg,rgba(2,6,23,0.82),rgba(2,6,23,0.3))]" aria-hidden="true"></div>
+    <div class="relative mx-auto w-full max-w-6xl">
       <div>
         <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-300">Australian XR Development Studio · Brisbane</p>
         <h1 class="mt-5 max-w-5xl text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
-          XR experiences built for real-world use.
+          Immersive experiences built with purpose.
         </h1>
         <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">
-          FoVR Interactive designs and develops virtual reality, mixed reality and spatial applications for organisations and audiences that need better ways to learn, understand, interact and experience. From focused prototypes through to production-ready builds, we create immersive technology that works on real hardware and serves a clear purpose.
+          FoVR Interactive is an Australian immersive technology studio specialising in virtual reality, mixed reality and spatial applications. We design and deliver experiences across training, simulation, visualisation and entertainment, taking ideas from concept through development, deployment and ongoing support.
         </p>
 
         <div class="mt-8 flex flex-wrap gap-3">
@@ -91,17 +99,30 @@ const delivery = [
         </div>
       </div>
 
-      <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-2xl shadow-cyan-950/30 backdrop-blur">
-        <div class="mb-3 flex items-center justify-between px-2 text-xs font-black uppercase tracking-[0.14em] text-slate-300">
-          <span>FoVR Interactive</span>
-          <span class="text-cyan-300">XR development reel</span>
-        </div>
-        <div class="overflow-hidden rounded-3xl">
-          <YouTube id="92JRz7ZpLtQ" title="FoVR Interactive XR development reel" />
-        </div>
-      </div>
     </div>
   </section>
+
+  <style>
+    .hero-reel {
+      pointer-events: none;
+    }
+
+    .hero-reel iframe {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: max(100vw, 177.78vh);
+      height: max(56.25vw, 100vh);
+      border: 0;
+      transform: translate(-50%, -50%);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-reel {
+        display: none;
+      }
+    }
+  </style>
 
   <section class="px-4 py-16 sm:px-6 sm:py-24">
     <div class="mx-auto max-w-6xl">

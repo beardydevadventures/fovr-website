@@ -148,6 +148,26 @@ const detailItems: { label: string; value: string }[] = [
   </section>
 </Layout>
 
+<script>
+  const startProjectVideos = () => {
+    document.querySelectorAll<HTMLVideoElement>('.project-content video[autoplay]').forEach((video) => {
+      video.muted = true;
+      video.defaultMuted = true;
+
+      const play = () => video.play().catch(() => undefined);
+
+      if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+        void play();
+      } else {
+        video.addEventListener('loadeddata', play, { once: true });
+      }
+    });
+  };
+
+  document.addEventListener('astro:page-load', startProjectVideos);
+  startProjectVideos();
+</script>
+
 <style is:inline>
   .project-hero {
     background:
