@@ -50,34 +50,34 @@ const directLinks = [
 ---
 
 <Layout metadata={metadata}>
-  <section class="relative isolate overflow-hidden bg-slate-950 px-4 py-20 text-white sm:px-6 lg:py-28">
+  <section class="relative isolate overflow-hidden bg-cyan-50 px-4 py-20 text-slate-950 dark:bg-slate-950 dark:text-white sm:px-6 lg:py-28">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,0.18),transparent_32rem),radial-gradient(circle_at_84%_12%,rgba(168,85,247,0.16),transparent_34rem)]" aria-hidden="true"></div>
     <div class="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
       <div>
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-300">Contact FoVR Interactive</p>
+        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">Contact FoVR Interactive</p>
         <h1 class="mt-5 max-w-5xl text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
           Tell us what people need to learn, understand, experience or do.
         </h1>
-        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300 sm:text-xl">
           FoVR Interactive is a Brisbane-based XR development studio. If you are considering virtual reality, mixed reality, immersive training or an XR proof of concept, start with the problem and the intended users. We can help work out the right technical and interaction approach from there.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a class="rounded-full bg-cyan-300 px-5 py-3 font-black text-slate-950 transition hover:-translate-y-0.5" href="#contact">Send a project enquiry</a>
-          <a class="rounded-full border border-white/20 bg-white/5 px-5 py-3 font-black text-white transition hover:-translate-y-0.5" href="mailto:contact@fovrinteractive.net">Email directly</a>
+          <a class="rounded-full border border-slate-300 bg-white/60 px-5 py-3 font-black text-slate-900 transition hover:-translate-y-0.5 dark:border-white/20 dark:bg-white/5 dark:text-white" href="mailto:contact@fovrinteractive.net">Email directly</a>
         </div>
       </div>
 
-      <div class="rounded-[2rem] border border-white/10 bg-white/5 p-5 backdrop-blur">
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-300">Good fit for</p>
+      <div class="rounded-[2rem] border border-slate-200 bg-white/60 p-5 backdrop-blur dark:border-white/10 dark:bg-white/5">
+        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">Good fit for</p>
         <div class="mt-4 grid gap-4">
           {contactReasons.map((item) => (
-            <article class="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-5">
-              <div class="inline-flex h-11 w-11 flex-none items-center justify-center rounded-2xl bg-cyan-300/10 text-cyan-300">
+            <article class="flex gap-4 rounded-2xl border border-slate-200 bg-white/70 p-5 dark:border-white/10 dark:bg-white/5">
+              <div class="inline-flex h-11 w-11 flex-none items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700 dark:bg-cyan-300/10 dark:text-cyan-300">
                 <Icon name={item.icon} class="h-5 w-5" />
               </div>
               <div>
-                <h2 class="text-lg font-black text-white">{item.title}</h2>
-                <p class="mt-2 leading-6 text-slate-300">{item.description}</p>
+                <h2 class="text-lg font-black text-slate-950 dark:text-white">{item.title}</h2>
+                <p class="mt-2 leading-6 text-slate-600 dark:text-slate-300">{item.description}</p>
               </div>
             </article>
           ))}
