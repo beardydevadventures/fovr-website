@@ -1,34 +1,46 @@
 ---
 import Layout from '@/layouts/PageLayout.astro';
+import type { MetaData } from '@/types';
 
 const metadata = {
   title: 'Diamond Easy Privacy Policy | FoVR',
   ignoreTitleTemplate: true,
   description: 'Privacy information for Diamond Easy, the relaxing VR diamond-painting game from FoVR Interactive.',
-  openGraph: { title: 'Diamond Easy Privacy Policy | FoVR' },
-};
+} satisfies MetaData;
 ---
 
 <Layout metadata={metadata}>
   <article class="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:py-20">
     <p class="text-sm font-bold uppercase tracking-widest text-fuchsia-700 dark:text-fuchsia-300">Diamond Easy</p>
     <h1 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white md:text-5xl">Privacy Policy</h1>
-    <p class="mt-4 text-slate-600 dark:text-slate-300"><strong>Last updated: August 2026</strong></p>
+    <p class="mt-4 text-slate-600 dark:text-slate-300"><strong>Last updated: October 5, 2026</strong></p>
 
     <div class="mt-10 prose prose-lg max-w-none prose-slate dark:prose-invert prose-headings:font-black prose-headings:tracking-tight prose-a:text-fuchsia-700 dark:prose-a:text-fuchsia-300">
       <p>This policy explains how FoVR Interactive handles information in <strong>Diamond Easy</strong>, a VR diamond-painting game for Meta Quest.</p>
 
-      <h2>Information Diamond Easy collects</h2>
-      <p>Diamond Easy does not require a FoVR account and does not send FoVR your name, email address, contacts, precise location, photos, voice recordings, or payment-card details. FoVR does not currently operate analytics, advertising, telemetry, or crash-reporting services inside the game.</p>
+      <h2>Information Diamond Easy processes, collects or stores</h2>
+      <p>Diamond Easy does not require a separate FoVR account. Its enabled Meta Platform SDK features allow the app to access your Meta user ID, Horizon username and profile photo, and purchase or downloadable-content information, as described below. FoVR does not currently operate analytics, advertising, telemetry, or crash-reporting services inside the game.</p>
+
+      <h2>Meta user ID and user profile access</h2>
+      <p>Diamond Easy has access to the following Meta platform features:</p>
+      <ul>
+        <li><strong>User ID:</strong> your Meta user identifier, which allows platform features to identify the current player.</li>
+        <li><strong>User profile:</strong> your Horizon username and profile photo.</li>
+        <li><strong>In-app purchases and downloadable content:</strong> purchase and entitlement information used to confirm access to purchased content.</li>
+      </ul>
+      <p>Enabling User ID and User profile access gives the app permission to retrieve those fields; it does not by itself mean that the app retrieves or stores them. The purchase information used by Diamond Easy is explained in the Purchases section below. Any Meta user ID, username or profile photo collected or stored by FoVR is covered by the deletion-request process in this policy.</p>
+
+      <h2>VR interaction data</h2>
+      <p>Diamond Easy processes headset position and movement, and hand or controller input, in real time to enable movement and interaction within the game. This information is processed on your headset and is not stored by FoVR or sent to FoVR servers.</p>
 
       <h2>Local game data</h2>
-      <p>Your artwork progress, save data, and settings are stored locally on your headset. FoVR does not receive this data. It remains on your device unless the Meta Quest platform provides a device backup or cloud service that you have enabled. Removing the game may remove its local data; your headset and Meta account settings control any platform backups.</p>
+      <p>Your artwork progress, save data, and settings are stored locally on your headset so you can resume your artwork and keep your preferences. FoVR does not receive this data. It remains on your device unless the Meta Quest platform provides a device backup or cloud service that you have enabled. Removing the game may remove its local data; your headset and Meta account settings control any platform backups.</p>
 
       <h2>Meta Quest and Meta Horizon services</h2>
       <p>Diamond Easy is distributed through Meta's platform. Meta may process device, account, store, entitlement, safety, and technical information under its own terms and privacy policies. That processing is controlled by Meta, not FoVR. Please see <a href="https://www.meta.com/privacy/policy/" target="_blank" rel="noreferrer">Meta's Privacy Policy</a> for details.</p>
 
       <h2>Purchases</h2>
-      <p>Purchases and any future in-app purchases may be handled by Meta. FoVR does not receive or store your full payment-card details. Meta may provide FoVR with limited transaction or entitlement information needed to confirm that content is available to you.</p>
+      <p>Diamond Easy uses Meta's platform for app purchases, in-app purchases, and downloadable content. The app retrieves purchase and entitlement information from Meta to determine which art packs or other purchased content you have access to. The app processes this information to unlock purchased content. FoVR does not receive or store your full payment-card details.</p>
 
       <h2>Website analytics and support</h2>
       <p>The FoVR website uses Google Analytics to understand general website traffic. This is separate from Diamond Easy and is covered by the <a href="/privacy">FoVR website privacy policy</a>. If you contact FoVR for support, we receive the information you choose to send, such as your email address and message. We use it only to respond and keep it only as long as reasonably needed for support, legal, or security purposes.</p>
@@ -40,7 +52,18 @@ const metadata = {
       <p>Because FoVR does not receive local game progress or settings, FoVR does not retain that data. Information voluntarily sent to support is retained only as described above. We use reasonable safeguards for information we hold, but no method of electronic storage or transmission is completely secure.</p>
 
       <h2>Your privacy rights</h2>
-      <p>Depending on where you live, you may have rights to access, correct, or delete personal information FoVR holds about you, or to object to or restrict certain uses. Contact us to make a request. We may need enough information to verify and fulfil it. For information controlled by Meta, submit your request to Meta.</p>
+      <p>All users can request deletion of their user data as explained below. Depending on where you live, you may also have rights to access or correct personal information FoVR holds about you, or to object to or restrict certain uses. Email <a href="mailto:contact@fovrinteractive.net">contact@fovrinteractive.net</a> to make a privacy request.</p>
+
+      <h2 id="data-deletion">How to request deletion of your data</h2>
+      <p><strong>Every Diamond Easy user can request deletion of user data collected or stored by FoVR, free of charge, regardless of their country or geographic location.</strong> You do not need a FoVR account to make a request.</p>
+      <ol>
+        <li>Email <a href="mailto:contact@fovrinteractive.net?subject=Diamond%20Easy%20data%20deletion%20request">contact@fovrinteractive.net</a> with the subject <strong>Diamond Easy data deletion request</strong>.</li>
+        <li>Tell us what data you want deleted, or ask us to delete all user data we hold about you relating to Diamond Easy. Include the email address you used to contact support and, if relevant, enough information to identify a purchase or entitlement enquiry. Do not send passwords or payment-card details.</li>
+        <li>We will review your request, ask only for information reasonably needed to verify that the data belongs to you, and confirm the outcome. If we hold no matching data, we will let you know.</li>
+      </ol>
+      <p>This includes support messages and any Meta user ID, Horizon username, profile photo, transaction information or entitlement information FoVR holds about you. We will delete the requested data unless retention is required by law, such as applicable tax or accounting obligations, or is necessary to establish, exercise, or defend a legal claim. If we must retain any data, we will explain what we retain and why, and keep it only for as long as that reason applies.</p>
+      <p><strong>Local saves and settings:</strong> FoVR cannot remotely delete data stored only on your headset. You can remove Diamond Easy's local app data through your headset's app or storage settings. Removing local data can erase your artwork progress and settings. If you need help, email us at the address above. Platform backups are managed through Meta's backup and account controls.</p>
+      <p><strong>Data held by Meta:</strong> FoVR cannot delete records controlled independently by Meta, including Meta account, payment, store, or platform-backup records. For those records, use the privacy and account controls described in <a href="https://www.meta.com/privacy/policy/" target="_blank" rel="noreferrer">Meta's Privacy Policy</a>. You can still request deletion of any related data held by FoVR using the email process above.</p>
 
       <h2>Changes to this policy</h2>
       <p>We may update this policy if Diamond Easy's features or data practices change. The current version will remain available at this URL, and the “Last updated” date will show when it changed.</p>

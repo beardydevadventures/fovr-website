@@ -1,12 +1,12 @@
 ---
 import Layout from '@/layouts/PageLayout.astro';
+import type { MetaData } from '@/types';
 
 const metadata = {
   title: 'Diamond Easy Press Kit | FoVR',
   ignoreTitleTemplate: true,
   description: 'Official facts, description, features and press contact information for Diamond Easy by FoVR Interactive.',
-  openGraph: { title: 'Diamond Easy Press Kit | FoVR' },
-};
+} satisfies MetaData;
 ---
 
 <Layout metadata={metadata}>
