@@ -14,45 +14,28 @@ const projects = projectEntries
     return orderA - orderB || a.title.localeCompare(b.title);
   });
 
-const studioProjects = projects.filter((project) => releaseStage(project) !== 'labs');
-const labProjects = projects.filter((project) => releaseStage(project) === 'labs');
-const liveCount = studioProjects.filter((project) => releaseStage(project) === 'released').length;
-
 const metadata = copy.metadata;
 ---
 
 <Layout metadata={metadata}>
-  <section class="relative isolate overflow-hidden bg-cyan-50 px-4 py-20 text-slate-950 dark:bg-slate-950 dark:text-white sm:px-6 lg:py-28">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,0.18),transparent_32rem),radial-gradient(circle_at_84%_12%,rgba(236,72,153,0.15),transparent_32rem)]" aria-hidden="true"></div>
-    <div class="relative mx-auto max-w-6xl">
-      <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.explore_fovr_interactive}</p>
-      <h1 class="mt-5 max-w-5xl text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">{copy.text.experiences_to_explore_ideas_taking_shape}</h1>
-      <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300 sm:text-xl">{copy.text.discover_our_released_experiences_follow_projects}</p>
-      <div class="mt-8 grid gap-4 sm:grid-cols-3">
-        <div class="rounded-2xl border border-slate-200 bg-white/60 p-5 dark:border-white/10 dark:bg-white/5">
-          <strong class="block text-3xl font-black">{studioProjects.length}</strong>
-          <span class="mt-1 block font-semibold text-slate-600 dark:text-slate-300">{copy.text.studio_projects}</span>
-        </div>
-        <div class="rounded-2xl border border-slate-200 bg-white/60 p-5 dark:border-white/10 dark:bg-white/5">
-          <strong class="block text-3xl font-black">{liveCount}</strong>
-          <span class="mt-1 block font-semibold text-slate-600 dark:text-slate-300">{copy.text.live_experiences}</span>
-        </div>
-        <div class="rounded-2xl border border-slate-200 bg-white/60 p-5 dark:border-white/10 dark:bg-white/5">
-          <strong class="block text-3xl font-black">{labProjects.length}</strong>
-          <span class="mt-1 block font-semibold text-slate-600 dark:text-slate-300">{copy.text.fovr_labs_projects}</span>
-        </div>
-      </div>
-    </div>
+  <section class="bg-cyan-50 px-4 py-10 dark:bg-slate-950 sm:px-6 sm:py-14">
+    <h1 class="mx-auto max-w-6xl text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+      {copy.text.heading}
+    </h1>
+    <nav aria-label="Experience sections" class="mx-auto mt-5 flex max-w-6xl flex-wrap gap-x-5 gap-y-2">
+      {copy.groups.filter((group) => projects.some((project) => releaseStage(project) === group.stage)).map((group) => (
+        <a class="py-2 font-bold text-cyan-800 underline underline-offset-4 dark:text-cyan-200" href={`#${group.id}`}>{group.title}</a>
+      ))}
+    </nav>
   </section>
 
   {copy.groups.map((group) => {
     const entries = projects.filter((project) => releaseStage(project) === group.stage);
     return entries.length > 0 && (
-      <section id={group.id} class="px-4 py-16 even:bg-slate-50 dark:even:bg-slate-950/50 sm:px-6 sm:py-24">
+      <section id={group.id} class="scroll-mt-28 px-4 py-10 even:bg-slate-50 dark:even:bg-slate-950/50 sm:px-6 sm:py-16">
         <div class="mx-auto max-w-6xl">
           <div class="mb-10 max-w-3xl">
             <h2 class="text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">{group.title}</h2>
-            <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">{group.description}</p>
           </div>
           <div class="grid gap-6 lg:grid-cols-2">{entries.map((project) => <ExperienceCard project={project} />)}</div>
         </div>
@@ -60,14 +43,4 @@ const metadata = copy.metadata;
     );
   })}
 
-  <section class="px-4 py-16 sm:px-6 sm:py-24">
-    <div class="mx-auto max-w-5xl rounded-[2rem] border border-cyan-200 bg-cyan-50 p-8 text-center text-slate-950 shadow-2xl shadow-slate-200/50 dark:border-white/10 dark:bg-slate-950 dark:text-white dark:shadow-black/20 sm:p-12">
-      <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.your_thoughts}</p>
-      <h2 class="mt-3 text-4xl font-black tracking-tight sm:text-5xl">{copy.text.tried_one_of_our_experiences}</h2>
-      <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.we_would_love_to_hear_what}</p>
-      <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <a class="rounded-full bg-cyan-300 px-5 py-3 font-black text-slate-950" href="/contact">{copy.text.get_in_touch}</a>
-      </div>
-    </div>
-  </section>
 </Layout>

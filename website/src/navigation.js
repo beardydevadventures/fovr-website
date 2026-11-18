@@ -12,7 +12,7 @@ export const headerData = {
     },
     {
       text: 'Labs',
-      href: '/projects#labs',
+      href: '/projects/#labs',
     },
     {
       text: 'About',
@@ -35,8 +35,8 @@ export const footerData = {
     {
       title: 'Explore',
       links: [
-        { text: 'Experiences in development', href: '/projects' },
-        { text: 'FoVR Labs', href: '/projects#labs' },
+        { text: 'Experiences in development', href: '/projects/#in-development' },
+        { text: 'FoVR Labs', href: '/projects/#labs' },
       ],
     },
     {

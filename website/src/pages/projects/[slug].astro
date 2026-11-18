@@ -21,6 +21,9 @@ const { project } = Astro.props as { project: ProjectEntry };
 const { Content } = await project.render();
 const data = project.data;
 const isDiamondEasy = project.slug === 'diamond-easy';
+const isPlayerPage = ['diamond-easy', 'smash-room', 'forge-of-elements'].includes(project.slug);
+const hasPressKit = ['diamond-easy', 'forge-of-elements'].includes(project.slug);
+
 
 const metadata = {
   title: isDiamondEasy ? 'Diamond Easy | Relaxing Diamond Painting in VR' : data.title,
@@ -47,14 +50,14 @@ const detailItems: { label: string; value: string }[] = [
 ---
 
 <Layout metadata={metadata}>
-  <section class="project-hero relative isolate overflow-hidden px-4 py-20 sm:px-6 lg:py-28">
+  <section class="project-hero relative isolate overflow-hidden px-4 py-12 sm:px-6 lg:py-20">
     <div class="project-grid-bg" aria-hidden="true"></div>
     <div class="project-glow project-glow-a" aria-hidden="true"></div>
     <div class="project-glow project-glow-b" aria-hidden="true"></div>
 
-    <div class="relative z-10 mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_0.92fr] lg:items-center">
+    <div class="relative z-10 mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_0.92fr] lg:items-center">
       <div>
-        <p class="project-kicker">FoVR Project</p>
+        <p class="project-kicker">{isPlayerPage ? data.status : 'FoVR Project'}</p>
         <h1 class="mt-5 max-w-4xl text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
           {data.title}
         </h1>
@@ -69,16 +72,19 @@ const detailItems: { label: string; value: string }[] = [
               {...link.external ? { target: '_blank', rel: 'noreferrer' } : {}}
             >
               {link.icon && <Icon name={link.icon} class="h-4 w-4" aria-hidden="true" />}
-              {link.label}
+              {isPlayerPage && link.label === 'Meta Quest' ? 'View on Meta Quest' : isPlayerPage && link.label === 'Steam' ? 'View on Steam' : link.label}
             </a>
           ))}
-          <a class="project-button project-button-secondary" href="/projects">All projects</a>
+          {isPlayerPage && data.trailer && (
+            <a class="project-button project-button-secondary" href="#trailer">Watch trailer</a>
+          )}
+          {!isPlayerPage && <a class="project-button project-button-secondary" href="/projects">All projects</a>}
         </div>
       </div>
 
-      <div class="project-hero-card">
+      <div class:list={['project-hero-card', isPlayerPage && 'player-hero-card']}>
         <Image
-          class="h-full w-full object-contain p-6"
+          class={isDiamondEasy ? 'aspect-video w-full object-cover' : 'h-full w-full object-contain p-6'}
           src={data.cover.src}
           alt={data.cover.alt}
           width={1280}
@@ -89,7 +95,7 @@ const detailItems: { label: string; value: string }[] = [
     </div>
   </section>
 
-  <section class="relative px-4 py-12 sm:px-6 sm:py-16">
+  {!isPlayerPage && <section class="relative px-4 py-12 sm:px-6 sm:py-16">
     <div class="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
       {detailItems.map((item) => (
         <article class="project-fact-card">
@@ -98,10 +104,10 @@ const detailItems: { label: string; value: string }[] = [
         </article>
       ))}
     </div>
-  </section>
+  </section>}
 
   {data.trailer && (
-    <section class="relative px-4 py-12 sm:px-6 sm:py-16">
+    <section id="trailer" class="relative scroll-mt-20 px-4 py-8 sm:px-6 sm:py-12" aria-label={data.trailer.title ?? `${data.title} trailer`}>
       <div class="mx-auto max-w-5xl">
         <div class="project-video-card">
           <YouTube id={data.trailer.youtubeId} title={data.trailer.title ?? data.title} />
@@ -110,6 +116,28 @@ const detailItems: { label: string; value: string }[] = [
     </section>
   )}
 
+  {isPlayerPage ? (
+    <section class="px-4 pb-12 sm:px-6 sm:pb-16">
+      <article class="project-content prose prose-slate mx-auto max-w-5xl dark:prose-invert prose-headings:tracking-tight prose-headings:font-black">
+        <Content />
+      </article>
+      <div class="mx-auto mt-8 flex max-w-5xl flex-wrap gap-x-6 gap-y-3 text-sm font-bold text-cyan-800 dark:text-cyan-200">
+        <a class="underline underline-offset-4" href="/projects/">All experiences</a>
+        <a class="underline underline-offset-4" href="/contact/">Player support</a>
+        {hasPressKit && <a class="underline underline-offset-4" href={`/projects/${project.slug}/press-kit/`}>Press kit</a>}
+        {hasPressKit && <a class="underline underline-offset-4" href={`/projects/${project.slug}/privacy-policy/`}>Privacy policy</a>}
+      </div>
+      {(data.techStack?.length || data.tags?.length) && (
+        <details class="mx-auto mt-6 max-w-5xl rounded-xl border border-slate-300 p-4 dark:border-slate-700">
+          <summary class="cursor-pointer font-bold text-slate-950 dark:text-white">Development details</summary>
+          <dl class="mt-4 space-y-3">
+            {data.techStack?.length && <div><dt class="font-semibold">Tech stack</dt><dd>{data.techStack.join(', ')}</dd></div>}
+            {data.tags?.length && <div><dt class="font-semibold">Tags</dt><dd>{data.tags.join(', ')}</dd></div>}
+          </dl>
+        </details>
+      )}
+    </section>
+  ) : (
   <section class="relative px-4 py-12 sm:px-6 sm:py-16">
     <div class="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
       <aside class="project-sidebar">
@@ -146,27 +174,10 @@ const detailItems: { label: string; value: string }[] = [
       </article>
     </div>
   </section>
+  )}
 </Layout>
 
-<script>
-  const startProjectVideos = () => {
-    document.querySelectorAll<HTMLVideoElement>('.project-content video[autoplay]').forEach((video) => {
-      video.muted = true;
-      video.defaultMuted = true;
 
-      const play = () => video.play().catch(() => undefined);
-
-      if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
-        void play();
-      } else {
-        video.addEventListener('loadeddata', play, { once: true });
-      }
-    });
-  };
-
-  document.addEventListener('astro:page-load', startProjectVideos);
-  startProjectVideos();
-</script>
 
 <style is:inline>
   .project-hero {
@@ -258,6 +269,8 @@ const detailItems: { label: string; value: string }[] = [
     box-shadow: 0 34px 90px rgba(0, 0, 0, 0.42), 0 0 80px rgba(34, 211, 238, 0.14);
     backdrop-filter: blur(22px);
   }
+
+  .player-hero-card { min-height: 0; }
 
   .project-fact-card,
   .project-sidebar,
