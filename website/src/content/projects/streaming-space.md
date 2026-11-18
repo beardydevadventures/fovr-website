@@ -4,6 +4,7 @@ tagline: XR streaming environment for creators.
 excerpt: An XR-ready studio space that blends interactive backdrops, spatial overlays, and creator-focused controls for live streaming.
 category: XR Tooling
 status: In development
+releaseStage: labs
 highlight: false
 cover:
   src: '@/assets/images/stream-space.jpg'
