@@ -15,6 +15,10 @@ export const headerData = {
       href: '/projects/#labs',
     },
     {
+      text: 'Updates',
+      href: getPermalink('/updates'),
+    },
+    {
       text: 'About',
       href: getPermalink('/about'),
     },
@@ -37,6 +41,7 @@ export const footerData = {
       links: [
         { text: 'Experiences in development', href: '/projects/#in-development' },
         { text: 'FoVR Labs', href: '/projects/#labs' },
+        { text: 'Updates', href: '/updates' },
       ],
     },
     {

@@ -4,6 +4,9 @@ import WidgetWrapper from '@/components/ui/WidgetWrapper.astro';
 import Button from '@/components/ui/Button.astro';
 import { Icon } from 'astro-icon/components';
 
+type ProjectOption = { slug: string; title: string };
+const noProjects: ProjectOption[] = [];
+
 const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
@@ -11,6 +14,7 @@ const {
   formAction = 'https://formspree.io/f/xnneraoa',
   successTitle = 'Thank you!',
   successBody = 'We have your message and will get back to you soon.',
+  projects = noProjects,
 
   id,
   isDark = false,
@@ -73,6 +77,19 @@ const resolvedFormAction = formAction ?? '';
               <option>Other</option>
             </select>
           </label>
+          {projects.length > 0 && (
+            <label class="space-y-2 text-sm font-medium text-heading">
+              Experience (optional)
+              <select
+                name="project"
+                data-project-select
+                class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-default shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30 dark:border-slate-700 dark:bg-slate-900"
+              >
+                <option value="">General enquiry</option>
+                {projects.map(({ slug, title }: ProjectOption) => <option data-slug={slug} value={title}>{title}</option>)}
+              </select>
+            </label>
+          )}
         </div>
 
         <label class="space-y-2 text-sm font-medium text-heading">
@@ -103,6 +120,7 @@ const resolvedFormAction = formAction ?? '';
           <div>
             <h3 class="text-lg font-semibold">{successTitle}</h3>
             <p class="mt-1 text-sm text-emerald-900/90 dark:text-emerald-50/80">{successBody}</p>
+            <p class="mt-1 hidden text-sm" data-success-project></p>
           </div>
         </div>
       </div>
@@ -138,6 +156,14 @@ const resolvedFormAction = formAction ?? '';
       if (form.dataset.ajaxBound === 'true') return;
       form.dataset.ajaxBound = 'true';
 
+      const projectSelect = form.querySelector('[data-project-select]');
+      const successProject = success?.querySelector('[data-success-project]');
+      if (projectSelect) {
+        const projectSlug = new URLSearchParams(window.location.search).get('project');
+        const project = Array.from(projectSelect.options).find((option) => option.dataset.slug === projectSlug);
+        if (project) projectSelect.value = project.value;
+      }
+
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -146,14 +172,23 @@ const resolvedFormAction = formAction ?? '';
         submitButton?.setAttribute('disabled', 'true');
 
         try {
+          const payload = new FormData(form);
+          const projectTitle = projectSelect?.value;
+          if (!projectTitle) payload.delete('project');
+
           const response = await fetch(formAction, {
             method: 'POST',
             headers: { Accept: 'application/json' },
-            body: new FormData(form),
+            body: payload,
           });
 
           if (response.ok) {
             form.reset();
+            if (projectSelect && projectTitle) projectSelect.value = projectTitle;
+            if (successProject) {
+              successProject.textContent = projectTitle ? `Experience: ${projectTitle}` : '';
+              successProject.classList.toggle('hidden', !projectTitle);
+            }
             setStatus('Thanks for reaching out! We will reply shortly.', 'success');
             success?.classList.remove('hidden');
             return;

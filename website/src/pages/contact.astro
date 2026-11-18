@@ -2,8 +2,12 @@
 import copy from '@/data/site/contact.json';
 import Layout from '@/layouts/PageLayout.astro';
 import ContactUs from '@/components/widgets/Contact.astro';
+import { getCollection } from 'astro:content';
 
 const metadata = copy.metadata;
+const projects = (await getCollection('projects'))
+  .map(({ slug, data }) => ({ slug, title: data.title }))
+  .sort((a, b) => a.title.localeCompare(b.title));
 ---
 
 <Layout metadata={metadata}>
@@ -13,7 +17,7 @@ const metadata = copy.metadata;
       <p class="mt-4 max-w-xl leading-7 text-slate-600 dark:text-slate-300">{copy.text.intro}</p>
     </div>
   </section>
-  <ContactUs id="contact" title={copy.text.form_title} successTitle={copy.text.form_successTitle} successBody={copy.text.form_successBody} classes={{ container: '!max-w-4xl !py-8' }} />
+  <ContactUs projects={projects} id="contact" title={copy.text.form_title} successTitle={copy.text.form_successTitle} successBody={copy.text.form_successBody} classes={{ container: '!max-w-4xl !py-8' }} />
   <p class="mx-auto max-w-4xl px-4 pb-12 text-slate-600 dark:text-slate-300 sm:px-6">
     {copy.text.email_label} <a class="font-semibold underline" href="mailto:contact@fovrinteractive.net">contact@fovrinteractive.net</a>
   </p>

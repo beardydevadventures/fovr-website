@@ -29,6 +29,19 @@ Navigation and footer links remain editable in `src/navigation.js`. Site-wide SE
 
 The contact form action and submission behaviour are unchanged. Its field labels and topic choices are in `src/components/widgets/Contact.astro`.
 
+Project pages link to the contact form with the project slug. The optional Experience field uses the corresponding title from the project collection; unknown slugs leave it as General enquiry. The existing contact endpoint receives the title only when an experience is selected.
+
 ## Preview and publish
 
 From `website/`, run `npm run dev` to preview content edits, then `npm run build && npm run test:content` to validate the production output. Changes become public only through the site's normal deployment process. This positioning work is prepared on a review branch; it must not be merged or released without approval.
+
+## Studio updates
+
+Copy `src/content/updates/example-update.md` to a new file with a kebab-case name, for example `diamond-easy-first-look.md`. Markdown and MDX are supported. The filename is the public post slug; keep it stable after publishing so shared links still work.
+
+- Set `title`, a one-sentence `description` and `publishDate` (YYYY-MM-DD). Posts are ordered newest first.
+- Write the post below the frontmatter. Start with a second-level heading if you need one; the page already adds the title.
+- Optional: add `project: diamond-easy` (or another existing project slug) to link back to the experience. To add cover art, set `cover.src` to a local image path relative to the post file (for example `../../assets/images/your-cover.jpg`) and `cover.alt` to a short description of the image.
+- Leave `draft: true` while writing (omitting the field also keeps the post off the built site). Drafts don't get a public page and don't appear in the listing, RSS feed or sitemap. Set `draft: false` when a post is ready, then use the normal review and deployment process. The date orders posts; it does not schedule publication. Drafts can still be read in the repository by anyone with access, so do not commit private notes.
+
+Preview the page at `/updates/` and published posts at `/updates/<slug>/`. Edit the listing intro and empty state in `src/data/site/updates.json`. The feed is at `/updates/rss.xml`.

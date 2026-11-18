@@ -56,7 +56,21 @@ const projects = defineCollection({
   }),
 });
 
+const updates = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      title: z.string().min(1),
+      description: z.string().min(1),
+      publishDate: z.date(),
+      draft: z.boolean().default(true),
+      project: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).optional(),
+      cover: z.object({ src: image(), alt: z.string().min(1) }).optional(),
+    }),
+});
+
 export const collections = {
   post: postCollection,
   projects,
+  updates,
 };
