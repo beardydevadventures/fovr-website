@@ -12,6 +12,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "test:content": "node scripts/check-content.mjs",
     "astro": "astro",
     "format": "prettier -w .",
     "lint:eslint": "eslint ."

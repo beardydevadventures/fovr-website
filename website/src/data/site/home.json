@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "title": "We make experiences | VR & Mixed Reality",
+    "description": "Discover games, mixed reality experiences and creative experiments from FoVR Interactive, an immersive experience studio based in Brisbane, Australia."
+  },
+  "experiences": [
+    {
+      "icon": "tabler:school",
+      "title": "Immersive learning",
+      "description": "Experiences that invite you to explore, experiment and learn by doing."
+    },
+    {
+      "icon": "tabler:augmented-reality",
+      "title": "Mixed reality",
+      "description": "Passthrough, hand tracking and spatial interfaces that combine digital content with real environments."
+    },
+    {
+      "icon": "tabler:device-vision-pro",
+      "title": "VR games & experiences",
+      "description": "Interactive worlds to step into, play with and make your own."
+    },
+    {
+      "icon": "tabler:flask",
+      "title": "Creative experiments",
+      "description": "New ideas in XR, AI and spatial interaction, explored through hands-on prototypes."
+    }
+  ],
+  "delivery": [
+    {
+      "title": "Start with curiosity",
+      "description": "Find an idea worth exploring and imagine how it could feel to experience it."
+    },
+    {
+      "title": "Prototype on hardware",
+      "description": "Validate important interactions early on the device people will actually use."
+    },
+    {
+      "title": "Build for production",
+      "description": "Develop with performance, comfort, usability and deployment constraints in mind."
+    },
+    {
+      "title": "Iterate with evidence",
+      "description": "Test, learn and refine the experience around real use rather than assumptions."
+    }
+  ],
+  "text": {
+    "immersive_experience_studio_brisbane": "Immersive experience studio · Brisbane",
+    "we_make_experiences": "We make experiences.",
+    "games_worlds_and_interactions_that_invite": "Games, worlds and interactions that invite you to step in and explore. FoVR Interactive is a creative studio making virtual reality, mixed reality and interactive experiences, from playful experiments to releases you can enjoy.",
+    "explore_our_experiences": "Explore our experiences",
+    "discover_fovr_labs": "Discover FoVR Labs",
+    "what_we_create": "What we create",
+    "made_to_be_experienced": "Made to be experienced.",
+    "we_bring_together_realtime_3d_interaction": "We bring together real-time 3D, interaction design and a curiosity for what comes next. The goal is simple: make something that feels good to interact with and gives you a reason to explore.",
+    "meet_the_studio_": "Meet the studio →",
+    "our_experiences": "Our experiences",
+    "step_into_something_different": "Step into something different.",
+    "explore_our_releases_and_see_what": "Explore our releases and see what we are bringing to life next.",
+    "view_all_projects": "View all projects",
+    "how_fovr_works": "How FoVR works",
+    "from_an_idea_to_a_world": "From an idea to a world you can step into.",
+    "we_explore_an_idea_try_it": "We explore an idea, try it on real hardware and keep refining. Comfort, performance and the feel of each interaction matter as much as how it looks.",
+    "fovr_labs": "FoVR Labs",
+    "research_and_prototyping_for_what_comes": "Research and prototyping for what comes next.",
+    "labs_is_our_space_to_experiment": "Labs is our space to experiment with mixed reality, hand tracking, AI-assisted experiences, WebXR and spatial interfaces. Some ideas will grow into future releases. Others are here to explore what is possible.",
+    "explore_projects_and_labs_": "Explore projects and Labs →",
+    "stay_curious": "Stay curious",
+    "have_a_question_about_an_experience": "Have a question about an experience?",
+    "we_welcome_player_feedback_support_questions": "We welcome player feedback, support questions and conversations about what we are making.",
+    "get_in_touch": "Get in touch"
+  },
+  "reel": {
+    "youtubeId": "92JRz7ZpLtQ",
+    "enabled": true
+  },
+  "featured": {
+    "slug": "diamond-easy",
+    "eyebrow": "Coming next",
+    "cta": "Discover Diamond Easy"
+  },
+  "released": {
+    "slugs": [
+      "valve-tutorial",
+      "forge-of-elements"
+    ],
+    "heading": "Play now",
+    "description": "Step into our released experiences.",
+    "cta": "Explore all experiences"
+  },
+  "heroTags": [
+    "Meta Quest",
+    "VR Games",
+    "Mixed Reality",
+    "Hand Tracking"
+  ],
+  "labTags": [
+    "Mixed reality",
+    "Hand tracking",
+    "Passthrough",
+    "AI-assisted XR",
+    "WebXR",
+    "Spatial UI",
+    "Quest prototypes",
+    "Interaction R&D"
+  ]
+}

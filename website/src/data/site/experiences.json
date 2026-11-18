@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "title": "Our Experiences & FoVR Labs",
+    "description": "Explore FoVR Interactive games, mixed reality experiences, upcoming releases and creative experiments in FoVR Labs."
+  },
+  "text": {
+    "explore_fovr_interactive": "Explore FoVR Interactive",
+    "experiences_to_explore_ideas_taking_shape": "Experiences to explore. Ideas taking shape.",
+    "discover_our_released_experiences_follow_projects": "Discover our released experiences, follow projects in development and explore the experiments in FoVR Labs.",
+    "studio_projects": "studio projects",
+    "live_experiences": "live experiences",
+    "fovr_labs_projects": "FoVR Labs projects",
+    "studio_projects_2": "Studio projects",
+    "available_now_and_in_development": "Available now and in development.",
+    "these_projects_represent_fovrs_product_training": "These projects represent FoVR’s product, training and immersive application work, including experiences released on Meta Quest and other XR platforms.",
+    "view_project": "Explore experience",
+    "fovr_labs": "FoVR Labs",
+    "applied_rd_for_emerging_xr_interaction": "Applied R&D for emerging XR interaction.",
+    "labs_is_where_we_try_new": "Labs is where we try new interaction patterns, platforms and technologies. These experiments are a look at ideas taking shape, separate from our released experiences.",
+    "your_thoughts": "Your thoughts",
+    "tried_one_of_our_experiences": "Tried one of our experiences?",
+    "we_would_love_to_hear_what": "We would love to hear what you think. Get in touch for feedback, support or questions about a release.",
+    "get_in_touch": "Get in touch"
+  },
+  "groups": [
+    {
+      "id": "play-now",
+      "stage": "released",
+      "title": "Play now",
+      "description": "Released experiences ready to explore on the platforms linked below."
+    },
+    {
+      "id": "in-development",
+      "stage": "development",
+      "title": "In development",
+      "description": "A look at what we are making next. These experiences are not yet released."
+    },
+    {
+      "id": "labs",
+      "stage": "labs",
+      "title": "Labs",
+      "description": "Labs is where we try new interaction patterns, platforms and technologies. These experiments are a look at ideas taking shape, separate from our released experiences."
+    }
+  ]
+}

@@ -7,19 +7,19 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
-      text: 'Services',
-      href: getPermalink('/services'),
+      text: 'Experiences',
+      href: getPermalink('/projects'),
     },
     {
-      text: 'Projects',
-      href: getPermalink('/projects'),
+      text: 'Labs',
+      href: '/projects#labs',
     },
     {
       text: 'About',
       href: getPermalink('/about'),
     },
   ],
-  actions: [{ text: 'Discuss a Project', href: '/contact', icon: 'tabler:mail' }],
+  actions: [{ text: 'Get in touch', href: '/contact', icon: 'tabler:mail' }],
 };
 
 export const footerData = {
@@ -27,19 +27,16 @@ export const footerData = {
     {
       title: 'Studio',
       links: [
-        { text: 'XR Development Services', href: '/services' },
-        { text: 'Projects & Case Studies', href: '/projects' },
+        { text: 'Our Experiences', href: '/projects' },
         { text: 'About FoVR', href: '/about' },
         { text: 'Contact', href: '/contact' },
       ],
     },
     {
-      title: 'Capabilities',
+      title: 'Explore',
       links: [
-        { text: 'VR Training & Simulation', href: '/services' },
-        { text: 'Mixed Reality Development', href: '/services' },
-        { text: 'Meta Quest Development', href: '/services' },
-        { text: 'XR Prototyping & R&D', href: '/services' },
+        { text: 'Experiences in development', href: '/projects' },
+        { text: 'FoVR Labs', href: '/projects#labs' },
       ],
     },
     {
@@ -61,5 +58,5 @@ export const footerData = {
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/FovrInteractive' },
     { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: 'https://www.youtube.com/@fovrinteractive' },
   ],
-  footNote: '© 2026 FoVR Interactive. Australian XR development studio based in Brisbane, Queensland.',
+  footNote: '© 2026 FoVR Interactive. Australian immersive experience studio based in Brisbane, Queensland.',
 };

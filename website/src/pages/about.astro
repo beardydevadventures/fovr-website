@@ -1,50 +1,13 @@
 ---
+import copy from '@/data/site/about.json';
 import Layout from '@/layouts/PageLayout.astro';
 import Image from '@/components/common/Image.astro';
 
-const metadata = {
-  title: 'About FoVR Interactive | Australian XR Development Studio',
-  description:
-    'FoVR Interactive is a Brisbane-based Australian XR development studio creating virtual reality, mixed reality, immersive training and interactive spatial experiences.',
-};
+const metadata = copy.metadata;
 
-const focusAreas = [
-  {
-    title: 'XR development',
-    description: 'Virtual reality and mixed reality applications designed around clear user, technical and delivery outcomes.',
-  },
-  {
-    title: 'Immersive training',
-    description: 'Hands-on learning and simulation experiences for equipment, procedures, familiarisation and spatial understanding.',
-  },
-  {
-    title: 'Interactive products',
-    description: 'Immersive games and products that combine real-time development, interaction design and platform delivery.',
-  },
-  {
-    title: 'Applied R&D',
-    description: 'Focused experiments across hand tracking, passthrough, WebXR, AI and emerging spatial interfaces.',
-  },
-];
+const focusAreas = copy.focusAreas;
 
-const principles = [
-  {
-    title: 'Start with the problem',
-    description: 'Choose the immersive approach only after the audience, environment and desired outcome are understood.',
-  },
-  {
-    title: 'Test on real hardware',
-    description: 'Interaction, comfort and performance are validated on the devices people will actually use.',
-  },
-  {
-    title: 'Keep the experience clear',
-    description: 'Immersion should make a task easier to understand, not hide it behind unnecessary complexity.',
-  },
-  {
-    title: 'Build with delivery in mind',
-    description: 'Prototype decisions consider production constraints, deployment and maintainability from the start.',
-  },
-];
+const principles = copy.principles;
 ---
 
 <Layout metadata={metadata}>
@@ -52,17 +15,12 @@ const principles = [
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,0.18),transparent_32rem),radial-gradient(circle_at_84%_12%,rgba(168,85,247,0.16),transparent_34rem)]" aria-hidden="true"></div>
     <div class="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
       <div>
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">About FoVR Interactive</p>
-        <h1 class="mt-5 max-w-5xl text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
-          A specialist Australian XR studio focused on practical immersive technology.
-        </h1>
-        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300 sm:text-xl">
-          FoVR Interactive is a Brisbane-based XR development studio creating virtual reality, mixed reality, immersive training and interactive spatial experiences. The studio brings together software development, real-time 3D, interaction design and product thinking to turn immersive ideas into applications people can actually use.
-        </p>
+        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.about_fovr_interactive}</p>
+        <h1 class="mt-5 max-w-5xl text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">{copy.text.a_creative_studio_with_a_curiosity}</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300 sm:text-xl">{copy.text.fovr_interactive_makes_virtual_reality_mixed}</p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <a class="rounded-full bg-cyan-300 px-5 py-3 font-black text-slate-950 transition hover:-translate-y-0.5" href="/services">Explore services</a>
-          <a class="rounded-full border border-slate-300 bg-white/60 px-5 py-3 font-black text-slate-900 transition hover:-translate-y-0.5 dark:border-white/20 dark:bg-white/5 dark:text-white" href="/projects">View projects</a>
-          <a class="rounded-full border border-slate-300 px-5 py-3 font-black text-slate-700 transition hover:-translate-y-0.5 dark:border-white/20 dark:text-slate-200" href="/contact">Contact FoVR</a>
+          <a class="rounded-full border border-slate-300 bg-white/60 px-5 py-3 font-black text-slate-900 transition hover:-translate-y-0.5 dark:border-white/20 dark:bg-white/5 dark:text-white" href="/projects">{copy.text.view_projects}</a>
+          <a class="rounded-full border border-slate-300 px-5 py-3 font-black text-slate-700 transition hover:-translate-y-0.5 dark:border-white/20 dark:text-slate-200" href="/contact">{copy.text.contact_fovr}</a>
         </div>
       </div>
 
@@ -82,21 +40,13 @@ const principles = [
   <section class="px-4 py-16 sm:px-6 sm:py-24">
     <div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
       <div>
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">Studio approach</p>
-        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
-          Built to make immersive technology useful.
-        </h2>
+        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.studio_approach}</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">{copy.text.built_to_make_immersive_technology_useful}</h2>
       </div>
       <div class="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-xl shadow-slate-200/40 dark:border-white/10 dark:bg-slate-900 dark:shadow-black/20 sm:p-9">
-        <p class="text-lg leading-8 text-slate-600 dark:text-slate-300">
-          FoVR exists to explore where immersive technology provides a genuinely better interaction than a traditional screen. That can mean learning how equipment works by handling it, understanding a spatial process by stepping through it, or creating an interactive product that simply would not make sense in another medium.
-        </p>
-        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
-          The studio works from the interaction outward. Ideas are tested on real devices, technical constraints are addressed early and prototypes are used to answer important questions before they become expensive production decisions.
-        </p>
-        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
-          FoVR Labs remains part of that process, but as an applied R&D capability: a place to learn from emerging XR, AI and spatial technologies so that production work can make better use of them when the time is right.
-        </p>
+        <p class="text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.fovr_exists_to_explore_where_immersive}</p>
+        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.the_studio_works_from_the_interaction}</p>
+        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.fovr_labs_remains_part_of_that}</p>
       </div>
     </div>
   </section>
@@ -104,10 +54,8 @@ const principles = [
   <section class="bg-slate-50 px-4 py-16 dark:bg-slate-950/50 sm:px-6 sm:py-24">
     <div class="mx-auto max-w-6xl">
       <div class="max-w-3xl">
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">What FoVR focuses on</p>
-        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
-          A clear lane across immersive development and product delivery.
-        </h2>
+        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.what_fovr_focuses_on}</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">{copy.text.games_learning_and_new_ways_to}</h2>
       </div>
       <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
         {focusAreas.map((item) => (
@@ -133,18 +81,14 @@ const principles = [
         />
       </div>
       <div>
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">Founder & XR Technical Lead</p>
-        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">Matthew Aisthorpe</h2>
-        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
-          Matthew leads FoVR’s technical direction and product development, with a background spanning software development, immersive technology, interactive media and technical product delivery. His work centres on the point where emerging technology becomes tangible: when someone can pick something up, try it, understand it and learn from direct interaction.
-        </p>
-        <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">
-          FoVR is founder-led by design, allowing projects to stay close to the technical decisions, interaction design and delivery details that determine whether an immersive experience actually works.
-        </p>
+        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.founder_xr_technical_lead}</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">{copy.text.matthew_aisthorpe}</h2>
+        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.matthew_leads_fovrs_technical_direction_and}</p>
+        <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.fovr_is_founderled_by_design_allowing}</p>
         <div class="mt-7 flex flex-wrap gap-3">
-          <a class="rounded-full border border-slate-300 px-4 py-2.5 font-black text-slate-900 dark:border-white/15 dark:text-white" href="https://www.matthewaisthorpe.com.au/" target="_blank" rel="noreferrer">Personal site</a>
-          <a class="rounded-full border border-slate-300 px-4 py-2.5 font-black text-slate-900 dark:border-white/15 dark:text-white" href="https://www.linkedin.com/in/matthewaisthorpe/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="rounded-full border border-slate-300 px-4 py-2.5 font-black text-slate-900 dark:border-white/15 dark:text-white" href="https://github.com/beardydevadventures" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="rounded-full border border-slate-300 px-4 py-2.5 font-black text-slate-900 dark:border-white/15 dark:text-white" href="https://www.matthewaisthorpe.com.au/" target="_blank" rel="noreferrer">{copy.text.personal_site}</a>
+          <a class="rounded-full border border-slate-300 px-4 py-2.5 font-black text-slate-900 dark:border-white/15 dark:text-white" href="https://www.linkedin.com/in/matthewaisthorpe/" target="_blank" rel="noreferrer">{copy.text.linkedin}</a>
+          <a class="rounded-full border border-slate-300 px-4 py-2.5 font-black text-slate-900 dark:border-white/15 dark:text-white" href="https://github.com/beardydevadventures" target="_blank" rel="noreferrer">{copy.text.github}</a>
         </div>
       </div>
     </div>
@@ -153,8 +97,8 @@ const principles = [
   <section class="bg-slate-50 px-4 py-16 dark:bg-slate-950/50 sm:px-6 sm:py-24">
     <div class="mx-auto max-w-6xl">
       <div class="max-w-3xl">
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">Delivery principles</p>
-        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">Practical enough to deploy. Curious enough to improve.</h2>
+        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.delivery_principles}</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">{copy.text.practical_enough_to_deploy_curious_enough}</h2>
       </div>
       <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
         {principles.map((item) => (
@@ -169,13 +113,11 @@ const principles = [
 
   <section class="px-4 py-16 sm:px-6 sm:py-24">
     <div class="mx-auto max-w-5xl rounded-[2rem] border border-cyan-200 bg-cyan-50 p-8 text-center text-slate-950 shadow-2xl shadow-slate-200/50 dark:border-white/10 dark:bg-slate-950 dark:text-white dark:shadow-black/20 sm:p-12">
-      <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">Work with FoVR</p>
-      <h2 class="mt-3 text-4xl font-black tracking-tight sm:text-5xl">Looking for a specialist XR development partner?</h2>
-      <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-        Start with the problem you need to solve and the people who need to use the experience. FoVR can help shape the technical and interaction approach from there.
-      </p>
+      <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.keep_exploring}</p>
+      <h2 class="mt-3 text-4xl font-black tracking-tight sm:text-5xl">{copy.text.curious_about_what_we_are_making}</h2>
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.explore_our_experiences_follow_their_development}</p>
       <div class="mt-8">
-        <a class="inline-flex rounded-full bg-cyan-300 px-5 py-3 font-black text-slate-950 transition hover:-translate-y-0.5" href="/contact">Discuss a project</a>
+        <a class="inline-flex rounded-full bg-cyan-300 px-5 py-3 font-black text-slate-950 transition hover:-translate-y-0.5" href="/contact">{copy.text.get_in_touch}</a>
       </div>
     </div>
   </section>

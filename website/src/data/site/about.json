@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "title": "About FoVR Interactive | Immersive Experience Studio",
+    "description": "FoVR Interactive is a Brisbane-based creative studio making virtual reality, mixed reality and interactive experiences."
+  },
+  "focusAreas": [
+    {
+      "title": "XR development",
+      "description": "Virtual reality and mixed reality applications designed around clear user, technical and delivery outcomes."
+    },
+    {
+      "title": "Immersive training",
+      "description": "Hands-on learning and simulation experiences for equipment, procedures, familiarisation and spatial understanding."
+    },
+    {
+      "title": "Interactive products",
+      "description": "Immersive games and products that combine real-time development, interaction design and platform delivery."
+    },
+    {
+      "title": "Applied R&D",
+      "description": "Focused experiments across hand tracking, passthrough, WebXR, AI and emerging spatial interfaces."
+    }
+  ],
+  "principles": [
+    {
+      "title": "Start with the problem",
+      "description": "Choose the immersive approach only after the audience, environment and desired outcome are understood."
+    },
+    {
+      "title": "Test on real hardware",
+      "description": "Interaction, comfort and performance are validated on the devices people will actually use."
+    },
+    {
+      "title": "Keep the experience clear",
+      "description": "Immersion should make a task easier to understand, not hide it behind unnecessary complexity."
+    },
+    {
+      "title": "Build with delivery in mind",
+      "description": "Prototype decisions consider production constraints, deployment and maintainability from the start."
+    }
+  ],
+  "text": {
+    "about_fovr_interactive": "About FoVR Interactive",
+    "a_creative_studio_with_a_curiosity": "A creative studio with a curiosity for immersive worlds.",
+    "fovr_interactive_makes_virtual_reality_mixed": "FoVR Interactive makes virtual reality, mixed reality and interactive experiences. Based in Brisbane, we bring together software development, real-time 3D and interaction design to turn ideas into games, worlds and moments people can explore.",
+    "view_projects": "View projects",
+    "contact_fovr": "Contact FoVR",
+    "studio_approach": "Studio approach",
+    "built_to_make_immersive_technology_useful": "Built to make immersive technology useful.",
+    "fovr_exists_to_explore_where_immersive": "FoVR exists to explore where immersive technology provides a genuinely better interaction than a traditional screen. That can mean learning how equipment works by handling it, understanding a spatial process by stepping through it, or creating an interactive product that simply would not make sense in another medium.",
+    "the_studio_works_from_the_interaction": "The studio works from the interaction outward. Ideas are tested on real devices, technical constraints are addressed early and prototypes are used to answer important questions before they become expensive production decisions.",
+    "fovr_labs_remains_part_of_that": "FoVR Labs remains part of that process, but as an applied R&D capability: a place to learn from emerging XR, AI and spatial technologies so that production work can make better use of them when the time is right.",
+    "what_fovr_focuses_on": "What FoVR focuses on",
+    "games_learning_and_new_ways_to": "Games, learning and new ways to interact.",
+    "founder_xr_technical_lead": "Founder & XR Technical Lead",
+    "matthew_aisthorpe": "Matthew Aisthorpe",
+    "matthew_leads_fovrs_technical_direction_and": "Matthew leads FoVR’s technical direction and product development, with a background spanning software development, immersive technology, interactive media and technical product delivery. His work centres on the point where emerging technology becomes tangible: when someone can pick something up, try it, understand it and learn from direct interaction.",
+    "fovr_is_founderled_by_design_allowing": "FoVR is founder-led by design, allowing projects to stay close to the technical decisions, interaction design and delivery details that determine whether an immersive experience actually works.",
+    "personal_site": "Personal site",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "delivery_principles": "Delivery principles",
+    "practical_enough_to_deploy_curious_enough": "Practical enough to deploy. Curious enough to improve.",
+    "keep_exploring": "Keep exploring",
+    "curious_about_what_we_are_making": "Curious about what we are making?",
+    "explore_our_experiences_follow_their_development": "Explore our experiences, follow their development or get in touch with a question or feedback.",
+    "get_in_touch": "Get in touch"
+  }
+}

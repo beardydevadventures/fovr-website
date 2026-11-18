@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "title": "Contact FoVR Interactive | Feedback & Support",
+    "description": "Get in touch with FoVR Interactive for player support, feedback, press enquiries and questions about our experiences."
+  },
+  "contactReasons": [
+    {
+      "title": "Player support",
+      "description": "Need help with one of our experiences? Tell us which one and what you are seeing.",
+      "icon": "tabler:device-vision-pro"
+    },
+    {
+      "title": "Feedback & ideas",
+      "description": "Share what you enjoyed, what could be better or an idea you would like us to explore.",
+      "icon": "tabler:school"
+    },
+    {
+      "title": "Press & community",
+      "description": "Questions about a release, coverage or the studio? We would love to hear from you.",
+      "icon": "tabler:flask"
+    }
+  ],
+  "directLinks": [
+    {
+      "label": "Email",
+      "value": "contact@fovrinteractive.net",
+      "href": "mailto:contact@fovrinteractive.net",
+      "icon": "tabler:mail"
+    },
+    {
+      "label": "Location",
+      "value": "Brisbane, Queensland, Australia",
+      "href": "#contact",
+      "icon": "tabler:map-pin"
+    },
+    {
+      "label": "LinkedIn",
+      "value": "FoVR Interactive",
+      "href": "https://www.linkedin.com/company/fovr-interactive/",
+      "icon": "tabler:brand-linkedin"
+    }
+  ],
+  "text": {
+    "contact_fovr_interactive": "Contact FoVR Interactive",
+    "say_hello": "Say hello.",
+    "have_a_question_about_an_experience": "Have a question about an experience, need support or want to share your thoughts? Get in touch with the FoVR team.",
+    "send_a_message": "Send a message",
+    "email_directly": "Email directly",
+    "how_we_can_help": "How we can help",
+    "get_in_touch": "Get in touch",
+    "tell_us_what_is_on_your": "Tell us what is on your mind.",
+    "for_support_include_the_experience_name": "For support, include the experience name, your device and what happened. For everything else, a short message is a great place to start.",
+    "direct_contact": "Direct contact",
+    "prefer_another_way_to_reach_fovr": "Prefer another way to reach FoVR?",
+    "form_title": "Send a message",
+    "form_subtitle": "Questions, feedback and support for our experiences.",
+    "form_description": "An immersive experience studio based in Brisbane, Queensland.",
+    "form_successTitle": "Thanks for reaching out!",
+    "form_successBody": "Your message has been received. FoVR will reply as soon as possible."
+  }
+}
