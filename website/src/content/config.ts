@@ -35,6 +35,7 @@ const projects = defineCollection({
     excerpt: z.string(),
     category: z.string().optional(),
     status: z.string().optional(),
+    releaseStage: z.enum(['released', 'development', 'labs']).optional(),
     highlight: z.boolean().optional(),
     order: z.number().optional(),
     cover: z.object({

@@ -9,9 +9,9 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: FoVR Interactive | Australian XR Development Studio
+    default: FoVR Interactive | We make experiences
     template: '%s — FoVR Interactive'
-  description: "FoVR Interactive is an Australian XR development studio based in Brisbane, creating VR training, mixed reality applications, interactive simulations and immersive products."
+  description: "FoVR Interactive is a Brisbane-based creative studio making virtual reality, mixed reality and interactive experiences. Explore our games, experiments and worlds in development."
   robots:
     index: true
     follow: true

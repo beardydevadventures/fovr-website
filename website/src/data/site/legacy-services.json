@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "title": "Explore FoVR Interactive",
+    "description": "Discover the games, mixed reality experiences and experiments made by FoVR Interactive.",
+    "robots": {
+      "index": false,
+      "follow": true
+    }
+  },
+  "text": {
+    "fovr_interactive": "FoVR Interactive",
+    "we_make_experiences": "We make experiences.",
+    "fovr_is_a_creative_studio_making": "FoVR is a creative studio making virtual reality, mixed reality and interactive experiences. Explore our releases, projects in development and experiments in FoVR Labs.",
+    "explore_our_experiences": "Explore our experiences",
+    "contact_support": "Contact & support"
+  }
+}

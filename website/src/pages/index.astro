@@ -1,99 +1,58 @@
 ---
+import copy from '@/data/site/home.json';
 import Layout from '@/layouts/PageLayout.astro';
 import Image from '@/components/common/Image.astro';
 import { getCollection } from 'astro:content';
+import ExperienceCard from '@/components/ExperienceCard.astro';
+import { releaseStage } from '@/utils/experiences';
 import { Icon } from 'astro-icon/components';
 
-const metadata = {
-  title: 'XR Development Studio | VR Training & Mixed Reality',
-  description:
-    'FoVR Interactive is an Australian XR development studio in Brisbane creating VR training, mixed reality applications, interactive simulations and immersive products.',
-};
+const metadata = copy.metadata;
 
 const projectEntries = await getCollection('projects');
-const highlightedProjects = projectEntries
-  .map(({ slug, data }) => ({ slug, ...data }))
-  .filter((project) => project.highlight !== false)
-  .sort((a, b) => {
-    const orderA = a.order ?? 999;
-    const orderB = b.order ?? 999;
-    return orderA - orderB || a.title.localeCompare(b.title);
-  })
-  .slice(0, 3);
+const projects = projectEntries.map(({ slug, data }) => ({ slug, ...data }));
+const featured = projects.find((project) => project.slug === copy.featured.slug);
+if (!featured) throw new Error(`Unknown homepage featured project: ${copy.featured.slug}`);
+const released = copy.released.slugs.map((slug) => {
+  const project = projects.find((project) => project.slug === slug);
+  if (!project || releaseStage(project) !== 'released') {
+    throw new Error(`Homepage play-now project must be released: ${slug}`);
+  }
+  return project;
+});
+const reelId = encodeURIComponent(copy.reel.youtubeId);
+const reelUrl = `https://www.youtube-nocookie.com/embed/${reelId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${reelId}&playsinline=1&rel=0&disablekb=1&iv_load_policy=3`;
 
-const services = [
-  {
-    icon: 'tabler:school',
-    title: 'VR Training & Simulation',
-    description: 'Hands-on training, equipment familiarisation and guided learning experiences built for immersive hardware.',
-  },
-  {
-    icon: 'tabler:augmented-reality',
-    title: 'Mixed Reality Development',
-    description: 'Passthrough, hand tracking and spatial interfaces that combine digital content with real environments.',
-  },
-  {
-    icon: 'tabler:device-vision-pro',
-    title: 'XR Application Development',
-    description: 'Custom VR and spatial applications developed from interaction concept through testing and deployment.',
-  },
-  {
-    icon: 'tabler:flask',
-    title: 'Prototyping & R&D',
-    description: 'Focused proofs of concept that validate emerging XR, AI, WebXR and spatial-computing ideas before larger investment.',
-  },
-];
+const experiences = copy.experiences;
 
-const delivery = [
-  {
-    title: 'Problem first',
-    description: 'Start with the people, environment and outcome before choosing the technology.',
-  },
-  {
-    title: 'Prototype on hardware',
-    description: 'Validate important interactions early on the device people will actually use.',
-  },
-  {
-    title: 'Build for production',
-    description: 'Develop with performance, comfort, usability and deployment constraints in mind.',
-  },
-  {
-    title: 'Iterate with evidence',
-    description: 'Test, learn and refine the experience around real use rather than assumptions.',
-  },
-];
+const delivery = copy.delivery;
 ---
 
 <Layout metadata={metadata}>
   <section class="relative isolate flex min-h-[720px] items-center overflow-hidden bg-slate-950 px-4 py-20 text-white sm:px-6 lg:py-28">
-    <div class="hero-reel absolute inset-0" aria-hidden="true">
+    {copy.reel.enabled && <div class="hero-reel absolute inset-0" aria-hidden="true">
       <iframe
-        src="https://www.youtube-nocookie.com/embed/92JRz7ZpLtQ?autoplay=1&mute=1&controls=0&loop=1&playlist=92JRz7ZpLtQ&playsinline=1&rel=0&disablekb=1&iv_load_policy=3"
+        src={reelUrl}
         title=""
         tabindex="-1"
         allow="autoplay; encrypted-media"
       ></iframe>
-    </div>
+    </div>}
     <div class="absolute inset-0 bg-slate-950/65" aria-hidden="true"></div>
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,0.25),transparent_32rem),linear-gradient(90deg,rgba(2,6,23,0.82),rgba(2,6,23,0.3))]" aria-hidden="true"></div>
     <div class="relative mx-auto w-full max-w-6xl">
       <div>
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-300">Australian XR Development Studio · Brisbane</p>
-        <h1 class="mt-5 max-w-5xl text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
-          Immersive experiences built with purpose.
-        </h1>
-        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">
-          FoVR Interactive is an Australian immersive technology studio specialising in virtual reality, mixed reality and spatial applications. We design and deliver experiences across training, simulation, visualisation and entertainment, taking ideas from concept through development, deployment and ongoing support.
-        </p>
+        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-300">{copy.text.immersive_experience_studio_brisbane}</p>
+        <h1 class="mt-5 max-w-5xl text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">{copy.text.we_make_experiences}</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">{copy.text.games_worlds_and_interactions_that_invite}</p>
 
         <div class="mt-8 flex flex-wrap gap-3">
-          <a class="rounded-full bg-cyan-300 px-5 py-3 font-black text-slate-950 transition hover:-translate-y-0.5" href="/contact">Discuss an XR project</a>
-          <a class="rounded-full border border-white/20 bg-white/5 px-5 py-3 font-black text-white transition hover:-translate-y-0.5" href="/services">Explore services</a>
-          <a class="rounded-full border border-white/20 px-5 py-3 font-black text-slate-200 transition hover:-translate-y-0.5" href="/projects">View projects</a>
+          <a class="rounded-full bg-cyan-300 px-5 py-3 font-black text-slate-950 transition hover:-translate-y-0.5" href="/projects">{copy.text.explore_our_experiences}</a>
+          <a class="rounded-full border border-white/20 bg-white/5 px-5 py-3 font-black text-white transition hover:-translate-y-0.5" href="#labs">{copy.text.discover_fovr_labs}</a>
         </div>
 
         <div class="mt-8 flex flex-wrap gap-2 text-sm font-bold text-slate-200">
-          {['Meta Quest', 'Unity', 'VR Training', 'Mixed Reality', 'Hand Tracking', 'WebXR'].map((item) => (
+          {copy.heroTags.map((item) => (
             <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">{item}</span>
           ))}
         </div>
@@ -124,28 +83,54 @@ const delivery = [
     }
   </style>
 
+  <section id="projects" class="px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
+      <a class="overflow-hidden rounded-[2rem] bg-slate-100 dark:bg-slate-900" href={`/projects/${featured.slug}`} aria-label={featured.title}>
+        <Image class="aspect-video w-full object-cover" src={featured.cover.src} alt={featured.cover.alt} width={1280} height={720} loading="lazy" />
+      </a>
+      <div>
+        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.featured.eyebrow}</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">{featured.title}</h2>
+        {featured.status && <p class="mt-3 font-bold text-cyan-700 dark:text-cyan-300">{featured.status}</p>}
+        {featured.tagline && <p class="mt-5 text-xl font-bold text-slate-800 dark:text-slate-200">{featured.tagline}</p>}
+        <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">{featured.excerpt}</p>
+        <a class="mt-7 inline-flex rounded-full bg-cyan-300 px-5 py-3 font-black text-slate-950" href={`/projects/${featured.slug}`}>{copy.featured.cta}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 px-4 py-16 dark:bg-slate-950/50 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-10 flex flex-wrap items-end justify-between gap-5">
+        <div>
+          <h2 class="text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">{copy.released.heading}</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.released.description}</p>
+        </div>
+        <a class="rounded-full bg-slate-950 px-5 py-3 font-black text-white dark:bg-white dark:text-slate-950" href="/projects">{copy.released.cta}</a>
+      </div>
+      <div class="grid gap-6 lg:grid-cols-2">{released.map((project) => <ExperienceCard project={project} />)}</div>
+    </div>
+  </section>
+
+
   <section class="px-4 py-16 sm:px-6 sm:py-24">
     <div class="mx-auto max-w-6xl">
       <div class="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
         <div>
-          <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">XR capability</p>
-          <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
-            Specialist immersive development without the agency theatre.
-          </h2>
-          <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
-            FoVR combines software development, real-time 3D, interaction design and product thinking to turn immersive ideas into working experiences. The emphasis is practical: understand the problem, validate the interaction and build something people can actually use.
-          </p>
-          <a class="mt-7 inline-flex font-black text-cyan-700 hover:underline dark:text-cyan-300" href="/services">View all XR development services →</a>
+          <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.what_we_create}</p>
+          <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">{copy.text.made_to_be_experienced}</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.we_bring_together_realtime_3d_interaction}</p>
+          <a class="mt-7 inline-flex font-black text-cyan-700 hover:underline dark:text-cyan-300" href="/about">{copy.text.meet_the_studio_}</a>
         </div>
 
         <div class="grid gap-5 sm:grid-cols-2">
-          {services.map((service) => (
+          {experiences.map((experience) => (
             <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/40 dark:border-white/10 dark:bg-slate-900 dark:shadow-black/20">
               <div class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700 dark:bg-cyan-400/10 dark:text-cyan-300">
-                <Icon name={service.icon} class="h-5 w-5" />
+                <Icon name={experience.icon} class="h-5 w-5" />
               </div>
-              <h3 class="mt-4 text-xl font-black tracking-tight text-slate-950 dark:text-white">{service.title}</h3>
-              <p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">{service.description}</p>
+              <h3 class="mt-4 text-xl font-black tracking-tight text-slate-950 dark:text-white">{experience.title}</h3>
+              <p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">{experience.description}</p>
             </article>
           ))}
         </div>
@@ -153,60 +138,14 @@ const delivery = [
     </div>
   </section>
 
-  <section class="bg-slate-50 px-4 py-16 dark:bg-slate-950/50 sm:px-6 sm:py-24" id="projects">
-    <div class="mx-auto max-w-6xl">
-      <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-        <div class="max-w-3xl">
-          <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">Selected work</p>
-          <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
-            Shipped XR work that demonstrates the capability.
-          </h2>
-          <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">
-            Training, interactive products and immersive experiences built to move beyond a concept slide and onto real devices.
-          </p>
-        </div>
-        <a class="inline-flex rounded-full bg-slate-950 px-5 py-3 font-black text-white dark:bg-white dark:text-slate-950" href="/projects">View all projects</a>
-      </div>
 
-      <div class="grid gap-6 lg:grid-cols-3">
-        {highlightedProjects.map((project, index) => (
-          <article class="group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-xl shadow-slate-200/40 dark:border-white/10 dark:bg-slate-900 dark:shadow-black/20">
-            <a class="absolute inset-0 z-20" href={`/projects/${project.slug}`} aria-label={`Open ${project.title}`} />
-            <div class="grid min-h-64 place-items-center bg-gradient-to-br from-cyan-50 via-slate-50 to-violet-50 p-6 dark:from-slate-950 dark:via-slate-900 dark:to-violet-950/40">
-              <Image
-                class="h-full max-h-56 w-full object-contain transition duration-500 group-hover:scale-[1.03]"
-                src={project.cover.src}
-                alt={project.cover.alt}
-                width={1280}
-                height={900}
-                loading={index === 0 ? 'eager' : 'lazy'}
-              />
-            </div>
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 text-xs font-black uppercase tracking-[0.08em]">
-                <span class="rounded-full bg-cyan-100 px-3 py-1 text-cyan-800 dark:bg-cyan-400/10 dark:text-cyan-200">{project.category ?? 'XR Project'}</span>
-                {project.status && <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-700 dark:bg-white/10 dark:text-slate-300">{project.status}</span>}
-              </div>
-              <h3 class="mt-4 text-2xl font-black tracking-tight text-slate-950 dark:text-white">{project.title}</h3>
-              {project.tagline && <p class="mt-2 font-bold text-slate-800 dark:text-slate-200">{project.tagline}</p>}
-              <p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">{project.excerpt}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
 
   <section class="px-4 py-16 sm:px-6 sm:py-24">
     <div class="mx-auto max-w-6xl">
       <div class="max-w-3xl">
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">How FoVR works</p>
-        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
-          From immersive idea to working application.
-        </h2>
-        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
-          XR projects become expensive when the important questions are left until late. FoVR keeps the process focused on the user, the device and the interaction from the beginning.
-        </p>
+        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.how_fovr_works}</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">{copy.text.from_an_idea_to_a_world}</h2>
+        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.we_explore_an_idea_try_it}</p>
       </div>
       <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
         {delivery.map((item, index) => (
@@ -220,20 +159,16 @@ const delivery = [
     </div>
   </section>
 
-  <section class="bg-slate-50 px-4 py-16 dark:bg-slate-950/50 sm:px-6 sm:py-24">
+  <section id="labs" class="bg-slate-50 px-4 py-16 dark:bg-slate-950/50 sm:px-6 sm:py-24">
     <div class="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
       <div>
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">FoVR Labs</p>
-        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
-          Research and prototyping for what comes next.
-        </h2>
-        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
-          Labs is FoVR’s R&D space for testing emerging interaction patterns across mixed reality, hand tracking, AI-assisted experiences, WebXR and spatial interfaces. It supports the commercial studio by turning new technology into practical knowledge before it is needed in a production project.
-        </p>
-        <a class="mt-7 inline-flex font-black text-cyan-700 hover:underline dark:text-cyan-300" href="/projects">Explore projects and Labs →</a>
+        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.fovr_labs}</p>
+        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">{copy.text.research_and_prototyping_for_what_comes}</h2>
+        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.labs_is_our_space_to_experiment}</p>
+        <a class="mt-7 inline-flex font-black text-cyan-700 hover:underline dark:text-cyan-300" href="/projects">{copy.text.explore_projects_and_labs_}</a>
       </div>
       <div class="flex flex-wrap gap-3 rounded-[2rem] border border-slate-200 bg-white p-7 dark:border-white/10 dark:bg-slate-900">
-        {['Mixed reality', 'Hand tracking', 'Passthrough', 'AI-assisted XR', 'WebXR', 'Spatial UI', 'Quest prototypes', 'Interaction R&D'].map((item) => (
+        {copy.labTags.map((item) => (
           <span class="rounded-full border border-cyan-200 bg-cyan-50 px-4 py-2 font-bold text-cyan-900 dark:border-cyan-400/20 dark:bg-cyan-400/10 dark:text-cyan-200">{item}</span>
         ))}
       </div>
@@ -242,13 +177,11 @@ const delivery = [
 
   <section class="px-4 py-16 sm:px-6 sm:py-24">
     <div class="mx-auto max-w-5xl rounded-[2rem] border border-cyan-200 bg-cyan-50 p-8 text-center text-slate-950 shadow-2xl shadow-slate-200/50 dark:border-white/10 dark:bg-slate-950 dark:text-white dark:shadow-black/20 sm:p-12">
-      <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">Work with FoVR</p>
-      <h2 class="mt-3 text-4xl font-black tracking-tight sm:text-5xl">Need an XR experience that has to work, not just look impressive?</h2>
-      <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-        Tell FoVR about the problem, the audience and the environment. We can help shape the right immersive approach from there.
-      </p>
+      <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.stay_curious}</p>
+      <h2 class="mt-3 text-4xl font-black tracking-tight sm:text-5xl">{copy.text.have_a_question_about_an_experience}</h2>
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.we_welcome_player_feedback_support_questions}</p>
       <div class="mt-8">
-        <a class="inline-flex rounded-full bg-cyan-300 px-5 py-3 font-black text-slate-950 transition hover:-translate-y-0.5" href="/contact">Start a project conversation</a>
+        <a class="inline-flex rounded-full bg-cyan-300 px-5 py-3 font-black text-slate-950 transition hover:-translate-y-0.5" href="/contact">{copy.text.get_in_touch}</a>
       </div>
     </div>
   </section>
