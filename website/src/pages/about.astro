@@ -5,22 +5,18 @@ import Image from '@/components/common/Image.astro';
 
 const metadata = copy.metadata;
 
-const focusAreas = copy.focusAreas;
-
-const principles = copy.principles;
 ---
 
 <Layout metadata={metadata}>
-  <section class="relative isolate overflow-hidden bg-cyan-50 px-4 py-20 text-slate-950 dark:bg-slate-950 dark:text-white sm:px-6 lg:py-28">
+  <section class="relative isolate overflow-hidden bg-cyan-50 px-4 py-20 text-slate-950 dark:bg-slate-950 dark:text-white sm:px-6 lg:py-16">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,0.18),transparent_32rem),radial-gradient(circle_at_84%_12%,rgba(168,85,247,0.16),transparent_34rem)]" aria-hidden="true"></div>
     <div class="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
       <div>
         <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.about_fovr_interactive}</p>
-        <h1 class="mt-5 max-w-5xl text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">{copy.text.a_creative_studio_with_a_curiosity}</h1>
+        <h1 class="mt-5 max-w-5xl text-4xl font-black tracking-tight sm:text-5xl">{copy.text.a_creative_studio_with_a_curiosity}</h1>
         <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300 sm:text-xl">{copy.text.fovr_interactive_makes_virtual_reality_mixed}</p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a class="rounded-full border border-slate-300 bg-white/60 px-5 py-3 font-black text-slate-900 transition hover:-translate-y-0.5 dark:border-white/20 dark:bg-white/5 dark:text-white" href="/projects">{copy.text.view_projects}</a>
-          <a class="rounded-full border border-slate-300 px-5 py-3 font-black text-slate-700 transition hover:-translate-y-0.5 dark:border-white/20 dark:text-slate-200" href="/contact">{copy.text.contact_fovr}</a>
         </div>
       </div>
 
@@ -37,38 +33,7 @@ const principles = copy.principles;
     </div>
   </section>
 
-  <section class="px-4 py-16 sm:px-6 sm:py-24">
-    <div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
-      <div>
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.studio_approach}</p>
-        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">{copy.text.built_to_make_immersive_technology_useful}</h2>
-      </div>
-      <div class="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-xl shadow-slate-200/40 dark:border-white/10 dark:bg-slate-900 dark:shadow-black/20 sm:p-9">
-        <p class="text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.fovr_exists_to_explore_where_immersive}</p>
-        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.the_studio_works_from_the_interaction}</p>
-        <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.fovr_labs_remains_part_of_that}</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-slate-50 px-4 py-16 dark:bg-slate-950/50 sm:px-6 sm:py-24">
-    <div class="mx-auto max-w-6xl">
-      <div class="max-w-3xl">
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.what_fovr_focuses_on}</p>
-        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">{copy.text.games_learning_and_new_ways_to}</h2>
-      </div>
-      <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-        {focusAreas.map((item) => (
-          <article class="rounded-3xl border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-slate-900">
-            <h3 class="text-xl font-black text-slate-950 dark:text-white">{item.title}</h3>
-            <p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">{item.description}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="px-4 py-16 sm:px-6 sm:py-24">
+  <section class="px-4 py-16 sm:px-6 sm:py-16">
     <div class="mx-auto grid max-w-6xl gap-10 rounded-[2rem] border border-slate-200 bg-white p-7 shadow-xl shadow-slate-200/40 dark:border-white/10 dark:bg-slate-900 dark:shadow-black/20 sm:p-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
       <div class="overflow-hidden rounded-[1.6rem]">
         <Image
@@ -84,7 +49,6 @@ const principles = copy.principles;
         <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.founder_xr_technical_lead}</p>
         <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">{copy.text.matthew_aisthorpe}</h2>
         <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.matthew_leads_fovrs_technical_direction_and}</p>
-        <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.fovr_is_founderled_by_design_allowing}</p>
         <div class="mt-7 flex flex-wrap gap-3">
           <a class="rounded-full border border-slate-300 px-4 py-2.5 font-black text-slate-900 dark:border-white/15 dark:text-white" href="https://www.matthewaisthorpe.com.au/" target="_blank" rel="noreferrer">{copy.text.personal_site}</a>
           <a class="rounded-full border border-slate-300 px-4 py-2.5 font-black text-slate-900 dark:border-white/15 dark:text-white" href="https://www.linkedin.com/in/matthewaisthorpe/" target="_blank" rel="noreferrer">{copy.text.linkedin}</a>
@@ -94,31 +58,4 @@ const principles = copy.principles;
     </div>
   </section>
 
-  <section class="bg-slate-50 px-4 py-16 dark:bg-slate-950/50 sm:px-6 sm:py-24">
-    <div class="mx-auto max-w-6xl">
-      <div class="max-w-3xl">
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.delivery_principles}</p>
-        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">{copy.text.practical_enough_to_deploy_curious_enough}</h2>
-      </div>
-      <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-        {principles.map((item) => (
-          <article class="rounded-3xl border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-slate-900">
-            <h3 class="text-xl font-black text-slate-950 dark:text-white">{item.title}</h3>
-            <p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">{item.description}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="px-4 py-16 sm:px-6 sm:py-24">
-    <div class="mx-auto max-w-5xl rounded-[2rem] border border-cyan-200 bg-cyan-50 p-8 text-center text-slate-950 shadow-2xl shadow-slate-200/50 dark:border-white/10 dark:bg-slate-950 dark:text-white dark:shadow-black/20 sm:p-12">
-      <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.keep_exploring}</p>
-      <h2 class="mt-3 text-4xl font-black tracking-tight sm:text-5xl">{copy.text.curious_about_what_we_are_making}</h2>
-      <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.explore_our_experiences_follow_their_development}</p>
-      <div class="mt-8">
-        <a class="inline-flex rounded-full bg-cyan-300 px-5 py-3 font-black text-slate-950 transition hover:-translate-y-0.5" href="/contact">{copy.text.get_in_touch}</a>
-      </div>
-    </div>
-  </section>
 </Layout>

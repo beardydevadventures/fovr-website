@@ -17,18 +17,18 @@ No project records, store links, press kits or privacy pages have been removed b
 
 Edit the JSON in `src/data/site/` without changing the Astro layouts:
 
-- `home.json`: homepage headings, paragraphs, featured/released slugs, feature cards, process and metadata. `reel.youtubeId` and `reel.enabled` control the preserved background reel; hero and Labs tags are editable lists.
-- `about.json`: studio story, focus areas, principles and metadata.
-- `contact.json`: contact/support copy, contact reasons and direct links.
+- `home.json`: homepage headings, paragraphs, featured/released slugs, feature and Labs teaser copy, and metadata. `reel.youtubeId` and `reel.enabled` control the preserved background reel.
+- `about.json`: studio story, founder bio and metadata.
+- `contact.json`: contact/support copy and metadata.
 - `experiences.json`: experience listing copy and metadata. The cards still come from the project collection.
 - `legacy-services.json`: a neutral signpost at the existing `/services` URL, retained for old bookmarks. It no longer advertises client services, is marked noindex and is excluded from the sitemap.
 
-Keep the existing JSON keys when editing text; those keys are referenced by the layouts. Lists such as `experiences`, `focusAreas` and `contactReasons` can be edited or reordered. Icons use the existing Tabler icon set.
+Keep the existing JSON keys when editing text; those keys are referenced by the layouts. The experience group list can be reordered; keep the group IDs if they are linked in navigation.
 
 Navigation and footer links remain editable in `src/navigation.js`. Site-wide SEO defaults remain in `src/config.yaml`; organisation structured data is in `src/components/common/StructuredData.astro`.
 
-The contact form action and submission behaviour are unchanged. Its shared field labels are in `src/components/widgets/Contact.astro`.
+The contact form action and submission behaviour are unchanged. Its field labels and topic choices are in `src/components/widgets/Contact.astro`.
 
 ## Preview and publish
 
-From `website/`, run `npm run dev` to preview content edits, then `npm run build` to validate the production output. Changes become public only through the site's normal deployment process. This positioning work is prepared on a review branch; it must not be merged or released without approval.
+From `website/`, run `npm run dev` to preview content edits, then `npm run build && npm run test:content` to validate the production output. Changes become public only through the site's normal deployment process. This positioning work is prepared on a review branch; it must not be merged or released without approval.

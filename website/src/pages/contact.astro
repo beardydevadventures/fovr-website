@@ -2,94 +2,19 @@
 import copy from '@/data/site/contact.json';
 import Layout from '@/layouts/PageLayout.astro';
 import ContactUs from '@/components/widgets/Contact.astro';
-import { Icon } from 'astro-icon/components';
 
 const metadata = copy.metadata;
-
-const contactReasons = copy.contactReasons;
-
-const directLinks = copy.directLinks;
 ---
 
 <Layout metadata={metadata}>
-  <section class="relative isolate overflow-hidden bg-cyan-50 px-4 py-20 text-slate-950 dark:bg-slate-950 dark:text-white sm:px-6 lg:py-28">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,0.18),transparent_32rem),radial-gradient(circle_at_84%_12%,rgba(168,85,247,0.16),transparent_34rem)]" aria-hidden="true"></div>
-    <div class="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-      <div>
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.contact_fovr_interactive}</p>
-        <h1 class="mt-5 max-w-5xl text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">{copy.text.say_hello}</h1>
-        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300 sm:text-xl">{copy.text.have_a_question_about_an_experience}</p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a class="rounded-full bg-cyan-300 px-5 py-3 font-black text-slate-950 transition hover:-translate-y-0.5" href="#contact">{copy.text.send_a_message}</a>
-          <a class="rounded-full border border-slate-300 bg-white/60 px-5 py-3 font-black text-slate-900 transition hover:-translate-y-0.5 dark:border-white/20 dark:bg-white/5 dark:text-white" href="mailto:contact@fovrinteractive.net">{copy.text.email_directly}</a>
-        </div>
-      </div>
-
-      <div class="rounded-[2rem] border border-slate-200 bg-white/60 p-5 backdrop-blur dark:border-white/10 dark:bg-white/5">
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.how_we_can_help}</p>
-        <div class="mt-4 grid gap-4">
-          {contactReasons.map((item) => (
-            <article class="flex gap-4 rounded-2xl border border-slate-200 bg-white/70 p-5 dark:border-white/10 dark:bg-white/5">
-              <div class="inline-flex h-11 w-11 flex-none items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700 dark:bg-cyan-300/10 dark:text-cyan-300">
-                <Icon name={item.icon} class="h-5 w-5" />
-              </div>
-              <div>
-                <h2 class="text-lg font-black text-slate-950 dark:text-white">{item.title}</h2>
-                <p class="mt-2 leading-6 text-slate-600 dark:text-slate-300">{item.description}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
+  <section class="bg-cyan-50 px-4 py-10 text-slate-950 dark:bg-slate-950 dark:text-white sm:px-6 sm:py-14">
+    <div class="mx-auto max-w-4xl">
+      <h1 class="text-4xl font-black tracking-tight sm:text-5xl">{copy.text.heading}</h1>
+      <p class="mt-4 max-w-xl leading-7 text-slate-600 dark:text-slate-300">{copy.text.intro}</p>
     </div>
   </section>
-
-  <section class="px-4 py-16 sm:px-6 sm:py-24">
-    <div class="mx-auto max-w-6xl">
-      <div class="max-w-3xl">
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.get_in_touch}</p>
-        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">{copy.text.tell_us_what_is_on_your}</h2>
-        <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">{copy.text.for_support_include_the_experience_name}</p>
-      </div>
-
-      <div class="mt-10 overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-1 shadow-xl shadow-slate-200/40 dark:border-white/10 dark:bg-slate-900 dark:shadow-black/20">
-        <ContactUs
-          id="contact"
-          title={copy.text.form_title}
-          subtitle={copy.text.form_subtitle}
-          description={copy.text.form_description}
-          successTitle={copy.text.form_successTitle}
-          successBody={copy.text.form_successBody}
-        />
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-slate-50 px-4 py-16 dark:bg-slate-950/50 sm:px-6 sm:py-24">
-    <div class="mx-auto max-w-6xl">
-      <div class="max-w-3xl">
-        <p class="text-sm font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">{copy.text.direct_contact}</p>
-        <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">{copy.text.prefer_another_way_to_reach_fovr}</h2>
-      </div>
-
-      <div class="mt-10 grid gap-5 md:grid-cols-3">
-        {directLinks.map((item) => (
-          <a
-            class="flex items-center gap-4 rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-cyan-300 dark:border-white/10 dark:bg-slate-900"
-            href={item.href}
-            target={item.href.startsWith('http') ? '_blank' : undefined}
-            rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
-          >
-            <div class="inline-flex h-11 w-11 flex-none items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700 dark:bg-cyan-400/10 dark:text-cyan-300">
-              <Icon name={item.icon} class="h-5 w-5" />
-            </div>
-            <div>
-              <span class="block text-xs font-black uppercase tracking-[0.12em] text-cyan-700 dark:text-cyan-300">{item.label}</span>
-              <strong class="mt-1 block text-slate-950 dark:text-white">{item.value}</strong>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+  <ContactUs id="contact" title={copy.text.form_title} successTitle={copy.text.form_successTitle} successBody={copy.text.form_successBody} classes={{ container: '!max-w-4xl !py-8' }} />
+  <p class="mx-auto max-w-4xl px-4 pb-12 text-slate-600 dark:text-slate-300 sm:px-6">
+    {copy.text.email_label} <a class="font-semibold underline" href="mailto:contact@fovrinteractive.net">contact@fovrinteractive.net</a>
+  </p>
 </Layout>

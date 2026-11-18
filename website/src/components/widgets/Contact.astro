@@ -8,7 +8,6 @@ const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline = await Astro.slots.render('tagline'),
-  description,
   formAction = 'https://formspree.io/f/xnneraoa',
   successTitle = 'Thank you!',
   successBody = 'We have your message and will get back to you soon.',
@@ -27,58 +26,8 @@ const resolvedFormAction = formAction ?? '';
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
 
-  <div class="grid gap-8 lg:grid-cols-3">
-    <div
-      class="rounded-3xl border border-slate-200 bg-white/70 p-6 shadow-lg backdrop-blur dark:border-slate-700 dark:bg-slate-900/70"
-    >
-      <p class="text-sm font-semibold uppercase tracking-wide text-primary">Talk to a human</p>
-      <h3 class="mt-2 text-xl font-semibold text-heading">We read every message</h3>
-      <p class="mt-3 text-muted">
-        Share feedback, ask for support, or just say hello. We typically respond within one business day.
-      </p>
-
-      <dl class="mt-6 space-y-4">
-        <div class="flex items-start gap-3">
-          <div
-            class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary dark:bg-primary/20"
-          >
-            <Icon name="tabler:mail" class="h-5 w-5" />
-          </div>
-          <div>
-            <dt class="text-sm font-semibold text-heading">Email</dt>
-            <dd class="text-sm text-muted">
-              <a class="hover:text-primary" href="mailto:contact@fovrinteractive.net">contact@fovrinteractive.net</a>
-            </dd>
-          </div>
-        </div>
-        <div class="flex items-start gap-3">
-          <div
-            class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary dark:bg-primary/20"
-          >
-            <Icon name="tabler:clock" class="h-5 w-5" />
-          </div>
-          <div>
-            <dt class="text-sm font-semibold text-heading">Response window</dt>
-            <dd class="text-sm text-muted">Mon-Fri, 9am-6pm AEST</dd>
-          </div>
-        </div>
-        <div class="flex items-start gap-3">
-          <div
-            class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary dark:bg-primary/20"
-          >
-            <Icon name="tabler:map-pin" class="h-5 w-5" />
-          </div>
-          <div>
-            <dt class="text-sm font-semibold text-heading">Location</dt>
-            <dd class="text-sm text-muted">Brisbane, QLD</dd>
-          </div>
-        </div>
-      </dl>
-
-      {description && <p class="mt-6 text-sm text-muted">{description}</p>}
-    </div>
-
-    <div class="lg:col-span-2">
+  <div>
+    <div>
       <form
         id={formId}
         data-form-action={resolvedFormAction}
@@ -110,25 +59,15 @@ const resolvedFormAction = formAction ?? '';
             />
           </label>
           <label class="space-y-2 text-sm font-medium text-heading">
-            Company (optional)
-            <input
-              type="text"
-              name="company"
-              autocomplete="organization"
-              class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-default shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30 dark:border-slate-700 dark:bg-slate-900"
-              placeholder="Your Company Name"
-            />
-          </label>
-          <label class="space-y-2 text-sm font-medium text-heading">
             Topic
             <select
               name="topic"
               class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-default shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30 dark:border-slate-700 dark:bg-slate-900"
             >
               <option>Select a topic</option>
-              <option>Experience enquiry</option>
+              <option>Player support</option>
               <option>Player feedback</option>
-              <option>Support</option>
+              <option>Experience enquiry</option>
               <option>Partnerships</option>
               <option>Press</option>
               <option>Other</option>
@@ -143,7 +82,7 @@ const resolvedFormAction = formAction ?? '';
             required
             rows="5"
             class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-default shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30 dark:border-slate-700 dark:bg-slate-900"
-            placeholder="Share a bit about what you are looking for."></textarea>
+            placeholder="Tell us how we can help."></textarea>
         </label>
 
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
