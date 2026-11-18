@@ -2,7 +2,7 @@
 title: "Forge of Elements: Clockwork Conundrum"
 description: "A steampunk realm brought new elements and combinations to Forge of Elements."
 publishDate: 2025-08-15
-draft: true
+draft: false
 project: forge-of-elements
 cover:
   src: "../../assets/images/foe/combining-elements.jpg"

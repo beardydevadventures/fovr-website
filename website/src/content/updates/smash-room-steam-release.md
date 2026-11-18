@@ -2,7 +2,7 @@
 title: "Smash Room arrives on Steam"
 description: "The PC VR release brought Smash Room’s breakable environments to Steam."
 publishDate: 2023-04-13
-draft: true
+draft: false
 project: smash-room
 cover:
   src: "../../assets/images/smash-room.jpg"
