@@ -2,7 +2,7 @@
 title: "Forge of Elements launches on Meta Quest"
 description: "A look back at the Quest debut of our elemental puzzle adventure."
 publishDate: 2025-03-21
-draft: true
+draft: false
 project: forge-of-elements
 cover:
   src: "../../assets/images/foe/forge-of-elements-logo.png"

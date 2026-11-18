@@ -2,7 +2,7 @@
 title: "Parcel Pummel launches on Meta Quest"
 description: "A frantic warehouse game where the parcels don’t sort themselves."
 publishDate: 2025-08-05
-draft: true
+draft: false
 project: parcel-pummel
 cover:
   src: "../../assets/images/parcel-pummel-cover.webp"

@@ -2,7 +2,7 @@
 title: "Diamond Easy: A first look"
 description: "A first look at our cosy VR diamond-painting game."
 publishDate: 2026-11-19
-draft: true
+draft: false
 project: diamond-easy
 cover:
   src: "../../assets/images/diamond-easy/diamond-easy-banner.jpg"
