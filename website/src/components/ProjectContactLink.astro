@@ -1,0 +1,12 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  class?: string;
+}
+
+const { slug, title, class: className = 'btn-secondary' } = Astro.props;
+const query = new URLSearchParams({ project: slug });
+---
+
+<a class={className} aria-label={`Get help or share feedback about ${title}`} href={`/contact/?${query}#contact`}>Get help or share feedback</a>

@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/PageLayout.astro';
+import ProjectContactLink from '@/components/ProjectContactLink.astro';
 import Image from '@/components/common/Image.astro';
 import { Icon } from 'astro-icon/components';
 import { YouTube } from 'astro-embed';
@@ -79,6 +80,7 @@ const detailItems: { label: string; value: string }[] = [
             <a class="project-button project-button-secondary" href="#trailer">Watch trailer</a>
           )}
           {!isPlayerPage && <a class="project-button project-button-secondary" href="/projects">All projects</a>}
+          <ProjectContactLink slug={project.slug} title={data.title} class="project-button project-button-secondary" />
         </div>
       </div>
 
@@ -123,7 +125,6 @@ const detailItems: { label: string; value: string }[] = [
       </article>
       <div class="mx-auto mt-8 flex max-w-5xl flex-wrap gap-x-6 gap-y-3 text-sm font-bold text-cyan-800 dark:text-cyan-200">
         <a class="underline underline-offset-4" href="/projects/">All experiences</a>
-        <a class="underline underline-offset-4" href="/contact/">Player support</a>
         {hasPressKit && <a class="underline underline-offset-4" href={`/projects/${project.slug}/press-kit/`}>Press kit</a>}
         {hasPressKit && <a class="underline underline-offset-4" href={`/projects/${project.slug}/privacy-policy/`}>Privacy policy</a>}
       </div>
